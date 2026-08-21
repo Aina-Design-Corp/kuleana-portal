@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Green Fee Transparency Toolkit Document 3: human-review controls, permitted and prohibited uses, information boundaries, versioning, release readiness, and accessibility.">
+<title>Responsible Use &amp; Public Access Guide — Green Fee Transparency Toolkit</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="doc">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <p class="kicker"><a href="../index.html">Green Fee Transparency Portal</a> · Toolkit Document 3 · <span class="sample-chip">Sample</span></p>
+    <h1>Responsible Use &amp; Public Access Guide</h1>
+    <p class="meta">Version 0.1 · August 2026 · Āina Design Corp</p>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap doc-body">
+    <div class="notice"><strong>Demonstration only:</strong> every record on this portal is a fictional sample. No government adoption, endorsement, partnership, or deployment is claimed.</div>
+
+    <h2>1. Human-review controls</h2>
+    <p>Three gates stand between a registry edit and a public page, and a person holds each one:</p>
+    <ol>
+      <li><strong>The record gate</strong> — <code>publicationStatus</code> reaches
+      <code>published</code> only by a reviewer's decision; the pipeline enforces the release bar
+      (story, outcomes, provenance) but never advances a status itself.</li>
+      <li><strong>The change gate</strong> — every registry edit is a commit; reviewed changes are
+      the working mode, and the version history is the public audit trail.</li>
+      <li><strong>The deployment gate</strong> — the publish job runs only where a person has
+      enabled publication in the hosting configuration. Until then the pipeline validates and builds
+      but releases nothing.</li>
+    </ol>
+    <p>The rule the three gates share: <em>a person publishes, never an automated process.</em></p>
+
+    <h2>2. Permitted uses</h2>
+    <p>Professional review of the architecture; planning and methodology evaluation; public
+    information about the demonstration; adaptation of the structure (schema, gate, pipeline,
+    provenance pattern) to real programs by the offices that own those programs, under their own
+    authority and review.</p>
+
+    <h2>3. Prohibited uses</h2>
+    <ul>
+      <li>Treating any sample record, figure, organization, or story as real, or citing sample
+      figures outside their demonstration context.</li>
+      <li>Representing this demonstration as a government system, or implying agency adoption,
+      endorsement, or partnership.</li>
+      <li>Using the portal — or any real system built on this pattern — to make or justify funding,
+      eligibility, zoning, staffing, enforcement, or permitting decisions. Screening views identify
+      items for further professional review; they decide nothing.</li>
+      <li>Publishing derived or extrapolated figures as if they were reported outcomes.</li>
+    </ul>
+
+    <h2>4. Information boundaries</h2>
+    <ul>
+      <li>Only <code>published</code> records appear — in pages, feeds, and the machine-readable
+      projection alike. Held records surface only as counts.</li>
+      <li>The registry carries no personal information, no financial system of record, and no
+      pre-decisional program material; it must never be extended to do so.</li>
+      <li>Stewardship narratives are the awardee's voice, released with their record; field
+      observations aggregate before they publish.</li>
+      <li>The State's systems remain the authoritative source for every fact; disagreement is a
+      registry defect by definition.</li>
+    </ul>
+
+    <h2>5. Versioning and release readiness</h2>
+    <p>The schema, the toolkit documents, and the portal carry explicit versions; release notes
+    accompany every versioned release. The v0 schema structurally requires <code>sample: true</code>
+    on every cohort and record — real data cannot validate against it, so the demonstration boundary
+    is enforced by the validator, not by good intentions. Lifting that guard is a deliberate,
+    versioned schema change with its own release note and review.</p>
+    <p>Release readiness checklist: schema and invariants green in CI · publication gate exercised
+    (held records verified absent from pages and feeds) · provenance chain present on every page ·
+    claims-and-boundaries notice present on every page and export · accessibility checks passed ·
+    release note written.</p>
+
+    <h2>6. Accessibility</h2>
+    <p>The portal targets <strong>WCAG 2.1 AA</strong>, consistent with the State of Hawaiʻi's EIT
+    accessibility standards: semantic landmarks and headings, skip navigation, keyboard-visible
+    focus, AA contrast, table captions and scoped headers, and no information conveyed by color
+    alone. Accessibility findings are release blockers, not backlog items.</p>
+
+    <h2>7. Public access</h2>
+    <p>The portal, its registry, its schema, and its pipeline are published as open, inspectable
+    artifacts — transparency architecture that is itself transparent. The machine-readable
+    published projection (<code>registry/FY2026.published.json</code>) is the supported public data
+    surface; consumers should read from it rather than scraping pages.</p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><strong>Green Fee Transparency Toolkit</strong> — Document 3 of 3 · Version 0.1 · August 2026.</p>
+    <p>Suggested citation: Āina Design Corp. 2026. <em>Green Fee Transparency Toolkit.</em> Version 0.1 (demonstration).</p>
+  </div>
+</footer>
+</body>
+</html>

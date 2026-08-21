@@ -86,6 +86,14 @@ rmSync(dist, { recursive: true, force: true });
 mkdirSync(join(dist, 'registry'), { recursive: true });
 copyFileSync(join(root, 'site', 'styles.css'), join(dist, 'styles.css'));
 writeFileSync(join(dist, '.nojekyll'), '');
+// Custom-domain claim carried in the artifact itself (Pages CNAME file).
+writeFileSync(join(dist, 'CNAME'), 'kuleana.ainadesign.org\n');
+
+// Toolkit documents: authored as standalone print-ready pages in site/docs/.
+mkdirSync(join(dist, 'docs'), { recursive: true });
+for (const f of readdirSync(join(root, 'site', 'docs')).filter((f) => f.endsWith('.html'))) {
+  copyFileSync(join(root, 'site', 'docs', f), join(dist, 'docs', f));
+}
 
 let directoryRows = '';
 let publishedCount = 0, gatedCount = 0, totalUsd = 0;
@@ -219,6 +227,17 @@ ${directoryRows}
 <strong>${gatedCount} remain draft or validated</strong> — they are counted, but they build no pages and export in no feed.
 Publication is monotonic (<code>draft → validated → published</code>) and human-held: <em>a person publishes, never an
 automated process</em>. The <a href="registry/FY2026.published.json">machine-readable projection</a> releases exactly what the pages show.</p>
+</div>
+<h2>Toolkit documents</h2>
+<p>The method behind the portal, written to be reviewed, printed, and adapted. Each document is
+print-ready (print to PDF from your browser); editable sources live in the repository.</p>
+<div class="docs-grid">
+<div class="card"><h3><a href="docs/01-overview-replication.html">1 · Overview &amp; Replication</a></h3>
+<p>The program purpose, the six-layer architecture, the replication framework, and the FY2026 demonstration cohort as case study.</p></div>
+<div class="card"><h3><a href="docs/02-registry-analytics-reference.html">2 · Registry &amp; Analytics Reference</a></h3>
+<p>Record anatomy, the publication lifecycle, outcome metric definition rules, data-quality controls, and the provenance chain.</p></div>
+<div class="card"><h3><a href="docs/03-responsible-use-public-access.html">3 · Responsible Use &amp; Public Access</a></h3>
+<p>Human-review controls, permitted and prohibited uses, information boundaries, versioning, release readiness, and accessibility.</p></div>
 </div>
 <h2>How this portal works</h2>
 <p>Registry update → schema validation → manifest build → site build → publication. The registry governs identity,

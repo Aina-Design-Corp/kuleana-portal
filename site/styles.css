@@ -80,3 +80,18 @@ footer.site p { margin: .35rem 0; }
 @media (max-width: 620px) {
   h1 { font-size: 1.7rem; }
 }
+/* Toolkit document pages */
+.doc-body { max-width: 46rem; }
+.doc-body h2 { margin-top: 1.9rem; }
+.docs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .9rem; margin-top: .9rem; }
+.docs-grid .card { margin: 0; }
+.docs-grid h3 { margin-top: 0; }
+/* Print: clean PDF via the browser; claims travel with the printout */
+@media print {
+  header.site { background: none; color: var(--ink); padding: 0 0 .5rem; border-bottom: 2px solid var(--navy); }
+  header.site a, header.site .kicker { color: var(--ink); }
+  .skip-link, .breadcrumb { display: none; }
+  .notice { border: 1px solid var(--notice-edge); }
+  a { color: var(--ink); text-decoration: none; }
+  footer.site { border-top: 1px solid var(--border); background: none; }
+}

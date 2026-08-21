@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Green Fee Transparency Toolkit Document 2: registry record reference, publication lifecycle, outcome metric definitions, data-quality controls, and provenance.">
+<title>Registry &amp; Analytics Reference Guide — Green Fee Transparency Toolkit</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="doc">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <p class="kicker"><a href="../index.html">Green Fee Transparency Portal</a> · Toolkit Document 2 · <span class="sample-chip">Sample</span></p>
+    <h1>Registry &amp; Analytics Reference Guide</h1>
+    <p class="meta">Version 0.1 · August 2026 · Āina Design Corp</p>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap doc-body">
+    <div class="notice"><strong>Demonstration only:</strong> field definitions below are exercised with fictional sample data. The authoritative definition of any real program metric belongs to the State program administration, not to this registry.</div>
+
+    <h2>1. The Award Registry Manifest</h2>
+    <p>One JSON file per fiscal-year cohort (<code>registry/FY2026.json</code>), validated against a
+    versioned schema (<code>schemas/registry.schema.json</code>, JSON Schema Draft 2020-12,
+    closed to undeclared properties). The registry governs five things and only five things:
+    <strong>identity, cohort membership, publication eligibility, discovery, and route
+    generation</strong>. It stores no financial system of record, no personal information, and no
+    regulatory determination.</p>
+
+    <h2>2. Record anatomy</h2>
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th scope="col">Field</th><th scope="col">Meaning</th><th scope="col">Rule</th></tr></thead>
+      <tbody>
+        <tr><td><code>id</code></td><td>Award identity (<code>GF-2026-HI-001</code>)</td><td>Immutable once issued; never reissued or renamed</td></tr>
+        <tr><td><code>slug</code></td><td>Route identity (<code>/projects/&lt;slug&gt;/</code>)</td><td>Stable once published; link permanence is a contract</td></tr>
+        <tr><td><code>project</code>, <code>organization</code>, <code>agency</code></td><td>What, who, and which administering agency</td><td>Names come from the program record, not from this registry</td></tr>
+        <tr><td><code>island</code>, <code>moku</code></td><td>Place: island + moku served</td><td>Moku is stewardship context (regional axis), never a regulatory classification</td></tr>
+        <tr><td><code>programArea</code>, <code>act96Alignment</code></td><td>Program taxonomy + statutory alignment</td><td>Alignment mapping is program methodology — the State decides it; the registry records it</td></tr>
+        <tr><td><code>publicationStatus</code></td><td>The gate</td><td><code>draft → validated → published</code>, monotonic, human-held</td></tr>
+        <tr><td><code>award</code></td><td>Fiscal year + amount</td><td>Must match the cohort; display-only, never a financial record</td></tr>
+        <tr><td><code>summary</code>, <code>story</code></td><td>One-paragraph summary; awardee-voice narrative</td><td>Story serves only when published</td></tr>
+        <tr><td><code>outcomes[]</code></td><td>Reported metrics</td><td>See §4 — definition rules</td></tr>
+        <tr><td><code>links</code></td><td>ArcGIS destinations (dashboard, StoryMap, web map)</td><td>Null until the State registers a destination</td></tr>
+        <tr><td><code>provenance</code></td><td>Program record + authoritative source</td><td>Required to publish; see §6</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2>3. Publication lifecycle</h2>
+    <p><code>draft</code> — the record exists and validates; visible to no one.
+    <code>validated</code> — data checked against its source; still builds nothing.
+    <code>published</code> — a person has reviewed and released it; the record renders a page and
+    exports in the published projection. The lifecycle is monotonic and the release bar is enforced
+    by the validator: a record cannot reach <code>published</code> without a story, at least one
+    outcome, and full provenance. Held records are publicly <em>counted</em> ("2 remain draft or
+    validated") but never leaked.</p>
+
+    <h2>4. Outcome metric definition rules</h2>
+    <ol>
+      <li>Every metric is a tuple: <strong>metric, value, unit, period, source note</strong> — no
+      bare numbers, no undated claims.</li>
+      <li>Values are <strong>reported and steward-validated</strong>, never derived, extrapolated, or
+      forecast by the pipeline. The build renders what the registry holds; it computes only visible
+      aggregates (counts and sums labeled as such).</li>
+      <li>Elapsed-time and throughput measures state what they actually measure — total elapsed
+      calendar figures must not be described as agency processing time.</li>
+      <li>A metric that identifies areas for further review (screening, prioritization) is labeled a
+      screening view, not a decision.</li>
+    </ol>
+
+    <h2>5. Data-quality controls</h2>
+    <ul>
+      <li><strong>Schema validation</strong> on every change — closed schemas, typed fields,
+      enumerated vocabularies, pattern-checked identifiers.</li>
+      <li><strong>Registry invariants</strong> beyond schema: unique ids and slugs, id ↔ cohort
+      consistency, award fiscal year ↔ cohort consistency, the publication release bar.</li>
+      <li><strong>Rejection is total</strong>: any finding stops the pipeline — an invalid registry
+      builds nothing, rather than building something partly wrong.</li>
+      <li><strong>The audit trail is the version history</strong>: every published change is a
+      reviewed commit; the pipeline run is its receipt.</li>
+    </ul>
+
+    <h2>6. Provenance</h2>
+    <p>Every public claim walks one chain, rendered on every project page:</p>
+    <p><em>public page → published project record → Award Registry Manifest → State program record →
+    authoritative State source.</em></p>
+    <p>The registry is a pointer of record, not a source of record: when the portal and the State
+    system disagree, the State system is right and the registry carries the defect.</p>
+
+    <h2>7. Local adaptation checks</h2>
+    <p>Before reusing this structure in another program or jurisdiction: map the local terminology
+    (what is an "award," a "project," a "cohort" locally); confirm which office holds publication
+    authority and encode that person into the gate; validate identifier conventions against local
+    systems; and re-derive the metric definitions with the local program owner — definitions are
+    never portable by default.</p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><strong>Green Fee Transparency Toolkit</strong> — Document 2 of 3 · Version 0.1 · August 2026.</p>
+    <p>Suggested citation: Āina Design Corp. 2026. <em>Green Fee Transparency Toolkit.</em> Version 0.1 (demonstration).</p>
+  </div>
+</footer>
+</body>
+</html>

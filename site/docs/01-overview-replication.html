@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Green Fee Transparency Toolkit Document 1: program overview, registry-driven publication architecture, replication framework, and the FY2026 demonstration cohort.">
+<title>Program Overview, Replication Framework &amp; FY2026 Demonstration Cohort — Green Fee Transparency Toolkit</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="doc">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <p class="kicker"><a href="../index.html">Green Fee Transparency Portal</a> · Toolkit Document 1 · <span class="sample-chip">Sample</span></p>
+    <h1>Program Overview, Replication Framework &amp; FY2026 Demonstration Cohort</h1>
+    <p class="meta">Version 0.1 · August 2026 · Āina Design Corp</p>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap doc-body">
+    <div class="notice"><strong>Demonstration only:</strong> this document describes a proof-of-concept architecture using fictional sample records. No government adoption, endorsement, partnership, or deployment is claimed. It supports professional review and makes no funding, eligibility, policy, or enforcement decisions.</div>
+
+    <h2>1. Purpose</h2>
+    <p>Hawaiʻi's Green Fee asks visitors to help fund the stewardship of the places they come to
+    experience. That funding relationship carries a transparency obligation in both directions: the
+    public and the Legislature need to see where the money goes, and the visitor deserves to
+    re-encounter what their fee built. This toolkit demonstrates a <strong>registry-driven publication
+    architecture</strong> that meets that obligation without creating a new dashboard platform for the
+    State to buy, host, or maintain — and without turning stewardship awardees into dashboard
+    administrators.</p>
+
+    <h2>2. Design objectives</h2>
+    <ol>
+      <li>Preserve State ownership of project information and control of its GIS dashboards.</li>
+      <li>Reduce reporting burden on awardees — they contribute stories, photos, highlights, and
+      field observations, nothing more.</li>
+      <li>Support future funding cohorts without dashboard redevelopment.</li>
+      <li>Establish project-level provenance for every public claim.</li>
+      <li>Publish through a human-held gate — a person publishes, never an automated process.</li>
+      <li>Carry place-based stewardship context (moku) alongside, never in place of, official
+      program data.</li>
+    </ol>
+
+    <h2>3. The architecture in six layers</h2>
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th scope="col">Layer</th><th scope="col">Platform</th><th scope="col">Owns</th></tr></thead>
+      <tbody>
+        <tr><td>State authority</td><td>State program administration</td><td>Projects, awards, contracts, official outcomes — the authoritative record, always</td></tr>
+        <tr><td>Registry governance</td><td>Version-controlled repository</td><td>Award Registry Manifest: identity, cohort membership, publication eligibility, routes</td></tr>
+        <tr><td>Automation</td><td>CI pipeline</td><td>Registry update → validation → manifest build → site build → publication; the pipeline is the audit trail</td></tr>
+        <tr><td>Public portal</td><td>Static site (this demonstration)</td><td>Program overview, project directory, outcome summaries, stewardship storytelling</td></tr>
+        <tr><td>Geospatial experience</td><td>State ArcGIS</td><td>Dashboards, StoryMaps, feature services — the portal links out, it never replaces</td></tr>
+        <tr><td>Executive analytics</td><td>Power BI</td><td>Internal review and cross-agency reporting from published exports</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>The pattern at the seam: <em>portal page → ArcGIS dashboard</em>. Registry records carry the
+    State's dashboard identifiers when the State registers them; geospatial authority never moves.</p>
+
+    <h2>4. Replication framework</h2>
+    <p>A new funding cohort is one file: <code>FY2027.json</code>, validated against the same schema,
+    published through the same gate, rendered by the same build. Replicating the architecture for a
+    different program — or a different jurisdiction — is the same controlled method the demonstration
+    itself followed:</p>
+    <ol>
+      <li><strong>Define the business question</strong> the public surface must answer.</li>
+      <li><strong>Validate the local data</strong> against its authoritative source.</li>
+      <li><strong>Map terminology and workflow</strong> to the jurisdiction's own vocabulary.</li>
+      <li><strong>Approve the metric definitions</strong> with the program owner before anything renders.</li>
+      <li><strong>Test quality</strong> — schema validation plus registry invariants in CI.</li>
+      <li><strong>Review with subject-matter experts</strong> before the publication gate opens.</li>
+      <li><strong>Publish with limitations stated</strong> — on every page, in every export.</li>
+    </ol>
+
+    <h2>5. The FY2026 demonstration cohort as case study</h2>
+    <p>The sample cohort holds six fictional records across five moku and four islands, deliberately
+    split four published / two held, so the architecture's central controls are visible in the running
+    system rather than described in prose: the publication gate (held records are counted but build no
+    pages and export in no feed), the release bar (a record cannot publish without a story, outcomes,
+    and provenance), the provenance chain on every project page, and the machine-readable
+    published-manifest projection that releases exactly what the pages show.</p>
+    <p>The cohort also demonstrates the closing of the fee's loop: its reef-stewardship sample pairs
+    resource monitoring with shoreline visitor briefings — the visitor who paid the fee meeting the
+    steward the fee funds, at the place itself, with that encounter captured as a reported metric.</p>
+
+    <h2>6. Stewardship context: the moku</h2>
+    <p>Every record reads in its moku — the traditional land division whose community the project
+    serves. Moku are a regional axis (<em>whose place</em>), carried alongside and never in place of
+    the State's regulatory classifications (<em>what may happen where</em>). The registry claims no
+    land-use authority; the moku context is what lets a project page speak to its community and its
+    visitors in terms of place.</p>
+
+    <h2>7. Boundaries</h2>
+    <p>All records in this demonstration are fictional samples; the v0 schema structurally requires
+    the sample marking, so real program data cannot validate against it. State systems remain
+    authoritative for every fact this architecture publishes. Nothing here decides funding,
+    eligibility, policy, or enforcement.</p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><strong>Green Fee Transparency Toolkit</strong> — Document 1 of 3 · Version 0.1 · August 2026.</p>
+    <p>Suggested citation: Āina Design Corp. 2026. <em>Green Fee Transparency Toolkit.</em> Version 0.1 (demonstration).</p>
+  </div>
+</footer>
+</body>
+</html>
