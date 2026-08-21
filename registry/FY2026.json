@@ -1,0 +1,157 @@
+{
+  "cohort": "FY2026",
+  "sample": true,
+  "updated": "2026-08-21",
+  "note": "Fictional demonstration cohort. Every record is a sample; no real award, awardee, or organization is represented. The v0 schema hard-requires sample:true — real data cannot validate against it.",
+  "records": [
+    {
+      "id": "GF-2026-HI-001",
+      "slug": "waiola-watershed-restoration",
+      "sample": true,
+      "project": "Waiola Stream Watershed Restoration",
+      "organization": "Waiola Watershed Hui",
+      "agency": "DLNR",
+      "island": "Oʻahu",
+      "moku": "Koʻolaupoko",
+      "programArea": "watershed-restoration",
+      "act96Alignment": "resource-protection",
+      "status": "active",
+      "publicationStatus": "published",
+      "award": { "fiscalYear": "FY2026", "amountUsd": 185000 },
+      "summary": "Restores native riparian cover along Waiola Stream: invasive canopy removal, native outplanting, and community stewardship days that connect residents and visitors to the watershed that feeds their reef.",
+      "story": "The hui began where the stream meets the road — the stretch every commuter sees. Two seasons of workdays replaced invasive canopy with koa and ʻōhiʻa seedlings grown by a partner school nursery. Visitor volunteers joined through a stewardship-day signup, putting fee-funded restoration literally in visitors' hands. Survival plots are checked monthly, and every planting day logs its counts before the crew leaves the site.",
+      "outcomes": [
+        { "metric": "Native trees outplanted", "value": 4200, "unit": "seedlings", "period": "2026-Q2", "sourceNote": "steward-validated sample figure" },
+        { "metric": "Invasive canopy cleared", "value": 36, "unit": "acres", "period": "2026-Q2", "sourceNote": "steward-validated sample figure" },
+        { "metric": "Volunteer participants", "value": 310, "unit": "people", "period": "FY2026 to date", "sourceNote": "steward-validated sample figure" }
+      ],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "SAMPLE-DLNR-2026-0117",
+        "authoritativeSource": "State program administration record (sample reference)"
+      }
+    },
+    {
+      "id": "GF-2026-HI-002",
+      "slug": "kau-forest-protection",
+      "sample": true,
+      "project": "Kaʻū Upland Forest Protection",
+      "organization": "Kaʻū Uplands Cooperative",
+      "agency": "DLNR-DOFAW",
+      "island": "Hawaiʻi",
+      "moku": "Kaʻū",
+      "programArea": "invasive-species",
+      "act96Alignment": "resource-protection",
+      "status": "active",
+      "publicationStatus": "published",
+      "award": { "fiscalYear": "FY2026", "amountUsd": 240000 },
+      "summary": "Fences ungulates out of intact koa–ʻōhiʻa forest and tracks native seedling recovery inside the protected units.",
+      "story": "Five miles of fence line went up across two field seasons, closing the last open corridor into the project's upper units. Recovery is measured, not assumed: paired plots inside and outside the fence are surveyed each quarter, and the seedling-survival numbers reported here come from those plots. The crew is local, the materials came through the harbor at Hilo, and the fence line follows the moku boundary ridge for most of its length.",
+      "outcomes": [
+        { "metric": "Ungulate-proof fence completed", "value": 5.2, "unit": "miles", "period": "2026-Q2", "sourceNote": "steward-validated sample figure" },
+        { "metric": "Native seedling survival (fenced plots)", "value": 78, "unit": "percent", "period": "2026-Q2", "sourceNote": "steward-validated sample figure" }
+      ],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "SAMPLE-DOFAW-2026-0342",
+        "authoritativeSource": "State program administration record (sample reference)"
+      }
+    },
+    {
+      "id": "GF-2026-HI-003",
+      "slug": "lahaina-firebreak-greenways",
+      "sample": true,
+      "project": "Lāhainā Firebreak Greenways",
+      "organization": "Lāhainā Greenways Project",
+      "agency": "DLNR",
+      "island": "Maui",
+      "moku": "Lāhainā",
+      "programArea": "wildfire-resilience",
+      "act96Alignment": "climate-resiliency",
+      "status": "active",
+      "publicationStatus": "published",
+      "award": { "fiscalYear": "FY2026", "amountUsd": 210000 },
+      "summary": "Converts fallow fire-prone grassland at the community edge into irrigated greenway firebreaks planted in low-fuel native and food species.",
+      "story": "The greenway sits where the grass fires used to start. Fallow parcels mauka of the community were cleared of fountain grass, ripped, and replanted as an irrigated break — ʻulu and native shrubs where seasonal tinder stood. Community workdays maintain the line, and the county's hazard-mitigation reviewers walk it each quarter. The metric that matters most here is the one that stays at zero.",
+      "outcomes": [
+        { "metric": "Greenway firebreak established", "value": 9, "unit": "acres", "period": "2026-Q2", "sourceNote": "steward-validated sample figure" },
+        { "metric": "Community maintenance workdays", "value": 12, "unit": "events", "period": "FY2026 to date", "sourceNote": "steward-validated sample figure" }
+      ],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "SAMPLE-DLNR-2026-0289",
+        "authoritativeSource": "State program administration record (sample reference)"
+      }
+    },
+    {
+      "id": "GF-2026-HI-004",
+      "slug": "halelea-reef-stewardship",
+      "sample": true,
+      "project": "Haleleʻa Reef Stewardship & Visitor Program",
+      "organization": "Haleleʻa Reef Stewards",
+      "agency": "DLNR-DAR",
+      "island": "Kauaʻi",
+      "moku": "Haleleʻa",
+      "programArea": "coral-reef-stewardship",
+      "act96Alignment": "regenerative-tourism",
+      "status": "active",
+      "publicationStatus": "published",
+      "award": { "fiscalYear": "FY2026", "amountUsd": 150000 },
+      "summary": "Pairs reef monitoring with a shoreline visitor-briefing program — the stewards who survey the reef are the ones who greet the people about to swim over it.",
+      "story": "Every morning the stewards set up where the trail meets the sand. Visitors get a two-minute briefing — where the reef is recovering, where to swim, why the fee they paid at the airport funds the person talking to them. The same crew runs the transect surveys the reef numbers come from. It is the program's whole thesis in one shoreline: the visitor economy meeting the resource it depends on, person to person, at the place itself.",
+      "outcomes": [
+        { "metric": "Shoreline visitor briefings delivered", "value": 8400, "unit": "visitors", "period": "FY2026 to date", "sourceNote": "steward-validated sample figure" },
+        { "metric": "Reef transect surveys completed", "value": 24, "unit": "surveys", "period": "FY2026 to date", "sourceNote": "steward-validated sample figure" }
+      ],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "SAMPLE-DAR-2026-0075",
+        "authoritativeSource": "State program administration record (sample reference)"
+      }
+    },
+    {
+      "id": "GF-2026-HI-005",
+      "slug": "ala-hele-trail-access",
+      "sample": true,
+      "project": "Ala Hele Trail Access Stewardship",
+      "organization": "Ala Hele Trail Partners",
+      "agency": "DLNR",
+      "island": "Oʻahu",
+      "moku": "ʻEwa",
+      "programArea": "trail-access-stewardship",
+      "act96Alignment": "regenerative-tourism",
+      "status": "active",
+      "publicationStatus": "validated",
+      "award": { "fiscalYear": "FY2026", "amountUsd": 95000 },
+      "summary": "Trailhead access improvements and field-level condition reporting at heavily visited trail corridors.",
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "SAMPLE-DLNR-2026-0403",
+        "authoritativeSource": "State program administration record (sample reference)"
+      }
+    },
+    {
+      "id": "GF-2026-HI-006",
+      "slug": "hilo-limu-restoration",
+      "sample": true,
+      "project": "Hilo Bay Limu Restoration",
+      "organization": "Limu Ola Hui",
+      "agency": "DLNR-DAR",
+      "island": "Hawaiʻi",
+      "moku": "Hilo",
+      "programArea": "coastal-restoration",
+      "act96Alignment": "resource-protection",
+      "status": "active",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2026", "amountUsd": 120000 },
+      "summary": "Community limu (native seaweed) restoration beds along urban shoreline reaches of Hilo Bay.",
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "SAMPLE-DAR-2026-0088",
+        "authoritativeSource": "State program administration record (sample reference)"
+      }
+    }
+  ]
+}

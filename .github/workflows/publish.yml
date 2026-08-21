@@ -1,0 +1,61 @@
+# The registry pipeline — the architecture's Layer 3 made visible:
+#   registry update → validation → manifest build → site build → publication.
+#
+# validate + build run on every push (the audit trail). The deploy job is the
+# infrastructure half of the publication gate: it runs only when the
+# repository variable PUBLISH_PAGES is "true" (Settings → Secrets and
+# variables → Actions → Variables) AND GitHub Pages is configured with
+# Source: GitHub Actions. Until both are set by a person, nothing publishes —
+# the same rule the registry applies per record.
+name: registry-pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate registry (schema + invariants)
+        run: node scripts/validate.mjs
+
+  build:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build portal (publication gate applied)
+        run: node scripts/build.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && vars.PUBLISH_PAGES == 'true'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kuleana.ainadesign.org/schemas/registry.schema.json",
+  "title": "Green Fee Award Registry Manifest (demonstration, v0)",
+  "description": "One fiscal-year cohort of award registry records. v0 is a demonstration schema: `sample: true` is REQUIRED at both cohort and record level (const), so real program data cannot validate against it — removing that guard is a deliberate, versioned schema change, not a data change. The registry governs identity, cohort membership, publication eligibility, and route generation; it never replaces the State program record it points to.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cohort", "sample", "updated", "records"],
+  "properties": {
+    "cohort": { "type": "string", "pattern": "^FY[0-9]{4}$" },
+    "sample": { "const": true },
+    "updated": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "note": { "type": "string" },
+    "records": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/record" }
+    }
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "slug", "sample", "project", "organization", "agency",
+        "island", "moku", "programArea", "act96Alignment", "status",
+        "publicationStatus", "award", "summary", "outcomes", "links",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^GF-[0-9]{4}-HI-[0-9]{3}$",
+          "description": "Immutable award identity. Never reissued, never renamed — the same rule as a printed asset code."
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Route identity: /projects/<slug>/. Stable once published."
+        },
+        "sample": { "const": true },
+        "project": { "type": "string", "minLength": 3 },
+        "organization": { "type": "string", "minLength": 3 },
+        "agency": { "type": "string", "minLength": 2 },
+        "island": {
+          "enum": ["Hawaiʻi", "Maui", "Molokaʻi", "Lānaʻi", "Kahoʻolawe", "Oʻahu", "Kauaʻi", "Niʻihau", "Statewide"]
+        },
+        "moku": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Stewardship context: the moku the project serves (regional axis — whose place). Distinct from any HRS §205-2 land use district (regulatory axis); the registry never carries regulatory authority."
+        },
+        "programArea": {
+          "enum": [
+            "watershed-restoration", "invasive-species", "coral-reef-stewardship",
+            "wildfire-resilience", "trail-access-stewardship", "coastal-restoration",
+            "marine-debris"
+          ]
+        },
+        "act96Alignment": {
+          "enum": ["resource-protection", "climate-resiliency", "regenerative-tourism"],
+          "description": "Sample alignment categories for demonstration. The authoritative Act 96 alignment mapping is program methodology, decided by the State — not by this registry."
+        },
+        "status": { "enum": ["active", "completed", "withdrawn"] },
+        "publicationStatus": {
+          "enum": ["draft", "validated", "published"],
+          "description": "Monotonic publication gate: draft → validated → published. Only `published` records build public pages or export in the published manifest. A human publishes, never an automated process."
+        },
+        "award": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["fiscalYear", "amountUsd"],
+          "properties": {
+            "fiscalYear": { "type": "string", "pattern": "^FY[0-9]{4}$" },
+            "amountUsd": { "type": "number", "minimum": 0 }
+          }
+        },
+        "summary": { "type": "string", "minLength": 20 },
+        "story": {
+          "type": "string",
+          "minLength": 50,
+          "description": "Awardee-voice narrative. Serves only when published."
+        },
+        "outcomes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["metric", "value", "unit", "period", "sourceNote"],
+            "properties": {
+              "metric": { "type": "string", "minLength": 3 },
+              "value": { "type": "number" },
+              "unit": { "type": "string", "minLength": 1 },
+              "period": { "type": "string", "minLength": 4 },
+              "sourceNote": { "type": "string", "minLength": 5 }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dashboardId": { "type": ["string", "null"] },
+            "storyMapId": { "type": ["string", "null"] },
+            "webMapId": { "type": ["string", "null"] }
+          },
+          "description": "ArcGIS integration points (State-owned destinations). Null until the State registers a destination; the portal links to authority, it never replaces it."
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["programRecord", "authoritativeSource"],
+          "properties": {
+            "programRecord": { "type": "string", "minLength": 5 },
+            "authoritativeSource": { "type": "string", "minLength": 5 }
+          },
+          "description": "The chain every public claim must walk: page → published record → manifest → program record → authoritative source."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "kuleana-portal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Green Fee transparency portal — registry-driven publication architecture proof of concept. Zero runtime dependencies by design.",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build": "npm run validate && node scripts/build.mjs",
+    "serve": "npx serve dist"
+  }
+}

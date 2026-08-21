@@ -39,11 +39,28 @@ record → authoritative source. Every public claim must walk that chain.
 - This portal supports professional review; it makes no funding,
   eligibility, policy, or enforcement decisions.
 
+## Running it
+
+```bash
+npm run validate   # schema + registry invariants (gate 1)
+npm run build      # validate, then render dist/ (publication gate applied)
+npm run serve      # preview dist/ locally
+```
+
+Zero runtime dependencies: the validator interprets the JSON Schema directly
+and the site renders from template literals. The CI pipeline
+(`.github/workflows/publish.yml`) runs validate → build on every push; the
+deploy job is additionally gated on the `PUBLISH_PAGES` repository variable +
+Pages configuration — infrastructure obeying the same rule as the registry:
+a person publishes, never an automated process.
+
 ## Roadmap
 
-- **Phase 1** — registry manifest (sample FY2026 cohort), JSON schema,
-  Actions workflow, minimal portal (overview + project directory + one
-  project page).
+- **Phase 1 — SHIPPED 2026-08-21** — registry manifest (sample FY2026 cohort,
+  6 records: 4 published, 2 held by the gate), JSON schema (v0 hard-requires
+  `sample: true` — real data cannot validate), dependency-free
+  validate/build, Actions pipeline, portal (overview + directory + project
+  pages + published-manifest projection at `registry/FY2026.published.json`).
 - **Phase 2** — toolkit documents (PDF + DOCX), release notes v1.0,
   screenshots; custom domain `kuleana.ainadesign.org`; Firebase hosting of
   the predecessor site sunsets after verified cutover.
