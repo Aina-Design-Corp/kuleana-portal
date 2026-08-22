@@ -199,9 +199,9 @@ const index = page({
   description: 'Demonstration of a registry-driven publication architecture for environmental stewardship program transparency: award registry, validation, human publication gate, static public portal.',
   depth: 0,
   body: {
-    header: `<h1>Where the visitor green fee goes to work</h1>
+    header: `<h1>Resiliency projects and actions report</h1>
 <p class="tagline">A demonstration transparency portal: every project page is generated from a versioned, schema-validated
-<strong>Award Registry Manifest</strong>, released through a human publication gate, and traceable to its authoritative
+<strong>Award Registry Manifest</strong> and traceable to its authoritative
 State record. Visitors fund stewardship; this is the architecture that shows them what it built.</p>
 <p class="meta">${esc(VERSION)} · sample cohort FY2026 · Āina Design Corp</p>`,
     main: `<h2>Program at a glance <span class="sample-chip">Sample data</span></h2>
