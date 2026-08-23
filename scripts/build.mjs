@@ -141,6 +141,12 @@ for (const cohort of cohorts) {
 <td>${esc(o.metric)}</td><td>${o.value.toLocaleString('en-US')} ${esc(o.unit)}</td>
 <td>${esc(o.period)}</td><td>${esc(o.sourceNote)}</td></tr>`).join('\n');
 
+    const tmkLine = r.location.tmk
+      ? `<p>TMK cross-reference (sample): ${r.location.tmk.map((t) => `<code>${esc(t)}</code>`).join(', ')} —
+         parcel identity only; geometry and ownership context resolve against the county and State parcel
+         layers, never stored here.${r.location.geoContext ? ` ${esc(r.location.geoContext)}` : ''}</p>`
+      : `<p>No TMK — ${esc(r.location.geoContext)}</p>`;
+
     const arcgis = r.links.dashboardId
       ? `<p>State dashboard: <a href="#" rel="external">ArcGIS dashboard ${esc(r.links.dashboardId)}</a></p>`
       : `<p>No State dashboard destination is registered for this record yet. When the State registers a
@@ -177,7 +183,8 @@ ${outcomes}
 </tbody>
 </table>
 </div>
-<h2>Maps and dashboards</h2>
+<h2>Location and maps</h2>
+${tmkLine}
 ${arcgis}
 <h2>Provenance</h2>
 <div class="card prov">
