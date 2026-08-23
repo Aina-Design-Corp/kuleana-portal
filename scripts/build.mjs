@@ -59,6 +59,11 @@ function page({ title, depth, body, description }) {
 <header class="site">
   <div class="wrap">
     <p class="kicker"><a href="${p}index.html">Green Fee Transparency Portal</a> · <span class="sample-chip">Sample</span></p>
+    <nav class="site-nav" aria-label="Site">
+      <a href="${p}index.html">Portal home</a>
+      <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki">Act 96 background (wiki)</a>
+      <a href="https://github.com/Aina-Design-Corp/kuleana-portal">Repository</a>
+    </nav>
     ${body.header}
   </div>
 </header>
@@ -243,7 +248,13 @@ print-ready (print to PDF from your browser); editable sources live in the repos
 <p>Registry update → schema validation → manifest build → site build → publication. The registry governs identity,
 cohort membership, publication eligibility, and routes; the pipeline is the audit trail (every published change is a
 reviewed commit); the State's ArcGIS remains the geospatial destination and Power BI the executive-analytics layer.
-Future funding cohorts (<code>FY2027.json</code>, …) join the registry without dashboard redevelopment.</p>`,
+Future funding cohorts (<code>FY2027.json</code>, …) join the registry without dashboard redevelopment.</p>
+<h2>Why this program exists</h2>
+<p>The <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki">repository wiki</a> documents the historical
+and legislative basis of the Green Fee — <strong>Act 96, Session Laws of Hawaiʻi 2025 (SB 1396)</strong> — from the
+decade of visitor-fee proposals and the stewardship funding gap through the Climate Advisory Team's pivot to the
+transient accommodations tax, plus <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki/GitHub-Pages-and-Custom-Domains">how
+this demonstration is hosted</a> and how its identity would move to a program-owned domain.</p>`,
   },
 });
 writeFileSync(join(dist, 'index.html'), index);
