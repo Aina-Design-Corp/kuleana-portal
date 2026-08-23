@@ -12,6 +12,8 @@
  *   - record id year matches the cohort fiscal year
  *   - a `published` record must carry a story, at least one outcome, and
  *     full provenance (the publication gate's release bar)
+ *   - a record with no TMK (location.tmk: null) must name its non-parcel
+ *     footprint in location.geoContext
  *
  * Exit code 0 = valid; 1 = findings (each printed with its path).
  */
@@ -74,8 +76,11 @@ function check(s, value, path, rootSchema, errs) {
   if (typeof value === 'number' && s.minimum != null && value < s.minimum) {
     errs.push(`${path}: ${value} below minimum ${s.minimum}`);
   }
-  if (Array.isArray(value) && s.items) {
-    value.forEach((v, i) => check(s.items, v, `${path}[${i}]`, rootSchema, errs));
+  if (Array.isArray(value)) {
+    if (s.minItems != null && value.length < s.minItems) {
+      errs.push(`${path}: fewer than minItems ${s.minItems}`);
+    }
+    if (s.items) value.forEach((v, i) => check(s.items, v, `${path}[${i}]`, rootSchema, errs));
   }
   if (typeOf(value) === 'object') {
     for (const key of s.required || []) {
@@ -107,6 +112,9 @@ function invariants(cohort, file, errs) {
     }
     if (r.award?.fiscalYear && r.award.fiscalYear !== cohort.cohort) {
       errs.push(`${at}: award.fiscalYear ${r.award.fiscalYear} != cohort ${cohort.cohort}`);
+    }
+    if (r.location && r.location.tmk === null && !r.location.geoContext) {
+      errs.push(`${at}: location.tmk is null without a geoContext note (a non-parcel footprint must be named)`);
     }
     if (r.publicationStatus === 'published') {
       if (!r.story) errs.push(`${at}: published without a story (release bar)`);

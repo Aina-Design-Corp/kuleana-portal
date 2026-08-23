@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://kuleana.ainadesign.org/schemas/registry.schema.json",
-  "title": "Green Fee Award Registry Manifest (demonstration, v0)",
-  "description": "One fiscal-year cohort of award registry records. v0 is a demonstration schema: `sample: true` is REQUIRED at both cohort and record level (const), so real program data cannot validate against it — removing that guard is a deliberate, versioned schema change, not a data change. The registry governs identity, cohort membership, publication eligibility, and route generation; it never replaces the State program record it points to.",
+  "title": "Green Fee Award Registry Manifest (demonstration, v0.2)",
+  "description": "One fiscal-year cohort of award registry records. v0 is a demonstration schema: `sample: true` is REQUIRED at both cohort and record level (const), so real program data cannot validate against it — removing that guard is a deliberate, versioned schema change, not a data change. v0.2 adds `location`, a cadastral cross-reference axis (TMK) with the same sample guard philosophy: the fixed division digit 9 belongs to no county, so a real TMK cannot validate. The registry governs identity, cohort membership, publication eligibility, and route generation; it never replaces the State program record it points to.",
   "type": "object",
   "additionalProperties": false,
   "required": ["cohort", "sample", "updated", "records"],
@@ -23,8 +23,8 @@
       "required": [
         "id", "slug", "sample", "project", "organization", "agency",
         "island", "moku", "programArea", "act96Alignment", "status",
-        "publicationStatus", "award", "summary", "outcomes", "links",
-        "provenance"
+        "publicationStatus", "award", "summary", "location", "outcomes",
+        "links", "provenance"
       ],
       "properties": {
         "id": {
@@ -75,6 +75,28 @@
           }
         },
         "summary": { "type": "string", "minLength": 20 },
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tmk", "geoContext"],
+          "description": "Cadastral cross-reference axis (which parcel) — the third axis alongside moku (regional — whose place), and distinct from any regulatory land use district. The registry stores keys only; parcel geometry, ownership, and taxation context stay with the county and State parcel layers it joins against (the State-owned map destination lives in links.webMapId). Integration services (e.g. Mokunet) resolve TMKs against those authoritative layers — the registry never carries geometry.",
+          "properties": {
+            "tmk": {
+              "type": ["array", "null"],
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "pattern": "^9-[1-9]-[1-9]-[0-9]{3}-[0-9]{3}(-[0-9]{4})?$"
+              },
+              "description": "Tax Map Key cross-references, normalized division-zone-section-plat-parcel with optional 4-digit CPR unit. null = the footprint has no parcel identity (nearshore/marine waters, multi-parcel corridors); geoContext must then name the footprint (validator invariant). v0 sample guard: the division digit is fixed at 9 — no county uses it (real divisions are 1 Oʻahu, 2 Maui, 3 Hawaiʻi, 4 Kauaʻi) — so a real TMK cannot validate. Widening the pattern to [1-4] is a deliberate, versioned schema change, exactly like removing sample:true."
+            },
+            "geoContext": {
+              "type": ["string", "null"],
+              "minLength": 5,
+              "description": "Plain-language footprint note: required (non-null) whenever tmk is null (names the non-parcel footprint — nearshore waters, trail corridor), optional context otherwise."
+            }
+          }
+        },
         "story": {
           "type": "string",
           "minLength": 50,

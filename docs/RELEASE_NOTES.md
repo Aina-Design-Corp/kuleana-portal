@@ -7,7 +7,7 @@ Initial reviewed demonstration release containing:
 - The Award Registry Manifest pattern: one schema-validated JSON cohort
   (`FY2026`, six fictional records) governing identity, cohort membership,
   publication eligibility, and routes.
-- A human-held, monotonic publication gate (`draft → validated → published`)
+- A single-sourced, monotonic publication gate (`draft → validated → published`)
   with an enforced release bar (story + outcomes + provenance), demonstrated
   live: four records published, two held.
 - A dependency-free validate → build pipeline; CI runs it on every change and
