@@ -24,6 +24,12 @@ rules: `2026-08-21-kuleana-reset-streams.md` (same location). State systems
 (ArcGIS, program records) are treated as authoritative throughout — this
 portal *links to* authority, it never replaces it.
 
+**Why this program exists:** the [repository wiki](https://github.com/Aina-Design-Corp/kuleana-portal/wiki)
+documents the historical and legislative basis of the Green Fee — **Act 96,
+Session Laws of Hawaiʻi 2025 (SB 1396)** — from the decade of visitor-fee
+proposals and the $560M stewardship funding gap through the Climate Advisory
+Team's pivot to the TAT and the 2025–26 litigation.
+
 ## Provenance chain (the design rule)
 
 Public page → published project record → award registry manifest → program
