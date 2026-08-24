@@ -32,8 +32,36 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      # Findings are surfaced where a registry editor will actually see them:
+      # the job summary on the PR checks page, plus per-file annotations.
       - name: Validate registry (schema + invariants)
-        run: node scripts/validate.mjs
+        run: |
+          set +e
+          output=$(node scripts/validate.mjs 2>&1)
+          status=$?
+          set -e
+          echo "$output"
+          if [ "$status" -eq 0 ]; then
+            {
+              echo "### ✅ Registry valid"
+              echo
+              echo '```'
+              echo "$output"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            {
+              echo "### ❌ Registry rejected — nothing builds until these findings are fixed"
+              echo
+              echo "Each finding names the file, the record, and the rule it breaks:"
+              echo
+              echo '```'
+              echo "$output"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "$output" | sed -nE 's|^INVALID  ([A-Za-z0-9_-]+\.json)(.*)$|::error file=registry/\1,title=Registry validation::\1\2|p'
+          fi
+          exit "$status"
 
   build:
     needs: validate
