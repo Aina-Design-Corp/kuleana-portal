@@ -10,8 +10,10 @@ environmental-stewardship program transparency, built by
 - **Award Registry Manifest** — a versioned JSON registry (sample cohort)
   governs project identity, cohort membership, publication eligibility, and
   route generation. *A human publishes, never an automated process.*
-- **Schema validation** — every registry change validates in CI before it can
-  build.
+- **Schema validation** — every registry change validates in CI, and the
+  `validate` check is required to merge: an invalid registry cannot reach
+  `main`. Findings appear directly on the pull request — a plain-language job
+  summary plus annotations on the offending `registry/*.json` file.
 - **GitHub Actions** — registry update → validation → manifest build → site
   build → publication. The workflow is the audit trail.
 - **GitHub Pages** — the public transparency portal: program overview,
@@ -58,7 +60,10 @@ and the site renders from template literals. The CI pipeline
 (`.github/workflows/publish.yml`) runs validate → build on every push; the
 deploy job is additionally gated on the `PUBLISH_PAGES` repository variable +
 Pages configuration — infrastructure obeying the same rule as the registry:
-a person publishes, never an automated process.
+a person publishes, never an automated process. Branch protection adds a
+third instance of that rule: the `validate` check is required on `main`, so
+an invalid registry cannot merge, and findings surface on the pull request
+itself (job summary in plain language, per-file annotations).
 
 ## Roadmap
 
