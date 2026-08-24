@@ -10,6 +10,13 @@ environmental-stewardship program transparency, built by
 - **Award Registry Manifest** — a versioned JSON registry (sample cohort)
   governs project identity, cohort membership, publication eligibility, and
   route generation. *A human publishes, never an automated process.*
+- **Source-agnostic intake** — award data arrives as it arrives: `.xlsx` and
+  `.csv` sources transform to *draft* records in CI (`intake/` →
+  `scripts/intake.mjs`); PDFs and legacy `.xls` walk a documented
+  assisted-extraction path into the same column contract
+  ([`docs/INTAKE.md`](docs/INTAKE.md)). Every record, from any source,
+  passes the same validation gate and the same human publication decision —
+  messier sources cost more human minutes, never a weaker gate.
 - **Schema validation** — every registry change validates in CI, and the
   `validate` check is required to merge: an invalid registry cannot reach
   `main`. Findings appear directly on the pull request — a plain-language job
@@ -50,13 +57,16 @@ record → authoritative source. Every public claim must walk that chain.
 ## Running it
 
 ```bash
+npm run intake -- intake/samples/FY2026-attachment-a.xlsx   # source → draft records (gate 0; dry run, --write to merge)
 npm run validate   # schema + registry invariants (gate 1)
 npm run build      # validate, then render dist/ (publication gate applied)
 npm run serve      # preview dist/ locally
 ```
 
-Zero runtime dependencies: the validator interprets the JSON Schema directly
-and the site renders from template literals. The CI pipeline
+Zero runtime dependencies: the validator interprets the JSON Schema directly,
+the site renders from template literals, and the intake transform reads
+`.xlsx` with node built-ins alone (ZIP walk + sheet XML — no parser
+library). The CI pipeline
 (`.github/workflows/publish.yml`) runs validate → build on every push; the
 deploy job is additionally gated on the `PUBLISH_PAGES` repository variable +
 Pages configuration — infrastructure obeying the same rule as the registry:
@@ -72,6 +82,12 @@ itself (job summary in plain language, per-file annotations).
   `sample: true` — real data cannot validate), dependency-free
   validate/build, Actions pipeline, portal (overview + directory + project
   pages + published-manifest projection at `registry/FY2026.published.json`).
+- **Intake pipeline — SHIPPED 2026-08-24** — source-agnostic intake:
+  dependency-free `.xlsx`/`.csv` transform to draft records
+  (`scripts/intake.mjs`), branch-drop workflow
+  (`.github/workflows/intake.yml`: transform → validate → commit back →
+  reviewed PR), CSV↔XLSX parity check in CI, assisted-extraction doctrine
+  for PDF and legacy `.xls` sources (`docs/INTAKE.md`).
 - **Phase 2** — toolkit documents (PDF + DOCX), release notes v1.0,
   screenshots; custom domain `kuleana.ainadesign.org`; Firebase hosting of
   the predecessor site sunsets after verified cutover.
@@ -81,11 +97,12 @@ itself (job summary in plain language, per-file annotations).
 ## Repository layout
 
 ```
+intake/      Drop zone for award data sources (.xlsx/.csv → draft records)
 registry/    Award Registry Manifest (FY cohort JSON — sample data)
 schemas/     JSON Schemas the registry validates against
 site/        Static portal source (built to GitHub Pages)
-docs/        Toolkit documents and release notes
-.github/     Actions: validate → build → publish
+docs/        Toolkit documents, release notes, intake doctrine (INTAKE.md)
+.github/     Actions: intake → validate → build → publish
 ```
 
 ## Lineage

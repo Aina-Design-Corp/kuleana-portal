@@ -1,0 +1,111 @@
+# The intake flow — gate 0 of the pipeline, made visible:
+#   SOURCE INTAKE → registry update → validation → manifest build → site
+#   build → publication.
+#
+# Drop a structured source file (.xlsx or .csv, column contract in
+# docs/INTAKE.md) into intake/ on a working branch and push. This workflow
+# transforms it into draft registry records, validates the result, and
+# commits the registry change back to the same branch — so the pull request
+# shows both the source that arrived and the records it became, and the
+# required `validate` check judges them before anything can merge.
+#
+# The trust boundary is unchanged: intake emits publicationStatus "draft"
+# only, and never touches an existing record. A human opens the PR, a human
+# merges it, and a human later flips a record to "published" in its own
+# reviewed diff. The workflow proposes; it cannot publish.
+#
+# The parity job runs the sample sources (intake/samples/) through both
+# parsers on every change to the intake path, so a transform regression
+# surfaces as a failed check, not as a bad registry diff.
+name: intake
+
+on:
+  push:
+    branches-ignore: [main]
+    paths: ['intake/**']
+  pull_request:
+    paths: ['intake/**', 'scripts/intake.mjs']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  # Prove the transform on the committed samples: both source formats must
+  # produce byte-identical records (only the provenance line may name its own
+  # source file). Runs on every intake-path change, including PRs.
+  verify-samples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Transform samples (.csv and .xlsx) and diff for parity
+        run: |
+          node scripts/intake.mjs intake/samples/FY2026-attachment-a.csv --json > /tmp/from-csv.json
+          node scripts/intake.mjs intake/samples/FY2026-attachment-a.xlsx --json > /tmp/from-xlsx.json
+          sed -i 's/FY2026-attachment-a\.csv/SOURCE/g'  /tmp/from-csv.json
+          sed -i 's/FY2026-attachment-a\.xlsx/SOURCE/g' /tmp/from-xlsx.json
+          diff /tmp/from-csv.json /tmp/from-xlsx.json
+          {
+            echo "### ✅ Intake parity"
+            echo
+            echo "Both sample sources (.csv and .xlsx) transform to identical draft records."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # On a working-branch push that adds or changes intake sources, run the
+  # transform for real and commit the resulting draft records back to the
+  # branch. The commit touches registry/ only, so it cannot re-trigger this
+  # workflow (which watches intake/**) — no loop is possible.
+  transform:
+    if: github.event_name == 'push'
+    needs: verify-samples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Transform intake sources to draft records
+        id: transform
+        run: |
+          shopt -s nullglob
+          found=0
+          for f in intake/*.csv intake/*.xlsx; do
+            found=1
+            echo "::group::$f"
+            node scripts/intake.mjs "$f" --write | tee -a /tmp/intake-report.txt
+            echo "::endgroup::"
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "no intake sources outside intake/samples/ — nothing to transform"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if git diff --quiet registry/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Validate before committing (the gate judges intake too)
+        if: steps.transform.outputs.changed == 'true'
+        run: node scripts/validate.mjs
+      - name: Commit draft records back to the branch
+        if: steps.transform.outputs.changed == 'true'
+        run: |
+          git config user.name "intake-pipeline"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add registry/
+          git commit -m "intake: transform source(s) to draft registry records" \
+                     -m "$(cat /tmp/intake-report.txt)"
+          git push
+          {
+            echo "### 📥 Intake transformed"
+            echo
+            echo '```'
+            cat /tmp/intake-report.txt
+            echo '```'
+            echo
+            echo "Draft records committed back to this branch. They merge only through a reviewed PR, and publish only when a human flips \`publicationStatus\` in a later reviewed diff."
+          } >> "$GITHUB_STEP_SUMMARY"
