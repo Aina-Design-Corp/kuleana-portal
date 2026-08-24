@@ -21,8 +21,9 @@ environmental-stewardship program transparency, built by
   `validate` check is required to merge: an invalid registry cannot reach
   `main`. Findings appear directly on the pull request — a plain-language job
   summary plus annotations on the offending `registry/*.json` file.
-- **GitHub Actions** — registry update → validation → manifest build → site
-  build → publication. The workflow is the audit trail.
+- **GitHub Actions** — source intake → registry update → validation →
+  manifest build → site build → publication. The workflow is the audit
+  trail.
 - **GitHub Pages** — the public transparency portal: program overview,
   project directory, outcome summaries, stewardship storytelling.
 

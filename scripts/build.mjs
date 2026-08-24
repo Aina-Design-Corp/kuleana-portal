@@ -252,7 +252,10 @@ print-ready (print to PDF from your browser); editable sources live in the repos
 <p>Human-review controls, permitted and prohibited uses, information boundaries, versioning, release readiness, and accessibility.</p></div>
 </div>
 <h2>How this portal works</h2>
-<p>Registry update → schema validation → manifest build → site build → publication. The registry governs identity,
+<p>Source intake → registry update → schema validation → manifest build → site build → publication. Award data
+enters however it arrives: a spreadsheet export transforms into draft records automatically, and documents walk an
+assisted-extraction path into the same format — whatever the source, every record passes the same schema validation
+and the same human publication decision before it appears here. The registry governs identity,
 cohort membership, publication eligibility, and routes; the pipeline is the audit trail (every published change is a
 reviewed commit); the State's ArcGIS remains the geospatial destination and Power BI the executive-analytics layer.
 Future funding cohorts (<code>FY2027.json</code>, …) join the registry without dashboard redevelopment.</p>
