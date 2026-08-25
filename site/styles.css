@@ -8,7 +8,6 @@
   --teal: #0f6b62;
   /* UH Mānoa green — site header */
   --uhm-green: #024731;
-  --uhm-green-light: #0b6b46;
   --sand: #f5f3ee;
   --paper: #ffffff;
   --border: #d5dde3;
@@ -33,7 +32,7 @@ a { color: var(--blue-deep); }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 .wrap { max-width: 1000px; margin: 0 auto; padding: 0 1.25rem; }
 header.site {
-  background: linear-gradient(140deg, var(--uhm-green), var(--uhm-green-light));
+  background: var(--uhm-green);
   color: #fff; padding: 3.2rem 0 2.6rem;
 }
 header.site a { color: #fff; }
