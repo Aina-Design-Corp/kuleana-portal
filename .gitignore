@@ -1,3 +1,6 @@
 node_modules/
 dist/
 .DS_Store
+
+# Pursuit working files — never committed (public repo; proposal content is private until award)
+submittal/
