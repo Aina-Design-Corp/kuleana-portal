@@ -19,7 +19,7 @@ import { resolveRegistryDir } from './lib/registry-dir.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
-const VERSION = 'v0.1 (Phase 1 demonstration)';
+const VERSION = 'v0.2 (Phase 1 demonstration · schema v1.0 published)';
 
 const esc = (s) => String(s)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -356,7 +356,10 @@ print-ready (print to PDF from your browser); editable sources live in the repos
 <p>Source intake → registry update → schema validation → manifest build → site build → publication. Award data
 enters however it arrives: a spreadsheet export transforms into draft records automatically, and documents walk an
 assisted-extraction path into the same format — whatever the source, every record passes the same schema validation
-and the same human publication decision before it appears here. The registry governs identity,
+and the same human publication decision before it appears here. The registry validates against a
+versioned schema: this demonstration cohort uses <strong>v0</strong>, whose sample guard keeps real data out by
+construction; <strong>schema v1.0</strong>, the program-data shape (minimal at draft, complete at publication; fiscal
+facts public, stories gated), is published in the repository and exercised by test fixtures. The registry governs identity,
 cohort membership, publication eligibility, and routes; the pipeline is the audit trail (every published change is a
 reviewed commit); the State's ArcGIS remains the geospatial destination and Power BI the executive-analytics layer.
 Future funding cohorts (<code>FY2027.json</code>, …) join the registry without dashboard redevelopment.</p>

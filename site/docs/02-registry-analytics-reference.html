@@ -22,8 +22,12 @@
 
     <h2>1. The Award Registry Manifest</h2>
     <p>One JSON file per fiscal-year cohort (<code>registry/FY2026.json</code>), validated against a
-    versioned schema (<code>schemas/registry.schema.json</code>, JSON Schema Draft 2020-12,
-    closed to undeclared properties). The registry governs five things and only five things:
+    versioned schema (JSON Schema Draft 2020-12, closed to undeclared properties). Two versions are
+    published: <strong>v0</strong> (<code>schemas/registry.schema.json</code>), the demonstration
+    schema this cohort uses, whose sample guard makes real data unable to validate; and
+    <strong>v1.0</strong> (<code>schemas/registry.v1.schema.json</code>), the program-data shape,
+    published as a reviewed artifact and exercised only by test fixtures — see §2a. The registry
+    governs five things and only five things:
     <strong>identity, cohort membership, publication eligibility, discovery, and route
     generation</strong>. It stores no financial system of record, no personal information, and no
     regulatory determination.</p>
@@ -47,6 +51,28 @@
       </tbody>
     </table>
     </div>
+
+    <h2>2a. Schema v1.0 — the program-data shape</h2>
+    <p>v0 keeps real data out of this demonstration by construction. v1.0 is the versioned change v0
+    was documented to anticipate, and it rests on two rules instead of a guard:</p>
+    <ul>
+      <li><strong>Minimal at draft, complete at publication.</strong> A record may enter the registry
+      knowing only what an enacted appropriation line knows — project, administering agency, amount —
+      and must earn island, program area, Act 96 alignment, summary, location, story, outcomes, and
+      provenance before the gate releases it. The validator enforces that release bar.</li>
+      <li><strong>Fiscal facts are public law.</strong> A cohort marked <code>fiscalPublic</code> renders
+      appropriation and funding-release figures for every record in the fiscal-status visual, while
+      project pages and stories remain behind the publication gate.</li>
+    </ul>
+    <p>v1.0 adds budget join keys (<code>departmentCode</code>, <code>programId</code>), appropriation
+    detail (means of financing, non-recurring, legislative reference), a <code>funding</code> block
+    (status, released, expended, as-of), an <code>indicatorId</code> on each outcome keyed to an
+    indicator dictionary, real TMK divisions, an open program-area taxonomy (a product of the outcomes
+    framework, not of the schema), and a submitter <code>contact</code> for accountability that is
+    <em>never</em> exported in the published projection and never rendered on a page. Every gate in
+    this repository accepts <code>--registry &lt;dir&gt;</code>, so the identical validation, build,
+    and intake run against a cohort kept outside the public repository. Doctrine:
+    <code>docs/SCHEMA-V1.md</code>.</p>
 
     <h2>3. Publication lifecycle</h2>
     <p><code>draft</code> — the record exists and validates; visible to no one.

@@ -69,7 +69,11 @@
     accompany every versioned release. The v0 schema structurally requires <code>sample: true</code>
     on every cohort and record — real data cannot validate against it, so the demonstration boundary
     is enforced by the validator, not by good intentions. Lifting that guard is a deliberate,
-    versioned schema change with its own release note and review.</p>
+    versioned schema change with its own release note and review — and that change now exists as
+    <strong>schema v1.0</strong>: the sample guard becomes an optional marking, and two rules take its
+    place (minimal at draft, complete at publication; fiscal facts public, stories gated). Publishing
+    v1.0 did not move this demonstration onto it; the cohort here remains v0, and every gate accepts
+    a <code>--registry</code> location so the identical rules run against data kept elsewhere.</p>
     <p>Release readiness checklist: schema and invariants green in CI · publication gate exercised
     (held records verified absent from pages and feeds) · provenance chain present on every page ·
     claims-and-boundaries notice present on every page and export · accessibility checks passed ·
