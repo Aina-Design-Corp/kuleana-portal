@@ -62,6 +62,8 @@ caption { text-align: left; font-size: .9rem; padding-bottom: .4rem; color: #4a5
 th, td { text-align: left; padding: .55rem .65rem; border-bottom: 1px solid var(--border); vertical-align: top; }
 th { background: var(--sand); color: var(--navy); }
 .table-scroll { overflow-x: auto; }
+.fiscal { display: block; max-width: 100%; height: auto; margin: .6rem 0 .2rem; background: var(--paper); }
+.fiscal text { font-family: inherit; font-size: 12px; fill: var(--ink); }
 .chips { margin: .4rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .45rem; }
 .chips li {
   background: var(--sand); border: 1px solid var(--border); border-radius: 999px;

@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kuleana.ainadesign.org/schemas/registry.v1.schema.json",
+  "title": "Green Fee Award Registry Manifest (v1.0 — program-data shape)",
+  "description": "One fiscal-year cohort of award registry records, production shape. v1.0 is the deliberate, versioned change v0 promised: the `sample: true` const guard becomes an optional boolean, and the TMK division digit widens from the fixed sample value 9 to the real county divisions 1–4. Two design rules replace the guard. (1) Minimal at draft, complete at publication: a record can enter the registry knowing only what an enacted budget line knows (project, agency, appropriation) and must earn island, program area, Act 96 alignment, summary, story, outcomes, and provenance before the publication gate releases it — the validator enforces that release bar. (2) Fiscal facts are public law: a cohort marked `fiscalPublic` may render appropriation and funding-status figures for every record, while project pages and stories remain gated. The registry still governs identity, cohort membership, publication eligibility, and route generation; it never replaces the State program record it points to.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "cohort", "updated", "records"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "cohort": { "type": "string", "pattern": "^FY[0-9]{4}$" },
+    "sample": {
+      "type": "boolean",
+      "description": "true marks a demonstration cohort. Omit or false for program data. In v0 this was a required const — removing that guard is exactly the versioned schema change v0 documented."
+    },
+    "updated": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "note": { "type": "string" },
+    "source": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Where the cohort's records came from — the enacted appropriation or administrative source (e.g. 'Attachment A, RFP 2026-001G: Act 250 SLH 2025 as amended by Act 175 SLH 2026, FY2027 legislative adjustments'). Cohort-level provenance; each record carries its own."
+    },
+    "fiscalPublic": {
+      "type": "boolean",
+      "description": "When true, appropriation and funding-status figures for every record in the cohort are public facts (they are enacted law) and may render in fiscal visuals regardless of publicationStatus. Project pages, stories, outcomes, and contacts remain behind the publication gate."
+    },
+    "records": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/record" }
+    }
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "slug", "project", "agency", "status", "publicationStatus", "award", "provenance"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^GF-[0-9]{4}-HI-[0-9]{3}$",
+          "description": "Immutable award identity. Never reissued, never renamed."
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Route identity: /projects/<slug>/. Stable once published."
+        },
+        "sample": { "type": "boolean" },
+        "project": { "type": "string", "minLength": 3 },
+        "organization": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Awardee or implementing organization. Optional at draft — an appropriation line names a program, not always an awardee."
+        },
+        "agency": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Administering department or agency, as the public reads it (e.g. DLNR, DBEDT, HI-EMA)."
+        },
+        "departmentCode": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$",
+          "description": "Budget department code from the appropriation worksheet (AGR, BED, BUF, LNR, TRN …)."
+        },
+        "programId": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}[0-9]{3}(/[A-Z]{2})?$",
+          "description": "Program ID from the appropriation worksheet (LNR407, BED170/KB). The fiscal join key back to the budget."
+        },
+        "island": {
+          "enum": ["Hawaiʻi", "Maui", "Molokaʻi", "Lānaʻi", "Kahoʻolawe", "Oʻahu", "Kauaʻi", "Niʻihau", "Statewide"],
+          "description": "Optional at draft (an appropriation line rarely says); required to publish."
+        },
+        "moku": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Stewardship context — the moku the project serves. Regional axis, never regulatory. Optional."
+        },
+        "programArea": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Program-area slug. v1 opens the v0 enum: the taxonomy is a product of the outcomes framework (Phase I), approved by the State, and maintained in the indicator dictionary — not hard-coded here. Required to publish."
+        },
+        "act96Alignment": {
+          "enum": ["resource-protection", "climate-resiliency", "regenerative-tourism"],
+          "description": "Act 96 purpose category. The authoritative mapping is program methodology decided by the State. Required to publish."
+        },
+        "status": {
+          "enum": ["planned", "active", "completed", "withdrawn"],
+          "description": "planned = appropriated, not yet under way."
+        },
+        "publicationStatus": {
+          "enum": ["draft", "validated", "published"],
+          "description": "Monotonic publication gate: draft → validated → published. Only `published` records build public pages or export in the published manifest. A human publishes, never an automated process."
+        },
+        "award": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["fiscalYear", "amountUsd"],
+          "properties": {
+            "fiscalYear": { "type": "string", "pattern": "^FY[0-9]{4}$" },
+            "amountUsd": { "type": "number", "minimum": 0 },
+            "meansOfFinancing": { "type": "string", "minLength": 3, "description": "e.g. Special Land and Development Fund." },
+            "nonRecurring": { "type": "boolean" },
+            "legislativeReference": { "type": "string", "minLength": 3, "description": "Act / session / worksheet reference for the appropriation." }
+          }
+        },
+        "funding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status"],
+          "description": "Funding-release status as reported by B&F — the basis of the fiscal transparency layer. Figures are public facts when the cohort is fiscalPublic.",
+          "properties": {
+            "status": { "enum": ["appropriated", "released", "encumbered", "expended", "lapsed"] },
+            "releasedUsd": { "type": "number", "minimum": 0 },
+            "expendedUsd": { "type": "number", "minimum": 0 },
+            "asOf": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+          }
+        },
+        "summary": { "type": "string", "minLength": 20, "description": "Required to publish." },
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tmk", "geoContext"],
+          "description": "Cadastral cross-reference (which parcel). Keys only; geometry, ownership, and taxation context stay with the county and State parcel layers. Optional at draft — geographic data is collected from project leads.",
+          "properties": {
+            "tmk": {
+              "type": ["array", "null"],
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "pattern": "^[1-4]-[1-9]-[1-9]-[0-9]{3}-[0-9]{3}(-[0-9]{4})?$"
+              },
+              "description": "Real TMKs: division 1 Oʻahu, 2 Maui County, 3 Hawaiʻi, 4 Kauaʻi — the v0 sample-only division 9 is no longer valid. null = non-parcel footprint; geoContext must then name it."
+            },
+            "geoContext": { "type": ["string", "null"], "minLength": 5 }
+          }
+        },
+        "story": { "type": "string", "minLength": 50, "description": "Awardee-voice narrative. Serves only when published." },
+        "outcomes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["metric", "value", "unit", "period", "sourceNote"],
+            "properties": {
+              "indicatorId": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+                "description": "Key into the indicator dictionary (registry/indicators.json) — definition, formula, unit, owner, baseline, target, frequency, validation rule, and public-display rule live there, once."
+              },
+              "metric": { "type": "string", "minLength": 3 },
+              "value": { "type": "number" },
+              "unit": { "type": "string", "minLength": 1 },
+              "period": { "type": "string", "minLength": 4 },
+              "sourceNote": { "type": "string", "minLength": 5 }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dashboardId": { "type": ["string", "null"] },
+            "storyMapId": { "type": ["string", "null"] },
+            "webMapId": { "type": ["string", "null"] }
+          },
+          "description": "State-owned ArcGIS destinations. The portal links to authority, it never replaces it."
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["programRecord", "authoritativeSource"],
+          "properties": {
+            "programRecord": { "type": "string", "minLength": 5 },
+            "authoritativeSource": { "type": "string", "minLength": 5 }
+          }
+        },
+        "contact": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "email"],
+          "description": "Submitter accountability — the project lead who reported the data (name and email are required on every submission per the State's Addendum A response). Required from `validated` onward. NEVER exported in the published manifest and NEVER rendered on a public page; the build strips it.",
+          "properties": {
+            "name": { "type": "string", "minLength": 2 },
+            "email": { "type": "string", "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$" }
+          }
+        }
+      }
+    }
+  }
+}

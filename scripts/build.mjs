@@ -15,6 +15,7 @@
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveRegistryDir } from './lib/registry-dir.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -24,11 +25,73 @@ const esc = (s) => String(s)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;');
 const usd = (n) => '$' + n.toLocaleString('en-US');
-const label = (slug) => slug.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
+const label = (slug) => (slug ?? 'unassigned').split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
+
+// --- fiscal visual -----------------------------------------------------------
+// The financial transparency layer in its first form: appropriated, released,
+// and expended funding by administering agency. Records shown: every record
+// when the cohort declares `fiscalPublic` (appropriations are enacted law),
+// otherwise only what the publication gate has released. Rendered as an
+// accessible SVG with the same figures in a table beneath it.
+function fiscalVisual(cohort) {
+  const recs = cohort.fiscalPublic
+    ? cohort.records
+    : cohort.records.filter((r) => r.publicationStatus === 'published');
+  if (!recs.length) return '';
+  const by = new Map();
+  for (const r of recs) {
+    const e = by.get(r.agency) ?? { appropriated: 0, released: 0, expended: 0, count: 0 };
+    e.appropriated += r.award.amountUsd;
+    e.released += r.funding?.releasedUsd ?? 0;
+    e.expended += r.funding?.expendedUsd ?? 0;
+    e.count += 1;
+    by.set(r.agency, e);
+  }
+  const rows = [...by.entries()].sort((a, b) => b[1].appropriated - a[1].appropriated);
+  const tot = { appropriated: 0, released: 0, expended: 0, count: 0 };
+  for (const [, e] of rows) for (const k of Object.keys(tot)) tot[k] += e[k];
+  const max = rows[0][1].appropriated || 1;
+  const W = 720, labelW = 170, valueW = 110, barW = W - labelW - valueW, rowH = 26, H = rows.length * rowH + 8;
+  const svgRows = rows.map(([agency, e], i) => {
+    const y = i * rowH;
+    const wA = Math.max(1, Math.round((e.appropriated / max) * barW));
+    const wR = Math.round((e.released / max) * barW);
+    const wX = Math.round((e.expended / max) * barW);
+    return `<text x="${labelW - 8}" y="${y + 17}" text-anchor="end">${esc(agency)}</text>
+<rect x="${labelW}" y="${y + 4}" width="${wA}" height="18" fill="#d5dde3"/>
+<rect x="${labelW}" y="${y + 4}" width="${wR}" height="18" fill="#1c5d8d"/>
+<rect x="${labelW}" y="${y + 4}" width="${wX}" height="18" fill="#14364f"/>
+<text x="${labelW + wA + 6}" y="${y + 17}">${usd(e.appropriated)}</text>`;
+  }).join('\n');
+  const tableRows = rows.map(([agency, e]) =>
+    `<tr><td>${esc(agency)}</td><td>${e.count}</td><td>${usd(e.appropriated)}</td><td>${usd(e.released)}</td><td>${usd(e.expended)}</td></tr>`
+  ).join('\n');
+  const scope = cohort.fiscalPublic
+    ? 'all appropriated projects — enacted budget figures are public facts'
+    : 'published projects only';
+  const id = `fiscal-${cohort.cohort}`;
+  return `<h2>Fiscal status — ${esc(cohort.cohort)}${cohort.sample ? ' <span class="sample-chip">Sample data</span>' : ''}</h2>
+<p>${tot.count} project(s) · ${usd(tot.appropriated)} appropriated · ${usd(tot.released)} released · ${usd(tot.expended)} expended
+— ${scope}, as of ${esc(cohort.updated)}. Light bar: appropriated; medium: released; dark: expended.</p>
+<div class="table-scroll">
+<svg class="fiscal" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-labelledby="${id}-title" aria-describedby="${id}-table">
+<title id="${id}-title">Appropriated, released, and expended Green Fee funding by administering agency, ${esc(cohort.cohort)}</title>
+${svgRows}
+</svg>
+<table id="${id}-table">
+<caption>The same figures as the chart, by administering agency.</caption>
+<thead><tr><th scope="col">Agency</th><th scope="col">Projects</th><th scope="col">Appropriated</th><th scope="col">Released</th><th scope="col">Expended</th></tr></thead>
+<tbody>
+${tableRows}
+<tr><th scope="row">Total</th><td>${tot.count}</td><td>${usd(tot.appropriated)}</td><td>${usd(tot.released)}</td><td>${usd(tot.expended)}</td></tr>
+</tbody>
+</table>
+</div>`;
+}
 
 // --- load cohorts ------------------------------------------------------------
 
-const registryDir = join(root, 'registry');
+const registryDir = resolveRegistryDir(root);
 const cohorts = readdirSync(registryDir)
   .filter((f) => /^FY\d{4}\.json$/.test(f))
   .map((f) => JSON.parse(readFileSync(join(registryDir, f), 'utf8')))
@@ -109,29 +172,37 @@ for (const cohort of cohorts) {
   const gated = cohort.records.length - published.length;
   publishedCount += published.length;
   gatedCount += gated;
+  // v0 cohorts are sample by schema; v1 cohorts say so explicitly. The
+  // "(sample)" markers on public pages follow the cohort, not a constant.
+  const isSample = cohort.sample === true;
+  const sm = isSample ? ' (sample)' : '';
+  const smFig = isSample ? ' (sample figure)' : '';
+  const smRef = isSample ? ' (sample reference)' : '';
 
-  // machine-readable projection: exactly what the gate releases
+  // machine-readable projection: exactly what the gate releases — minus the
+  // submitter contact, which is accountability data, never public data.
   writeFileSync(
     join(dist, 'registry', `${cohort.cohort}.published.json`),
     JSON.stringify({
       cohort: cohort.cohort,
-      sample: true,
+      schemaVersion: cohort.schemaVersion ?? '0',
+      sample: isSample,
       generated: cohort.updated,
-      note: 'Published-records projection of the award registry manifest. Records the publication gate holds back (draft/validated) are counted but never exported.',
+      note: 'Published-records projection of the award registry manifest. Records the publication gate holds back (draft/validated) are counted but never exported; submitter contacts are stripped from every record.',
       heldByGate: gated,
-      records: published,
+      records: published.map(({ contact, ...pub }) => pub),
     }, null, 2)
   );
 
   for (const r of published) {
     totalUsd += r.award.amountUsd;
-    mokuSet.add(r.moku);
-    islandSet.add(r.island);
+    if (r.moku) mokuSet.add(r.moku);
+    if (r.island) islandSet.add(r.island);
 
     directoryRows += `<tr>
-<td><a href="projects/${r.slug}/index.html">${esc(r.project)}</a><br><small>${esc(r.organization)}</small></td>
-<td>${esc(r.island)}</td>
-<td>${esc(r.moku)}</td>
+<td><a href="projects/${r.slug}/index.html">${esc(r.project)}</a><br><small>${esc(r.organization ?? r.agency)}</small></td>
+<td>${esc(r.island ?? '—')}</td>
+<td>${esc(r.moku ?? '—')}</td>
 <td>${esc(label(r.programArea))}</td>
 <td>${usd(r.award.amountUsd)}</td>
 </tr>\n`;
@@ -141,11 +212,14 @@ for (const cohort of cohorts) {
 <td>${esc(o.metric)}</td><td>${o.value.toLocaleString('en-US')} ${esc(o.unit)}</td>
 <td>${esc(o.period)}</td><td>${esc(o.sourceNote)}</td></tr>`).join('\n');
 
-    const tmkLine = r.location.tmk
-      ? `<p>TMK cross-reference (sample): ${r.location.tmk.map((t) => `<code>${esc(t)}</code>`).join(', ')} —
+    const loc = r.location ?? { tmk: null, geoContext: null };
+    const tmkLine = loc.tmk
+      ? `<p>TMK cross-reference${sm}: ${loc.tmk.map((t) => `<code>${esc(t)}</code>`).join(', ')} —
          parcel identity only; geometry and ownership context resolve against the county and State parcel
-         layers, never stored here.${r.location.geoContext ? ` ${esc(r.location.geoContext)}` : ''}</p>`
-      : `<p>No TMK — ${esc(r.location.geoContext)}</p>`;
+         layers, never stored here.${loc.geoContext ? ` ${esc(loc.geoContext)}` : ''}</p>`
+      : loc.geoContext
+        ? `<p>No TMK — ${esc(loc.geoContext)}</p>`
+        : '<p>Location not yet recorded.</p>';
 
     const arcgis = r.links.dashboardId
       ? `<p>State dashboard: <a href="#" rel="external">ArcGIS dashboard ${esc(r.links.dashboardId)}</a></p>`
@@ -154,29 +228,30 @@ for (const cohort of cohorts) {
          <em>portal page → ArcGIS dashboard</em>, with the geospatial platform remaining State-owned and authoritative.</p>`;
 
     const proj = page({
-      title: `${r.project} — Green Fee Transparency Portal (sample)`,
-      description: `Sample Green Fee project record ${r.id}: ${r.summary.slice(0, 140)}`,
+      title: `${r.project} — Green Fee Transparency Portal${sm}`,
+      description: `${isSample ? 'Sample ' : ''}Green Fee project record ${r.id}: ${r.summary.slice(0, 140)}`,
       depth: 2,
       body: {
         header: `<h1>${esc(r.project)}</h1>
 <p class="tagline">${esc(r.summary)}</p>
-<p class="meta">${esc(r.id)} · ${esc(r.organization)} · administering agency ${esc(r.agency)} (sample)</p>`,
+<p class="meta">${esc(r.id)}${r.organization ? ` · ${esc(r.organization)}` : ''} · administering agency ${esc(r.agency)}${r.programId ? ` · program ${esc(r.programId)}` : ''}${sm}</p>`,
         main: `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">All projects</a> → ${esc(r.project)}</nav>
 <ul class="chips">
-<li>Island: ${esc(r.island)}</li>
-<li>Moku: ${esc(r.moku)}</li>
+<li>Island: ${esc(r.island ?? '—')}</li>
+${r.moku ? `<li>Moku: ${esc(r.moku)}</li>` : ''}
 <li>${esc(label(r.programArea))}</li>
-<li>Act 96 alignment: ${esc(label(r.act96Alignment))} (sample)</li>
+<li>Act 96 alignment: ${esc(label(r.act96Alignment))}${sm}</li>
 <li>Status: ${esc(r.status)}</li>
 </ul>
 <h2>Award</h2>
-<p class="award">${usd(r.award.amountUsd)} <small>· ${esc(r.award.fiscalYear)} (sample figure)</small></p>
+<p class="award">${usd(r.award.amountUsd)} <small>· ${esc(r.award.fiscalYear)}${r.award.meansOfFinancing ? ` · ${esc(r.award.meansOfFinancing)}` : ''}${r.award.nonRecurring ? ' · non-recurring' : ''}${smFig}</small></p>
+${r.funding ? `<p>Funding status: ${esc(r.funding.status)}${r.funding.releasedUsd != null ? ` · ${usd(r.funding.releasedUsd)} released` : ''}${r.funding.expendedUsd != null ? ` · ${usd(r.funding.expendedUsd)} expended` : ''}${r.funding.asOf ? ` · as of ${esc(r.funding.asOf)}` : ''}</p>` : ''}
 <h2>Stewardship story</h2>
 <p>${esc(r.story)}</p>
 <h2>Reported outcomes</h2>
 <div class="table-scroll">
 <table>
-<caption>Steward-validated sample figures; published through the registry's human publication gate.</caption>
+<caption>${isSample ? 'Steward-validated sample figures' : 'Project-lead-reported figures, State-reviewed'}; published through the registry's human publication gate.</caption>
 <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Period</th><th scope="col">Source</th></tr></thead>
 <tbody>
 ${outcomes}
@@ -193,7 +268,7 @@ ${arcgis}
 <li>This public page (built from the registry, this commit)</li>
 <li>Published project record <code>${esc(r.id)}</code> (<a href="../../registry/${esc(r.award.fiscalYear)}.published.json">published manifest projection</a>)</li>
 <li>Award Registry Manifest <code>${esc(r.award.fiscalYear)}</code> (versioned in this repository)</li>
-<li>State program record <code>${esc(r.provenance.programRecord)}</code> (sample reference)</li>
+<li>State program record <code>${esc(r.provenance.programRecord)}</code>${smRef}</li>
 <li>${esc(r.provenance.authoritativeSource)}</li>
 </ol>
 </div>`,
@@ -202,6 +277,31 @@ ${arcgis}
     mkdirSync(join(dist, 'projects', r.slug), { recursive: true });
     writeFileSync(join(dist, 'projects', r.slug, 'index.html'), proj);
   }
+}
+
+// --- fiscal visual: index section + standalone embed ------------------------
+// The embed is the shape of the "preliminary online visual of fiscal data":
+// a self-contained page a host site can iframe or copy, no dependencies.
+const fiscalHtml = cohorts.map(fiscalVisual).filter(Boolean).join('\n');
+if (fiscalHtml) {
+  mkdirSync(join(dist, 'fiscal'), { recursive: true });
+  writeFileSync(join(dist, 'fiscal', 'embed.html'), `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Green Fee fiscal status</title>
+<link rel="stylesheet" href="../styles.css">
+<style>body{padding:1rem}.wrap{max-width:none;padding:0}</style>
+</head>
+<body>
+<main id="main"><div class="wrap">
+${fiscalHtml}
+<p><small>Generated from the award registry manifest, ${esc(VERSION)}. Figures are as reported to the registry; the State program record remains authoritative.</small></p>
+</div></main>
+</body>
+</html>
+`);
 }
 
 // --- index -------------------------------------------------------------------
@@ -223,6 +323,7 @@ State record. Visitors fund stewardship; this is the architecture that shows the
 <div class="tile"><span class="num">${islandSet.size}</span><span class="lbl">Islands</span></div>
 <div class="tile"><span class="num">${mokuSet.size}</span><span class="lbl">Moku served</span></div>
 </div>
+${fiscalHtml}
 <h2>Project directory</h2>
 <div class="table-scroll">
 <table>

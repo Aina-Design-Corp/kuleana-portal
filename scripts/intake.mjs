@@ -7,45 +7,61 @@
  * Turns a structured source file — .xlsx or .csv, the shapes award data
  * actually arrives in — into draft registry records. The transform is
  * deliberately dumb about trust: everything it emits is `publicationStatus:
- * "draft"`, everything it emits is `sample: true` (the v0 schema guard), and
- * it never touches a record that already exists. Intake proposes; the
- * validation gate judges; a human publishes.
+ * "draft"`, and it never touches a record that already exists. Intake
+ * proposes; the validation gate judges; a human publishes.
+ *
+ * Two registry shapes (see scripts/validate.mjs):
+ *   - v0 (demonstration): every emitted record is stamped `sample: true`,
+ *     the schema guard that keeps real data out of the demo.
+ *   - v1.0 (program data): minimal at draft — an appropriation worksheet
+ *     row (department, program ID, project, amount) is enough to enter the
+ *     registry; geography, program area, alignment, summary, and the
+ *     project-lead contact are earned before publication. Chosen by the
+ *     target cohort file's `schemaVersion`, or `--v1` when creating one.
  *
  * Dependency-free on purpose, like the validator: the .xlsx reader walks the
- * ZIP container and sheet XML with node built-ins only, so intake runs
- * anywhere with zero install. Legacy binary .xls and PDF sources are not
- * parsed here — they walk the assisted-extraction path (docs/INTAKE.md) into
+ * ZIP container and sheet XML with node built-ins only. Legacy binary .xls
+ * and PDF sources walk the assisted-extraction path (docs/INTAKE.md) into
  * this same column contract as CSV.
  *
  * Usage:
- *   node scripts/intake.mjs <source.xlsx|source.csv> [--write] [--json] [--cohort FY2026]
+ *   node scripts/intake.mjs <source.xlsx|source.csv> [--write] [--json]
+ *        [--cohort FY2027] [--v1] [--sample] [--fiscal-public]
+ *        [--source "<cohort provenance note>"] [--registry <dir>]
  *
- * Default is a dry run: prints the transform report and the records it would
- * add. --write merges them into registry/FY<year>.json (run `npm run
- * validate` after, or let CI do it). --json prints the generated records as
- * JSON on stdout (report moves to stderr) so two source formats can be
- * diffed for parity.
+ * Default is a dry run. --write merges into <registry>/FY<year>.json.
+ * --json prints the generated records as JSON on stdout (report to stderr).
+ * --v1 creates a new cohort in the v1.0 shape (ignored if the cohort file
+ * already exists — its own schemaVersion wins). --sample marks a new v1
+ * cohort as demonstration data. --fiscal-public marks a new v1 cohort's
+ * appropriation figures as public (enacted budget).
  *
  * Exit code 0 = transform clean (skips allowed); 1 = findings.
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { inflateRawSync } from 'node:zlib';
+import { resolveRegistryDir, withoutRegistryArgs } from './lib/registry-dir.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const schema = JSON.parse(readFileSync(join(root, 'schemas', 'registry.schema.json'), 'utf8'));
-const recordSchema = schema.$defs.record.properties;
-
-// Enums come from the schema, never restated here — the schema stays the
-// single source of truth for what the registry accepts.
-const ENUMS = {
-  island: recordSchema.island.enum,
-  programArea: recordSchema.programArea.enum,
-  act96Alignment: recordSchema.act96Alignment.enum,
-  status: recordSchema.status.enum,
+const SCHEMAS = {
+  v0: JSON.parse(readFileSync(join(root, 'schemas', 'registry.schema.json'), 'utf8')),
+  v1: JSON.parse(readFileSync(join(root, 'schemas', 'registry.v1.schema.json'), 'utf8')),
 };
+
+// Enums come from the schemas, never restated here.
+function enumsFor(mode) {
+  const p = SCHEMAS[mode].$defs.record.properties;
+  return {
+    island: p.island.enum,
+    programArea: p.programArea.enum ?? null, // v1: open slug, no enum
+    act96Alignment: p.act96Alignment.enum,
+    status: p.status.enum,
+    fundingStatus: p.funding?.properties.status.enum ?? null,
+  };
+}
 
 // --- text normalization ------------------------------------------------------
 
@@ -58,8 +74,6 @@ function slugify(s) {
     .replace(/^-+|-+$/g, '');
 }
 
-// Match a human-typed value ("Marine debris", "Molokai") against a schema
-// enum by comparing slugified forms — diacritics and case never block intake.
 function matchEnum(value, options) {
   const key = slugify(value);
   return options.find((o) => slugify(o) === key) ?? null;
@@ -100,7 +114,6 @@ function parseCsv(text) {
 // --- XLSX reader (ZIP container + sheet XML, node built-ins only) ------------
 
 function readZipEntries(buf) {
-  // End-of-central-directory record: scan back from the tail (max comment 64K).
   let eocd = -1;
   for (let i = buf.length - 22; i >= Math.max(0, buf.length - 22 - 65535); i--) {
     if (buf.readUInt32LE(i) === 0x06054b50) { eocd = i; break; }
@@ -118,12 +131,10 @@ function readZipEntries(buf) {
     const commentLen = buf.readUInt16LE(off + 32);
     const localOff = buf.readUInt32LE(off + 42);
     const name = buf.toString('utf8', off + 46, off + 46 + nameLen);
-    // Local header repeats name/extra lengths; data starts after them.
     const lNameLen = buf.readUInt16LE(localOff + 26);
     const lExtraLen = buf.readUInt16LE(localOff + 28);
     const dataStart = localOff + 30 + lNameLen + lExtraLen;
-    const raw = buf.subarray(dataStart, dataStart + compSize);
-    entries.set(name, { method, raw });
+    entries.set(name, { method, raw: buf.subarray(dataStart, dataStart + compSize) });
     off += 46 + nameLen + extraLen + commentLen;
   }
   return (name) => {
@@ -150,12 +161,8 @@ function parseXlsx(buf) {
   const shared = [...sharedXml.matchAll(/<si(?:\s[^>]*)?>([\s\S]*?)<\/si>/g)].map(([, si]) =>
     [...si.matchAll(/<t(?:\s[^>]*)?>([\s\S]*?)<\/t>/g)].map(([, t]) => decodeXml(t)).join('')
   );
-  const sheetName =
-    entry('xl/worksheets/sheet1.xml') != null
-      ? 'xl/worksheets/sheet1.xml'
-      : null;
-  if (!sheetName) throw new Error('no xl/worksheets/sheet1.xml in workbook');
-  const sheetXml = entry(sheetName);
+  const sheetXml = entry('xl/worksheets/sheet1.xml');
+  if (sheetXml == null) throw new Error('no xl/worksheets/sheet1.xml in workbook');
   const rows = [];
   for (const [, rowXml] of sheetXml.matchAll(/<row[^>]*>([\s\S]*?)<\/row>/g)) {
     const cells = [];
@@ -182,29 +189,48 @@ function parseXlsx(buf) {
 }
 
 // --- column contract ---------------------------------------------------------
-// Headers are matched loosely (case, spacing, punctuation ignored). The
-// canonical contract lives in docs/INTAKE.md; aliases cover the shapes a
-// program office is likely to send.
+// Headers are matched loosely (case, spacing, punctuation ignored). Canonical
+// contract in docs/INTAKE.md; aliases cover the shapes a program office —
+// or a legislative budget worksheet — is likely to send.
 
 const HEADER_MAP = {
-  project: ['project', 'projectname', 'projecttitle'],
+  project: ['project', 'projectname', 'projecttitle', 'title', 'detailoflegislativeadjustment'],
   organization: ['organization', 'awardee', 'organizationawardee', 'grantee'],
-  agency: ['agency', 'administeringagency'],
+  agency: ['agency', 'administeringagency', 'departmentname'],
+  departmentCode: ['dept', 'department', 'departmentcode', 'deptcode'],
+  programId: ['programid', 'programcode', 'progid', 'program'],
   island: ['island'],
   moku: ['moku'],
-  programArea: ['programarea', 'program'],
+  programArea: ['programarea', 'area'],
   act96Alignment: ['act96alignment', 'act96purpose', 'act96category', 'alignment'],
   status: ['status', 'projectstatus'],
   fiscalYear: ['fiscalyear', 'fy'],
-  amountUsd: ['awardamount', 'amount', 'amountusd', 'award'],
+  amountUsd: ['awardamount', 'amount', 'amountusd', 'award', 'appropriation', 'fy27', 'fy27amount'],
+  meansOfFinancing: ['meansoffinancing', 'mof', 'fund', 'fundsource', 'fundingsource'],
+  nonRecurring: ['nonrecurring', 'onetime'],
+  legislativeReference: ['legislativereference', 'legref', 'reference', 'act', 'worksheetrow'],
+  fundingStatus: ['fundingstatus', 'releasestatus', 'fundstatus'],
+  releasedUsd: ['released', 'releasedamount', 'amountreleased', 'allotted', 'allotment'],
+  expendedUsd: ['expended', 'expendedamount', 'spent', 'expenditures'],
+  fundingAsOf: ['asof', 'asofdate', 'fundingasof'],
   summary: ['summary', 'description', 'projectdescription'],
   tmk: ['tmk', 'tmks', 'taxmapkey', 'taxmapkeys'],
-  geoContext: ['geocontext', 'locationnote', 'geographiccontext', 'footprint'],
+  geoContext: ['geocontext', 'locationnote', 'geographiccontext', 'footprint', 'location'],
+  contactName: ['contactname', 'projectlead', 'projectleadname', 'lead', 'leadname'],
+  contactEmail: ['contactemail', 'email', 'leademail', 'projectleademail'],
   programRecord: ['programrecord'],
   authoritativeSource: ['authoritativesource', 'source', 'sourcerecord'],
 };
 
-function mapHeaders(headerRow, findings, warnings) {
+const V1_ONLY = new Set(['departmentCode', 'programId', 'meansOfFinancing', 'nonRecurring', 'legislativeReference',
+  'fundingStatus', 'releasedUsd', 'expendedUsd', 'fundingAsOf', 'contactName', 'contactEmail']);
+
+const REQUIRED = {
+  v0: ['project', 'organization', 'agency', 'island', 'moku', 'programArea', 'act96Alignment', 'amountUsd', 'summary'],
+  v1: ['project', 'amountUsd'], // + agency OR departmentCode, checked below
+};
+
+function mapHeaders(headerRow, mode, findings, warnings) {
   const fields = new Array(headerRow.length).fill(null);
   const seen = new Set();
   headerRow.forEach((h, i) => {
@@ -212,17 +238,22 @@ function mapHeaders(headerRow, findings, warnings) {
     if (!key) return;
     const field = Object.keys(HEADER_MAP).find((f) => HEADER_MAP[f].includes(key));
     if (!field) {
-      // Real exports carry columns the registry doesn't model (contacts,
-      // internal notes). Ignoring them is normal — but say so out loud.
       warnings.push(`header "${h}": no matching registry field — column ignored (see docs/INTAKE.md for the contract)`);
+      return;
+    }
+    if (mode === 'v0' && V1_ONLY.has(field)) {
+      warnings.push(`header "${h}": "${field}" is a v1 field — ignored for a v0 (demonstration) registry`);
       return;
     }
     if (seen.has(field)) findings.push(`header "${h}": duplicate mapping for "${field}"`);
     seen.add(field);
     fields[i] = field;
   });
-  for (const required of ['project', 'organization', 'agency', 'island', 'moku', 'programArea', 'act96Alignment', 'amountUsd', 'summary']) {
+  for (const required of REQUIRED[mode]) {
     if (!seen.has(required)) findings.push(`source is missing a column for required field "${required}"`);
+  }
+  if (mode === 'v1' && !seen.has('agency') && !seen.has('departmentCode')) {
+    findings.push('source is missing an agency or department column (v1 needs one to name the administering agency)');
   }
   return fields;
 }
@@ -238,24 +269,39 @@ function nextIdNumber(records, year) {
   return max;
 }
 
+const money = (s) => Number(String(s).replace(/[$,\s]/g, ''));
+const truthy = (s) => /^(y|yes|true|x|1|non-?recurring)$/i.test(String(s).trim());
+
 function toRecord(raw, ctx, at, findings) {
+  const { mode, enums } = ctx;
   const get = (f) => (raw[f] ?? '').toString().trim();
-  const record = {};
   const fail = (msg) => { findings.push(`${at}: ${msg}`); };
+  const r = {};
 
   const project = get('project');
   if (!project) return fail('no project name — row skipped');
 
-  const island = matchEnum(get('island'), ENUMS.island);
-  if (!island) fail(`island "${get('island')}" not one of [${ENUMS.island.join(', ')}]`);
-  const programArea = matchEnum(get('programArea'), ENUMS.programArea);
-  if (!programArea) fail(`program area "${get('programArea')}" not one of [${ENUMS.programArea.join(', ')}]`);
-  const act96 = matchEnum(get('act96Alignment'), ENUMS.act96Alignment);
-  if (!act96) fail(`Act 96 alignment "${get('act96Alignment')}" not one of [${ENUMS.act96Alignment.join(', ')}]`);
-  const status = get('status') ? matchEnum(get('status'), ENUMS.status) : 'active';
-  if (!status) fail(`status "${get('status')}" not one of [${ENUMS.status.join(', ')}]`);
+  // --- fields shared by both shapes (v0 requires them; v1 accepts them) ---
+  const islandRaw = get('island');
+  const island = islandRaw ? matchEnum(islandRaw, enums.island) : null;
+  if (islandRaw && !island) fail(`island "${islandRaw}" not one of [${enums.island.join(', ')}]`);
 
-  const amount = Number(get('amountUsd').replace(/[$,\s]/g, ''));
+  const areaRaw = get('programArea');
+  let programArea = null;
+  if (areaRaw) {
+    programArea = enums.programArea ? matchEnum(areaRaw, enums.programArea) : slugify(areaRaw);
+    if (!programArea) fail(`program area "${areaRaw}" not one of [${enums.programArea.join(', ')}]`);
+  }
+
+  const actRaw = get('act96Alignment');
+  const act96 = actRaw ? matchEnum(actRaw, enums.act96Alignment) : null;
+  if (actRaw && !act96) fail(`Act 96 alignment "${actRaw}" not one of [${enums.act96Alignment.join(', ')}]`);
+
+  const statusRaw = get('status');
+  const status = statusRaw ? matchEnum(statusRaw, enums.status) : (mode === 'v1' ? 'planned' : 'active');
+  if (!status) fail(`status "${statusRaw}" not one of [${enums.status.join(', ')}]`);
+
+  const amount = money(get('amountUsd'));
   if (!Number.isFinite(amount) || amount < 0) fail(`award amount "${get('amountUsd')}" is not a non-negative number`);
 
   const fyRaw = get('fiscalYear');
@@ -268,86 +314,128 @@ function toRecord(raw, ctx, at, findings) {
     ? null
     : tmkRaw.split(/[,;]\s*/).map((t) => t.trim()).filter(Boolean);
   const geoContext = get('geoContext') || null;
-  if (tmk === null && !geoContext) fail('no TMK and no geo context — a non-parcel footprint must be named');
+  const hasLocation = tmk !== null || geoContext !== null;
+  if (mode === 'v0' && tmk === null && !geoContext) fail('no TMK and no geo context — a non-parcel footprint must be named');
+  if (mode === 'v1' && hasLocation && tmk === null && !geoContext) fail('TMK column empty without a geo context — a non-parcel footprint must be named');
 
   const summary = get('summary');
-  if (summary.length < 20) fail('summary is missing or shorter than 20 characters');
+  if (mode === 'v0' && summary.length < 20) fail('summary is missing or shorter than 20 characters');
+  if (mode === 'v1' && summary && summary.length < 20) fail('summary present but shorter than 20 characters');
 
-  record.id = `GF-${ctx.year}-HI-${String(++ctx.idCounter).padStart(3, '0')}`;
-  record.slug = slugify(project);
-  record.sample = true; // v0 schema guard: intake can only ever propose sample records
-  record.project = project;
-  record.organization = get('organization');
-  record.agency = get('agency');
-  record.island = island;
-  record.moku = get('moku');
-  record.programArea = programArea;
-  record.act96Alignment = act96;
-  record.status = status;
-  record.publicationStatus = 'draft'; // intake proposes; a human publishes
-  record.award = { fiscalYear: ctx.cohort, amountUsd: amount };
-  record.summary = summary;
-  record.location = { tmk, geoContext };
-  record.outcomes = [];
-  record.links = { dashboardId: null, storyMapId: null, webMapId: null };
-  // Until a State program record is linked, provenance names the intake
-  // source itself — the chain must never have an empty link.
-  record.provenance = {
+  // --- assemble, in house order ---
+  r.id = `GF-${ctx.year}-HI-${String(++ctx.idCounter).padStart(3, '0')}`;
+  r.slug = slugify(project);
+  if (mode === 'v0' || ctx.sample) r.sample = true;
+  r.project = project;
+  if (mode === 'v0' || get('organization')) r.organization = get('organization');
+  r.agency = get('agency') || get('departmentCode');
+  if (mode === 'v1') {
+    const dept = get('departmentCode').toUpperCase();
+    if (dept) { if (/^[A-Z]{3}$/.test(dept)) r.departmentCode = dept; else fail(`department code "${dept}" is not three letters`); }
+    const pid = get('programId').toUpperCase().replace(/\s+/g, '');
+    if (pid) { if (/^[A-Z]{3}[0-9]{3}(\/[A-Z]{2})?$/.test(pid)) r.programId = pid; else fail(`program ID "${pid}" is not like LNR407 or BED170/KB`); }
+  }
+  if (mode === 'v0' || island) r.island = island;
+  if (mode === 'v0' || get('moku')) r.moku = get('moku');
+  if (mode === 'v0' || programArea) r.programArea = programArea;
+  if (mode === 'v0' || act96) r.act96Alignment = act96;
+  r.status = status;
+  r.publicationStatus = 'draft'; // intake proposes; a human publishes
+  r.award = { fiscalYear: ctx.cohort, amountUsd: amount };
+  if (mode === 'v1') {
+    if (get('meansOfFinancing')) r.award.meansOfFinancing = get('meansOfFinancing');
+    if (get('nonRecurring')) r.award.nonRecurring = truthy(get('nonRecurring'));
+    if (get('legislativeReference')) r.award.legislativeReference = get('legislativeReference');
+    const fsRaw = get('fundingStatus');
+    if (fsRaw || get('releasedUsd') || get('expendedUsd')) {
+      const fs = fsRaw ? matchEnum(fsRaw, enums.fundingStatus) : 'appropriated';
+      if (!fs) fail(`funding status "${fsRaw}" not one of [${enums.fundingStatus.join(', ')}]`);
+      r.funding = { status: fs ?? 'appropriated' };
+      if (get('releasedUsd')) r.funding.releasedUsd = money(get('releasedUsd'));
+      if (get('expendedUsd')) r.funding.expendedUsd = money(get('expendedUsd'));
+      if (get('fundingAsOf')) r.funding.asOf = get('fundingAsOf');
+    }
+  }
+  if (mode === 'v0' || summary) r.summary = summary;
+  if (mode === 'v0' || hasLocation) r.location = { tmk, geoContext };
+  r.outcomes = [];
+  r.links = { dashboardId: null, storyMapId: null, webMapId: null };
+  r.provenance = {
     programRecord: get('programRecord') || `${ctx.source} ${at} (intake source)`,
-    authoritativeSource: get('authoritativeSource') || `${ctx.source} (sample intake source; link the State program record before publication)`,
+    authoritativeSource: get('authoritativeSource') || `${ctx.source} (intake source; link the State program record before publication)`,
   };
-  return record;
+  if (mode === 'v1' && (get('contactName') || get('contactEmail'))) {
+    if (!get('contactName') || !get('contactEmail')) fail('contact needs both a name and an email');
+    else r.contact = { name: get('contactName'), email: get('contactEmail') };
+  }
+  return r;
 }
 
-// House-style serializer: the registry file is hand-formatted (inline award,
-// inline TMK arrays, expanded provenance) so its diffs read record-by-record.
-// Intake appends in the same style — a merge must never reformat the records
-// a human already reviewed.
+// --- house-style serializer -------------------------------------------------
+// The registry file is hand-formatted (inline award, inline TMK arrays,
+// expanded provenance) so diffs read record-by-record. Intake appends in the
+// same style and never reformats records a human already reviewed.
+
 function serializeRecord(r) {
   const s = JSON.stringify;
-  return [
-    '    {',
-    `      "id": ${s(r.id)},`,
-    `      "slug": ${s(r.slug)},`,
-    '      "sample": true,',
-    `      "project": ${s(r.project)},`,
-    `      "organization": ${s(r.organization)},`,
-    `      "agency": ${s(r.agency)},`,
-    `      "island": ${s(r.island)},`,
-    `      "moku": ${s(r.moku)},`,
-    `      "programArea": ${s(r.programArea)},`,
-    `      "act96Alignment": ${s(r.act96Alignment)},`,
-    `      "status": ${s(r.status)},`,
-    `      "publicationStatus": ${s(r.publicationStatus)},`,
-    `      "award": { "fiscalYear": ${s(r.award.fiscalYear)}, "amountUsd": ${r.award.amountUsd} },`,
-    `      "summary": ${s(r.summary)},`,
-    '      "location": {',
-    `        "tmk": ${r.location.tmk === null ? 'null' : `[${r.location.tmk.map((t) => s(t)).join(', ')}]`},`,
-    `        "geoContext": ${s(r.location.geoContext)}`,
-    '      },',
-    '      "outcomes": [],',
-    '      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },',
-    '      "provenance": {',
-    `        "programRecord": ${s(r.provenance.programRecord)},`,
-    `        "authoritativeSource": ${s(r.provenance.authoritativeSource)}`,
-    '      }',
-    '    }',
-  ].join('\n');
+  const L = ['    {'];
+  const line = (k, v) => L.push(`      ${s(k)}: ${v},`);
+  const inlineObj = (o) => `{ ${Object.entries(o).map(([k, v]) => `${s(k)}: ${s(v)}`).join(', ')} }`;
+  line('id', s(r.id));
+  line('slug', s(r.slug));
+  if (r.sample) line('sample', 'true');
+  line('project', s(r.project));
+  if (r.organization != null) line('organization', s(r.organization));
+  line('agency', s(r.agency));
+  if (r.departmentCode) line('departmentCode', s(r.departmentCode));
+  if (r.programId) line('programId', s(r.programId));
+  if (r.island != null) line('island', s(r.island));
+  if (r.moku != null) line('moku', s(r.moku));
+  if (r.programArea != null) line('programArea', s(r.programArea));
+  if (r.act96Alignment != null) line('act96Alignment', s(r.act96Alignment));
+  line('status', s(r.status));
+  line('publicationStatus', s(r.publicationStatus));
+  line('award', inlineObj(r.award));
+  if (r.funding) line('funding', inlineObj(r.funding));
+  if (r.summary != null) line('summary', s(r.summary));
+  if (r.location) {
+    L.push('      "location": {');
+    L.push(`        "tmk": ${r.location.tmk === null ? 'null' : `[${r.location.tmk.map((t) => s(t)).join(', ')}]`},`);
+    L.push(`        "geoContext": ${s(r.location.geoContext)}`);
+    L.push('      },');
+  }
+  line('outcomes', '[]');
+  line('links', '{ "dashboardId": null, "storyMapId": null, "webMapId": null }');
+  L.push('      "provenance": {');
+  L.push(`        "programRecord": ${s(r.provenance.programRecord)},`);
+  L.push(`        "authoritativeSource": ${s(r.provenance.authoritativeSource)}`);
+  L.push(r.contact ? '      },' : '      }');
+  if (r.contact) L.push(`      "contact": ${inlineObj(r.contact)}`);
+  L.push('    }');
+  return L.join('\n');
 }
 
 // --- run ---------------------------------------------------------------------
 
-const argv = process.argv.slice(2);
+const registryDir = resolveRegistryDir(root);
+const argv = withoutRegistryArgs(process.argv.slice(2));
 const flags = new Set(argv.filter((a) => a.startsWith('--')));
+const valueOf = (name) => {
+  const eq = argv.find((a) => a.startsWith(`${name}=`));
+  if (eq) return eq.slice(name.length + 1);
+  const i = argv.indexOf(name);
+  return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : null;
+};
 const write = flags.has('--write');
 const asJson = flags.has('--json');
-const cohortFlag = /^--cohort=(FY\d{4})$/.exec(argv.find((a) => a.startsWith('--cohort=')) ?? '')?.[1]
-  ?? (argv[argv.indexOf('--cohort') + 1] && argv.includes('--cohort') ? argv[argv.indexOf('--cohort') + 1] : null);
-const sourcePath = argv.find((a) => !a.startsWith('--') && a !== cohortFlag);
+const cohortFlag = valueOf('--cohort');
+const sourceFlag = valueOf('--source');
+const consumed = new Set([cohortFlag, sourceFlag].filter(Boolean));
+const sourcePath = argv.find((a) => !a.startsWith('--') && !consumed.has(a));
 const out = asJson ? console.error : console.log;
 
 if (!sourcePath) {
-  console.error('usage: node scripts/intake.mjs <source.xlsx|source.csv> [--write] [--json] [--cohort FY2026]');
+  console.error('usage: node scripts/intake.mjs <source.xlsx|source.csv> [--write] [--json] [--cohort FY2027] [--v1] [--sample] [--fiscal-public] [--source "note"] [--registry <dir>]');
   process.exit(1);
 }
 
@@ -365,14 +453,11 @@ try {
   console.error(`INTAKE  ${source}: ${e.message}`);
   process.exit(1);
 }
-
 if (rows.length < 2) findings.push('source has no data rows under the header row');
-const fields = rows.length ? mapHeaders(rows[0], findings, warnings) : [];
-for (const w of warnings) out(`NOTE    ${source}: ${w}`);
 
-// Cohort: --cohort flag, else FYxxxx in the source filename, else the file's
-// own Fiscal Year column (first data row).
-const fyColumn = fields.indexOf('fiscalYear');
+// Cohort: --cohort flag, else FYxxxx in the filename, else the Fiscal Year column.
+const headerKeys = rows.length ? rows[0].map((h) => slugify(String(h)).replace(/-/g, '')) : [];
+const fyColumn = headerKeys.findIndex((k) => HEADER_MAP.fiscalYear.includes(k));
 const cohort =
   cohortFlag ??
   /FY\d{4}/.exec(source)?.[0] ??
@@ -381,6 +466,16 @@ if (!cohort || !/^FY\d{4}$/.test(cohort)) {
   findings.push('cannot determine cohort — pass --cohort FYxxxx, or put FYxxxx in the filename or a Fiscal Year column');
 }
 
+// Registry shape: an existing cohort file decides; a new one follows --v1.
+const cohortPath = cohort ? join(registryDir, `${cohort}.json`) : null;
+const existing = cohortPath && existsSync(cohortPath) ? JSON.parse(readFileSync(cohortPath, 'utf8')) : null;
+const mode = existing ? (existing.schemaVersion ? 'v1' : 'v0') : (flags.has('--v1') ? 'v1' : 'v0');
+if (existing && flags.has('--v1') && mode === 'v0') warnings.push(`${cohort}.json is a v0 (demonstration) cohort — --v1 ignored; its own shape wins`);
+if (existing && existing.schemaVersion && existing.schemaVersion !== '1.0') findings.push(`${cohort}.json has unknown schemaVersion ${JSON.stringify(existing.schemaVersion)}`);
+
+const fields = rows.length ? mapHeaders(rows[0], mode, findings, warnings) : [];
+for (const w of warnings) out(`NOTE    ${source}: ${w}`);
+
 if (findings.length) {
   for (const f of findings) console.error(`INTAKE  ${source}: ${f}`);
   console.error(`\n${findings.length} finding(s) — intake rejected, nothing written.`);
@@ -388,19 +483,25 @@ if (findings.length) {
 }
 
 const year = cohort.slice(2);
-const cohortPath = join(root, 'registry', `${cohort}.json`);
-const cohortDoc = existsSync(cohortPath)
-  ? JSON.parse(readFileSync(cohortPath, 'utf8'))
-  : {
-      cohort,
-      sample: true,
-      updated: new Date().toISOString().slice(0, 10),
-      note: `Cohort file created by intake from ${source}. Every record is a sample (v0 schema guard); intake emits drafts only — a human publishes, never an automated process.`,
-      records: [],
-    };
+const cohortDoc = existing ?? {
+  ...(mode === 'v1' ? { schemaVersion: '1.0' } : {}),
+  cohort,
+  ...(mode === 'v0' || flags.has('--sample') ? { sample: true } : {}),
+  updated: new Date().toISOString().slice(0, 10),
+  ...(mode === 'v1' ? { source: sourceFlag ?? `Intake from ${source}` } : {}),
+  ...(mode === 'v1' && flags.has('--fiscal-public') ? { fiscalPublic: true } : {}),
+  note: mode === 'v1'
+    ? `Cohort file created by intake from ${source}. Records enter minimal (appropriation shape) and earn geography, program area, alignment, summary, story, outcomes, and a project-lead contact before the publication gate releases them. Intake emits drafts only — a human publishes, never an automated process.`
+    : `Cohort file created by intake from ${source}. Every record is a sample (v0 schema guard); intake emits drafts only — a human publishes, never an automated process.`,
+  records: [],
+};
 
 const existingSlugs = new Set(cohortDoc.records.map((r) => r.slug));
-const ctx = { cohort, year, source, idCounter: nextIdNumber(cohortDoc.records, year) };
+const ctx = {
+  mode, enums: enumsFor(mode), cohort, year, source,
+  sample: mode === 'v1' && (cohortDoc.sample === true || flags.has('--sample')),
+  idCounter: nextIdNumber(cohortDoc.records, year),
+};
 const added = [], skipped = [];
 
 for (let i = 1; i < rows.length; i++) {
@@ -409,8 +510,7 @@ for (let i = 1; i < rows.length; i++) {
   const at = `row ${i + 1}`;
   const slug = slugify((raw.project ?? '').toString().trim());
   if (slug && existingSlugs.has(slug)) {
-    // Identity is immutable: intake never updates an existing record. Edits
-    // to a known project happen in the registry file, in a reviewed diff.
+    // Identity is immutable: intake never updates an existing record.
     skipped.push(`${at}: "${slug}" already in ${cohort}.json — intake never overwrites`);
     continue;
   }
@@ -430,7 +530,7 @@ if (findings.length) {
   process.exit(1);
 }
 
-out(`intake: ${source} → ${cohort} — ${added.length} draft record(s), ${skipped.length} skipped`);
+out(`intake: ${source} → ${cohort} (${mode === 'v1' ? 'v1.0' : 'v0'}) — ${added.length} draft record(s), ${skipped.length} skipped`);
 for (const s of skipped) out(`  skip  ${s}`);
 for (const r of added) out(`  draft ${r.id}  ${r.slug}  $${r.award.amountUsd.toLocaleString('en-US')}`);
 
@@ -440,31 +540,25 @@ if (write && added.length) {
   const today = new Date().toISOString().slice(0, 10);
   const serialized = added.map(serializeRecord).join(',\n');
   let text;
-  if (existsSync(cohortPath)) {
+  if (existing) {
     text = readFileSync(cohortPath, 'utf8')
       .replace(/^(\s*"updated":\s*)"[0-9-]+"/m, `$1"${today}"`);
     const close = text.lastIndexOf('\n  ]\n}');
     if (close < 0) {
-      console.error(`INTAKE  registry/${cohort}.json: cannot find the records array close — file not in registry house format, nothing written`);
+      console.error(`INTAKE  ${cohort}.json: cannot find the records array close — file not in registry house format, nothing written`);
       process.exit(1);
     }
-    text = `${text.slice(0, close)},\n${serialized}${text.slice(close)}`;
+    const emptyArray = /"records":\s*\[\s*\n\s*\]\s*\n}\s*$/.test(text);
+    text = `${text.slice(0, close)}${emptyArray ? '\n' : ',\n'}${serialized}${text.slice(close)}`;
   } else {
-    text = [
-      '{',
-      `  "cohort": ${JSON.stringify(cohort)},`,
-      '  "sample": true,',
-      `  "updated": "${today}",`,
-      `  "note": ${JSON.stringify(cohortDoc.note)},`,
-      '  "records": [',
-      serialized,
-      '  ]',
-      '}',
-      '',
-    ].join('\n');
+    const head = Object.entries(cohortDoc)
+      .filter(([k]) => k !== 'records')
+      .map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`);
+    text = ['{', ...head, '  "records": [', serialized, '  ]', '}', ''].join('\n');
   }
+  mkdirSync(registryDir, { recursive: true });
   writeFileSync(cohortPath, text);
-  out(`wrote registry/${cohort}.json — run \`npm run validate\` (CI will, either way)`);
+  out(`wrote ${cohortPath} — run \`npm run validate\`${registryDir === join(root, 'registry') ? '' : ` -- --registry ${registryDir}`} (CI will, either way)`);
 } else if (!write) {
   out('dry run — pass --write to merge into the registry');
 }

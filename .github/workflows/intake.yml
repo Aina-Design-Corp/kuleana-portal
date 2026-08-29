@@ -48,10 +48,14 @@ jobs:
           sed -i 's/FY2026-attachment-a\.csv/SOURCE/g'  /tmp/from-csv.json
           sed -i 's/FY2026-attachment-a\.xlsx/SOURCE/g' /tmp/from-xlsx.json
           diff /tmp/from-csv.json /tmp/from-xlsx.json
+          # v1 shape: an appropriation-worksheet-style source creates a v1.0
+          # cohort in a scratch registry and must validate clean.
+          node scripts/intake.mjs intake/samples/FY2027-appropriations.csv --v1 --sample --fiscal-public --write --registry /tmp/v1-registry
+          node scripts/validate.mjs --registry /tmp/v1-registry
           {
             echo "### ✅ Intake parity"
             echo
-            echo "Both sample sources (.csv and .xlsx) transform to identical draft records."
+            echo "Both sample sources (.csv and .xlsx) transform to identical draft records; the v1 appropriation-shaped sample creates a cohort that validates clean."
           } >> "$GITHUB_STEP_SUMMARY"
 
   # On a working-branch push that adds or changes intake sources, run the

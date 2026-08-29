@@ -103,6 +103,33 @@ the whole source (nothing partial is ever written). Enum values that don't
 match are findings with the allowed list spelled out — the same
 plain-language voice as the validator.
 
+## v1 sources: the appropriation-worksheet shape
+
+A cohort on schema v1.0 (`docs/SCHEMA-V1.md`) accepts a far thinner source —
+an appropriation line is enough to enter the registry as a draft. Required
+in v1: **Project** and **Amount**, plus **Agency** or **Dept**. Additional
+v1 columns (all optional; ignored with a note on a v0 registry):
+
+| Column | Registry field | Notes |
+|---|---|---|
+| Dept (Department Code) | `departmentCode` | three letters: AGR, BED, LNR, TRN … |
+| Program ID (Program Code) | `programId` | LNR407, BED170/KB |
+| Means of Financing (MOF, Fund) | `award.meansOfFinancing` | |
+| Non-recurring | `award.nonRecurring` | yes / true / x |
+| Worksheet Row (Legislative Reference, Act) | `award.legislativeReference` | |
+| Funding Status (Release Status) | `funding.status` | appropriated · released · encumbered · expended · lapsed |
+| Released (Allotted) / Expended (Spent) / As Of | `funding.*` | `$` and commas accepted |
+| Project Lead (Contact Name) + Email | `contact` | both or neither; required from `validated` onward; never exported |
+
+Create a v1 cohort with `--v1` (add `--sample` for demonstration data,
+`--fiscal-public` when the figures are enacted budget), and point every
+gate at a registry outside this repository with `--registry <dir>`:
+
+```bash
+node scripts/intake.mjs worksheet.xlsx --v1 --fiscal-public --write --registry ../private-registry
+node scripts/validate.mjs --registry ../private-registry
+```
+
 ## PDF and legacy .xls sources: the assisted-extraction path
 
 `intake.mjs` deliberately does not parse PDFs or binary `.xls`. Table
