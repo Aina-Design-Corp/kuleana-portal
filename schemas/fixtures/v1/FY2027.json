@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "cohort": "FY2027",
+  "sample": true,
+  "updated": "2026-08-28",
+  "source": "Fixture in the shape of a legislative appropriation worksheet (department, program ID, project title, FY27 amount, non-recurring). Fictional records for validator and build testing — no real award is represented.",
+  "fiscalPublic": true,
+  "note": "v1 fixture: three records at three gate states. Record 001 is a bare appropriation line (draft — minimal shape). Record 002 has been reported by a project lead (validated — carries a contact, never exported). Record 003 is fully published (release bar met). Exercises: optional geography, open program-area slugs, real TMK divisions, funding invariants, contact stripping.",
+  "records": [
+    {
+      "id": "GF-2027-HI-001",
+      "slug": "hazardous-tree-assessment-removal",
+      "project": "Hazardous Tree Assessment & Removal",
+      "agency": "DLNR",
+      "departmentCode": "LNR",
+      "programId": "LNR172",
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 175000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Fixture worksheet row 1" },
+      "funding": { "status": "appropriated" },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Fixture worksheet row 1 (intake source)",
+        "authoritativeSource": "Fixture appropriation worksheet (link the State program record before publication)"
+      }
+    },
+    {
+      "id": "GF-2027-HI-002",
+      "slug": "kauai-coral-restoration-program",
+      "project": "Kauaʻi Coral Restoration Program",
+      "organization": "Organization 5",
+      "agency": "DLNR-DAR",
+      "departmentCode": "LNR",
+      "programId": "LNR401",
+      "island": "Kauaʻi",
+      "moku": "Haleleʻa",
+      "programArea": "coral-reef-stewardship",
+      "act96Alignment": "resource-protection",
+      "status": "active",
+      "publicationStatus": "validated",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true },
+      "funding": { "status": "released", "releasedUsd": 250000, "expendedUsd": 60000, "asOf": "2026-08-15" },
+      "summary": "Nursery-grown coral fragments outplanted onto degraded reef flats, with community monitoring of survival and cover.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Nearshore reef flats fronting the north-shore reserve; marine waters, no parcel identity."
+      },
+      "outcomes": [
+        { "indicatorId": "coral-fragments-outplanted", "metric": "Coral fragments outplanted", "value": 1200, "unit": "fragments", "period": "2026-Q3", "sourceNote": "project lead report, fixture figure" }
+      ],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "FIXTURE-DAR-2027-0042",
+        "authoritativeSource": "State program administration record (fixture reference)"
+      },
+      "contact": { "name": "Fixture Lead", "email": "fixture.lead@example.org" }
+    },
+    {
+      "id": "GF-2027-HI-003",
+      "slug": "wailupe-stream-flood-mitigation",
+      "project": "Wailupe Stream Flood Mitigation",
+      "organization": "Company D",
+      "agency": "DLNR-DOFAW",
+      "departmentCode": "LNR",
+      "programId": "LNR407",
+      "island": "Oʻahu",
+      "moku": "Kona",
+      "programArea": "watershed-restoration",
+      "act96Alignment": "climate-resiliency",
+      "status": "active",
+      "publicationStatus": "published",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true },
+      "funding": { "status": "released", "releasedUsd": 500000, "expendedUsd": 180000, "asOf": "2026-08-15" },
+      "summary": "Debris-basin maintenance and riparian planting along the lower stream reach to reduce flood peaks reaching the valley neighborhoods below.",
+      "location": {
+        "tmk": ["1-3-6-012-001", "1-3-6-012-002"],
+        "geoContext": "Lower stream corridor across two State parcels; the working footprint follows the channel."
+      },
+      "story": "Two seasons of debris-basin clearing and native riparian planting have lowered the flood peaks that used to reach the neighborhood below after every heavy rain. Volunteers from the valley join monthly workdays, and every planting is logged before the crew leaves the site. Fixture narrative for build testing.",
+      "outcomes": [
+        { "indicatorId": "riparian-linear-feet-restored", "metric": "Riparian corridor restored", "value": 1800, "unit": "linear feet", "period": "2026-Q3", "sourceNote": "project lead report, fixture figure" },
+        { "indicatorId": "volunteer-participants", "metric": "Volunteer participants", "value": 140, "unit": "people", "period": "FY2027 to date", "sourceNote": "project lead report, fixture figure" }
+      ],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "FIXTURE-DOFAW-2027-0117",
+        "authoritativeSource": "State program administration record (fixture reference)"
+      },
+      "contact": { "name": "Fixture Lead Two", "email": "fixture.lead2@example.org" }
+    }
+  ]
+}

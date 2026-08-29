@@ -37,7 +37,7 @@ jobs:
       - name: Validate registry (schema + invariants)
         run: |
           set +e
-          output=$(node scripts/validate.mjs 2>&1)
+          output=$(node scripts/validate.mjs 2>&1 && node scripts/validate.mjs --registry schemas/fixtures/v1 2>&1)
           status=$?
           set -e
           echo "$output"

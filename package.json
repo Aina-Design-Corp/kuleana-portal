@@ -6,7 +6,7 @@
   "description": "Green Fee transparency portal — registry-driven publication architecture proof of concept. Zero runtime dependencies by design.",
   "scripts": {
     "intake": "node scripts/intake.mjs",
-    "validate": "node scripts/validate.mjs",
+    "validate": "node scripts/validate.mjs && node scripts/validate.mjs --registry schemas/fixtures/v1",
     "build": "npm run validate && node scripts/build.mjs",
     "serve": "npx serve dist"
   }

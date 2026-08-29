@@ -48,7 +48,10 @@ record → authoritative source. Every public claim must walk that chain.
 ## Claims and boundaries
 
 - All registry records here are **fictional samples** for architecture
-  demonstration. No real award, awardee, or program data appears.
+  demonstration. No real award, awardee, or program data appears. The
+  public cohort validates against schema **v0**, whose sample guard makes
+  real data unable to validate; schema **v1.0** (the production shape) is
+  published here as a reviewed artifact and exercised only by fixtures.
 - No government adoption, endorsement, partnership, or deployment is claimed
   or implied.
 - No physical signage, corridor, or field deployment is claimed.
@@ -83,6 +86,14 @@ itself (job summary in plain language, per-file annotations).
   `sample: true` — real data cannot validate), dependency-free
   validate/build, Actions pipeline, portal (overview + directory + project
   pages + published-manifest projection at `registry/FY2026.published.json`).
+- **Schema v1.0 — SHIPPED 2026-08-29** — the versioned change v0 promised:
+  the program-data shape (`schemas/registry.v1.schema.json`) — sample guard
+  becomes optional, real TMK divisions, budget join keys, funding-release
+  status, submitter contact (never exported), *minimal at draft, complete at
+  publication* enforced by the validator; fiscal visual (index section +
+  `fiscal/embed.html`); `--registry <dir>` on every script so the identical
+  gates run against a cohort kept outside this repo; CI fixture. The public
+  demonstration cohort stays on v0. Doctrine: `docs/SCHEMA-V1.md`.
 - **Intake pipeline — SHIPPED 2026-08-24** — source-agnostic intake:
   dependency-free `.xlsx`/`.csv` transform to draft records
   (`scripts/intake.mjs`), branch-drop workflow
@@ -99,8 +110,8 @@ itself (job summary in plain language, per-file annotations).
 
 ```
 intake/      Drop zone for award data sources (.xlsx/.csv → draft records)
-registry/    Award Registry Manifest (FY cohort JSON — sample data)
-schemas/     JSON Schemas the registry validates against
+registry/    Award Registry Manifest (FY cohort JSON — sample data, schema v0)
+schemas/     JSON Schemas: v0 (demonstration guard) and v1.0 (program-data shape) + CI fixtures
 site/        Static portal source (built to GitHub Pages)
 docs/        Toolkit documents, release notes, intake doctrine (INTAKE.md)
 .github/     Actions: intake → validate → build → publish
