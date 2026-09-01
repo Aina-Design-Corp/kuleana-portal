@@ -351,6 +351,10 @@ print-ready (print to PDF from your browser); editable sources live in the repos
 <p>Record anatomy, the publication lifecycle, outcome metric definition rules, data-quality controls, and the provenance chain.</p></div>
 <div class="card"><h3><a href="docs/03-responsible-use-public-access.html">3 · Responsible Use &amp; Public Access</a></h3>
 <p>Human-review controls, permitted and prohibited uses, information boundaries, versioning, release readiness, and accessibility.</p></div>
+<div class="card"><h3><a href="docs/04-direct-entry-demonstration.html">4 · Direct-Entry Form (live demonstration)</a></h3>
+<p>The no-license reporting companion: a plain web form carrying the registry's own field names, validation, and domains,
+built to write to a hosted ArcGIS feature layer through the REST API — shown here in demonstration mode against the
+sample cohort, displaying the exact calls it would send instead of sending them.</p></div>
 </div>
 <h2>How this portal works</h2>
 <p>Source intake → registry update → schema validation → manifest build → site build → publication. Award data
