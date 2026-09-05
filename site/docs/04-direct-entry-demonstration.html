@@ -69,7 +69,10 @@ pre { background:#0f1b24; color:#dce8f0; padding:1rem; border-radius:8px;
 <div class="notice" id="mode-note"><span class="mode-chip">Demonstration mode</span>
   No feature service is configured, so submitting shows the exact REST calls
   this page would make. Set <code>CONFIG.featureServiceUrl</code> to the
-  hosted feature layer and the same entry submits live.</div>
+  hosted feature layer and the same entry submits live. In deployment this
+  page sits behind maintainer sign-in and opens already bound to the
+  maintainer's project (try <code>?project=GF-2026-HI-001</code>); the
+  public demonstration stays public, with fictional data only.</div>
 
 <form id="report" novalidate>
 
@@ -172,6 +175,19 @@ pre { background:#0f1b24; color:#dce8f0; padding:1rem; border-radius:8px;
   <button type="button" class="btn-ghost" id="add-outcome">+ Add a measure</button>
 </fieldset>
 
+<fieldset><legend>What the project intends next (optional, public when approved)</legend>
+  <p class="hint">In your own words, shown on the project's timeline as a
+  dated intention marker. Revising an intention later is normal — the form
+  will ask what changed, and a change explained is never a mark against the
+  project. (Proposed schema v1.1 fields, demonstrating the framework's
+  intention timeline.)</p>
+  <label for="intent">Intended action</label>
+  <textarea id="intent" name="intent"></textarea>
+  <label for="intent_by">Roughly when</label>
+  <p class="hint" id="intent-by-hint">e.g. by June 2027, next dry season</p>
+  <input type="text" id="intent_by" name="intent_by" aria-describedby="intent-by-hint">
+</fieldset>
+
 <fieldset><legend>Story and community context (optional, public when approved)</legend>
   <label for="story">What changed, in your words</label>
   <p class="hint">At least 50 characters if provided.</p>
@@ -213,13 +229,44 @@ pre { background:#0f1b24; color:#dce8f0; padding:1rem; border-radius:8px;
    featureServiceUrl: the hosted feature layer created by publishing Form 1
    (…/rest/services/<name>/FeatureServer). Layer 0 is the report; the
    Survey123 repeat table holds outcomes (set its layer index below).
-   token: leave empty for a public-editable submission view, or supply a
-   referrer-locked API key / OAuth token per the State AGOL org's policy. */
-const CONFIG = { featureServiceUrl: "", outcomesLayerId: 1, token: "" };
+   token: leave empty for a public-editable submission view. Never bake a
+   long-lived key into this file — any visitor can read it in view-source.
+   In a wrapped deployment the middleware injects window.GF_CONFIG (a
+   script tag set before this one) carrying a short-lived token exchanged
+   from the maintainer's session, the project binding, and the contact
+   prefill; the page itself is identical in demo and wrapped modes. */
+const CONFIG = Object.assign(
+  { featureServiceUrl: "", outcomesLayerId: 1, token: "",
+    projectId: "", contactName: "", contactEmail: "" },
+  window.GF_CONFIG || {});
 
 const INDICATORS = {"acres-treated": {"label": "Acres treated / restored", "unit": "acres"}, "native-plants-outplanted": {"label": "Native plants outplanted", "unit": "plants"}, "linear-feet-restored": {"label": "Stream / shoreline restored", "unit": "linear feet"}, "structures-hardened": {"label": "Structures hardened / retrofitted", "unit": "structures"}, "people-trained": {"label": "People trained", "unit": "people"}, "volunteer-participants": {"label": "Volunteer participants", "unit": "people"}, "debris-removed": {"label": "Debris removed", "unit": "pounds"}, "coral-fragments-outplanted": {"label": "Coral fragments outplanted", "unit": "fragments"}, "detections": {"label": "Detections / alerts issued", "unit": "events"}, "other": {"label": "Other (describe below)", "unit": ""}};
 const TMK_RE = /^([1-4]-[1-9]-[1-9]-[0-9]{3}-[0-9]{3}(-[0-9]{4})?)(\s*;\s*[1-4]-[1-9]-[1-9]-[0-9]{3}-[0-9]{3}(-[0-9]{4})?)*$/;
 const $ = id => document.getElementById(id);
+
+/* ---- maintainer binding ------------------------------------------------
+   A wrapped deployment (or ?project=… on the demo) binds the form to one
+   project: the selector is replaced by a read-only banner, so a keeper
+   opens their form rather than choosing from the portfolio. Hidden from
+   the interface, never from the record — the id submits as usual. */
+const boundProject = CONFIG.projectId ||
+  new URLSearchParams(location.search).get('project') || '';
+if (boundProject) {
+  const sel = $('project_id');
+  const opt = [...sel.options].find(o => o.value === boundProject);
+  if (opt) {
+    sel.value = boundProject;
+    sel.hidden = true;
+    const banner = document.createElement('p');
+    banner.className = 'hint';
+    banner.innerHTML = '<strong>Reporting for:</strong> ';
+    banner.appendChild(document.createTextNode(opt.textContent));
+    banner.append(' — this form is bound to your project.');
+    sel.before(banner);
+  }
+}
+if (CONFIG.contactName && !$('contact_name').value) $('contact_name').value = CONFIG.contactName;
+if (CONFIG.contactEmail && !$('contact_email').value) $('contact_email').value = CONFIG.contactEmail;
 
 /* ---- outcome rows ------------------------------------------------------ */
 let outcomeSeq = 0;
@@ -293,6 +340,10 @@ function validate() {
   const hasPoint = $('lat').value !== '' && $('lng').value !== '';
   need(tmk !== '' || hasPoint || $('geo_context').value.trim() !== '',
     'Describe the footprint (required when there is no parcel or map point).');
+  const intent = $('intent').value.trim();
+  need(intent.length === 0 || intent.length >= 10, 'Intended action: at least 10 characters if provided.');
+  need($('intent_by').value.trim() === '' || intent !== '',
+    'Enter the intended action that goes with the timeframe you gave.');
   const story = $('story').value.trim();
   need(story.length === 0 || story.length >= 50, 'Story: at least 50 characters if provided.');
   need($('community_context').value.trim() === '' || $('consent').value !== '',
@@ -328,6 +379,7 @@ function buildPayload() {
     tmk: v('tmk') || null, geo_context: v('geo_context') || null,
     story: v('story') || null, community_context: v('community_context') || null,
     consent: v('consent') || null,
+    intent: v('intent') || null, intent_by: v('intent_by') || null,
     expended_usd: v('expended_usd') === '' ? null : Number(v('expended_usd')),
     notes: v('notes') || null, schema_version: '1.0'
   };
