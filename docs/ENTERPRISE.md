@@ -24,7 +24,10 @@ Enterprise account   kuleana                 rules that bind every organization 
   policies that every organization must follow, billing, an audit log of
   administrative actions, and GitHub's own compliance reports. Āina Design Corp
   established the enterprise in September 2026 and joined its organization to
-  it.
+  it. Its address is `github.com/enterprises/kuleana`; enterprise pages are
+  visible only to the enterprise's own members and administrators, so that
+  address identifies the account rather than offering anything to read. The
+  public face of the enterprise is this repository and the demonstration site.
 - **The organization** owns the repositories and the people. It is the unit
   GitHub lets an owner hand over: an organization can be removed from one
   enterprise and invited into another, with its repositories, history, and
