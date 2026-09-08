@@ -1,0 +1,30 @@
+# Code owners — who is asked to review a change, by folder.
+#
+# GitHub requests a review from the matching owner on every pull request that
+# touches a path. The ruleset on `main` turns that request into a requirement
+# once a second maintainer has accepted the organization invitation (a sole
+# owner cannot approve their own change).
+#
+# Two roles, mirroring the pattern in docs/ENTERPRISE.md:
+#   registry-maintainers — the record and everything built from it
+#   the architecture owner — the rules, the checks, and the publishing job
+#
+# Order matters: the last matching line wins.
+
+# Default: every change is seen by the maintainers.
+*                       @Aina-Design-Corp/registry-maintainers
+
+# The record and what is built from it
+/registry/              @Aina-Design-Corp/registry-maintainers
+/intake/                @Aina-Design-Corp/registry-maintainers
+/site/                  @Aina-Design-Corp/registry-maintainers
+/docs/                  @Aina-Design-Corp/registry-maintainers
+
+# The rules, the checks, and the publishing job
+/schemas/               @joehagedorn
+/scripts/               @joehagedorn
+/.github/               @joehagedorn
+/package.json           @joehagedorn
+
+# This file itself
+/.github/CODEOWNERS     @joehagedorn
