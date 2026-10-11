@@ -126,7 +126,9 @@ docs/        Toolkit documents, release notes, intake doctrine (INTAKE.md),
 
 ## Lineage
 
-The `kuleana` name carries from the parked Expo trail-guide app
-(`Aina-Design-Corp/kuleana-app`, private; tag `trail-guide-v2.0.0`) — the future
-corridor-experiences client. License: to be ruled before first public
-release.
+The `kuleana` name carries from the parked trail-guide app
+(`Aina-Design-Corp/kuleana-app`, private; tag `trail-guide-v2.0.0`), intended
+as the public access guide for visitors and residents alike: corridor and
+site experiences on the ground, with this portal as its program-transparency
+companion. That client is not yet released; nothing here depends on it.
+License: to be ruled before first public release.
