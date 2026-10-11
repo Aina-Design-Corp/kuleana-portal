@@ -28,9 +28,11 @@ environmental-stewardship program transparency, built by
   project directory, outcome summaries, stewardship storytelling.
 
 The architecture doctrine this demonstrates:
-[`GREEN_FEE_ARCHITECTURE_BRIEF`](https://github.com/Aina-Design-Corp/mokunet-org)
-(mokunet-org, `docs/coordinate/proposals/`). Development streams and scope
-rules: `2026-08-21-kuleana-reset-streams.md` (same location). State systems
+[`GREEN_FEE_ARCHITECTURE_BRIEF.md`](https://github.com/Aina-Design-Corp/mokunet-org/blob/main/docs/coordinate/proposals/GREEN_FEE_ARCHITECTURE_BRIEF.md)
+in the `mokunet-org` repository (`docs/coordinate/proposals/`; private —
+organization members only). Development streams and scope rules:
+[`2026-08-21-kuleana-reset-streams.md`](https://github.com/Aina-Design-Corp/mokunet-org/blob/main/docs/coordinate/proposals/2026-08-21-kuleana-reset-streams.md)
+(same location). State systems
 (ArcGIS, program records) are treated as authoritative throughout — this
 portal *links to* authority, it never replaces it.
 
@@ -125,6 +127,6 @@ docs/        Toolkit documents, release notes, intake doctrine (INTAKE.md),
 ## Lineage
 
 The `kuleana` name carries from the parked Expo trail-guide app
-(`Aina-Design-Corp/kuleana`, tag `trail-guide-v2.0.0`) — the future
+(`Aina-Design-Corp/kuleana-app`, private; tag `trail-guide-v2.0.0`) — the future
 corridor-experiences client. License: to be ruled before first public
 release.
