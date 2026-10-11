@@ -59,8 +59,9 @@ record → authoritative source. Every public claim must walk that chain.
 - No physical signage, corridor, or field deployment is claimed.
 - This portal supports professional review; it makes no funding,
   eligibility, policy, or enforcement decisions.
-- How the repository is governed on GitHub — enterprise account, organization,
-  and the provisioning pattern an adopting program would follow — is stated in
+- How the repository is governed on GitHub — the organization and repository
+  controls in place today, and the enterprise pattern an adopting program
+  would follow under Āina Design Corp's nonprofit licensing — is stated in
   [`docs/ENTERPRISE.md`](docs/ENTERPRISE.md), including a table of which
   controls this demonstration carries today versus what the pattern adds.
 
