@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Green Fee Project Report — direct entry</title>
+<title>Direct Entry for Geospatial Field Reporting — a prototypical method (Toolkit Document 4)</title>
 <style>
 /* Matches the Commons Report's palette; WCAG 2.1 AA contrast targets. */
 :root { --ink:#1f2a33; --navy:#14364f; --blue-deep:#174a70; --uhm-green:#024731;
@@ -56,16 +56,26 @@ pre { background:#0f1b24; color:#dce8f0; padding:1rem; border-radius:8px;
 </head>
 <body>
 <header class="site"><div class="wrap">
-  <p class="kicker"><a href="../index.html" style="color:#fff">Green Fee Commons Report</a> · demonstration</p>
-  <h1>Green Fee Project Report — direct entry</h1>
-  <p class="tagline">For department points of contact and project leads. No
-  Survey123 license, account, or app required — this page writes to the same
-  hosted feature layer as Form&nbsp;1, through the ArcGIS REST API, and lands
-  in the same intake pipeline and publication gate.</p>
+  <p class="kicker"><a href="../index.html" style="color:#fff">Green Fee Commons Report</a> · Toolkit Document 4 · method prototype</p>
+  <h1>Direct entry for geospatial field reporting — a prototypical method</h1>
+  <p class="tagline">A steward at a place reports what they see, and the record lands where the map
+  reads it. This page is a prototype of that method for geospatial data: a plain web page, with no
+  Survey123 license, account, or app, carrying the registry's own field names, domains, and
+  validation, writing to a hosted feature layer through the ArcGIS REST API — so the layer the map
+  reads <em>is</em> the standard field dataset, and every record passes the same intake pipeline and
+  the same human-held publication gate. The same method — survey to hosted feature layer to map, a
+  printed marker code as the join key, a steward gate between the private layer and the public view —
+  is currently being applied at the <a href="https://huikoeaina.ainadesign.org/hka-farm-site" style="color:#fff">Magoon
+  Maker Lab</a> (Hui Koʻe ʻĀina, UH Mānoa): the site-asset survey, the hosted layer in Mokunet Org,
+  and the site map that reads from it.</p>
 </div></header>
 <main><div class="wrap">
 
-<div class="notice"><strong>Status note, 2026-10-12:</strong> the Commons Report now carries the enacted FY2027 cohort; this form still runs against the fictional FY2026 fixture so that no entry can touch a real record.</div>
+<div class="notice"><strong>Status note, 2026-10-12:</strong> this page is the Green Fee shape of the method — the form a
+Green Fee project lead would use — shown against the fictional FY2026 fixture so that no entry can touch a real record.
+The Commons Report itself carries the enacted FY2027 cohort. At the Magoon Maker Lab the method is in use at its honest stage:
+the site-asset survey is built and the site map renders a dated snapshot; the hosted layer's public view is the next
+step, and the map says so.</div>
 <div class="notice"><strong>Demonstration only:</strong> every project in this form is a fictional sample — no real award, awardee, or organization is represented, and no government adoption, endorsement, partnership, or deployment is claimed. Entries go nowhere: the page validates them and shows the REST calls it would make.</div>
 <div class="notice" id="mode-note"><span class="mode-chip">Demonstration mode</span>
   No feature service is configured, so submitting shows the exact REST calls
