@@ -1,8 +1,11 @@
 # Intake — how award data gets into the registry
 
-**Status: proof-of-concept documentation — all intake sources here are
-fictional samples; the v0 schema guard (`sample: true`, division-9 TMKs)
-means real program data cannot enter this registry.**
+**Status: the committed intake sources (`intake/samples/`) are fictional
+fixtures. The registry's public cohort (`registry/FY2027.json`) entered by
+the PDF path below from the State's own budget worksheet; see
+`docs/COHORT-FY2027.md`. A cohort declares whether it is demonstration data
+(`sample`), and intake inherits that declaration — it is never intake's
+call.**
 
 Award data arrives in whatever shape a program office produces: a
 spreadsheet export, a CSV, a stack of contract PDFs. Intake is the pipeline
@@ -49,8 +52,8 @@ source file (.xlsx / .csv)          PDF or legacy .xls
 Run it locally the same way:
 
 ```bash
-npm run intake -- intake/samples/FY2026-attachment-a.csv           # dry run
-npm run intake -- intake/samples/FY2026-attachment-a.xlsx --write  # merge drafts
+npm run intake -- intake/samples/FY2026-attachment-a.csv --sample           # dry run (fixture: a sample cohort)
+npm run intake -- intake/samples/FY2026-attachment-a.xlsx --sample --write  # merge drafts
 npm run validate
 ```
 
@@ -69,10 +72,14 @@ npm run validate
   Authoritative Source columns, provenance names the intake source file and
   row — the chain never has an empty link. The State program record must be
   linked before a record can responsibly publish.
-- **Stamps the sample guard.** Every emitted record is `sample: true`. In
-  schema v0 this is what keeps real data out of the demonstration registry;
-  when a production schema version lifts the guard, intake inherits that
-  decision from the schema — it is never intake's call.
+- **Inherits the cohort's sample declaration.** A new v0.3 cohort is
+  demonstration data only when created with `--sample`; every emitted record
+  carries the cohort's own `sample` value, and the validator rejects a record
+  that disagrees with its cohort. `--fiscal-public` (enacted figures are
+  public law) never combines with `--sample`.
+- **Leaves place to be reported.** Island, moku, and Act 96 alignment may be
+  empty in a v0.3 source; they land as `null` and the pages read *to be
+  reported*. A record cannot publish until its moku is known.
 
 ## The column contract
 
@@ -85,11 +92,11 @@ Canonical headers, with accepted aliases in parentheses:
 | Project Name (Project, Project Title) | `project` | yes | slug and route derive from this |
 | Organization (Awardee, Grantee) | `organization` | yes | |
 | Administering Agency (Agency) | `agency` | yes | |
-| Island | `island` | yes | matched against the schema enum |
-| Moku | `moku` | yes | stewardship context, not a regulatory district |
-| Program Area (Program) | `programArea` | yes | matched against the schema enum ("Marine debris" → `marine-debris`) |
-| Act 96 Alignment (Act 96 Purpose/Category) | `act96Alignment` | yes | matched against the schema enum |
-| Status (Project Status) | `status` | no | defaults to `active` |
+| Island | `island` | no (v0.3: null = to be reported) | matched against the schema enum |
+| Moku | `moku` | no (v0.3: null = to be reported) | stewardship context, not a regulatory district; required to publish |
+| Program Area (Program) | `programArea` | yes | matched against the schema enum ("Coastal & reef resilience" → `coastal-reef-resilience`) |
+| Act 96 Alignment (Act 96 Purpose/Category) | `act96Alignment` | no (v0.3: null = not yet stated) | matched against the schema enum |
+| Status (Project Status) | `status` | no | defaults to `planned` |
 | Fiscal Year (FY) | `award.fiscalYear` | no | must match the cohort; cohort also inferable from the filename (`FY2026-…`) or `--cohort` |
 | Award Amount (Amount, Award) | `award.amountUsd` | yes | `$88,000` and `88000` both accepted |
 | Summary (Description) | `summary` | yes | ≥ 20 characters |

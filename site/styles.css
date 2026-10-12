@@ -105,3 +105,9 @@ footer.site p { margin: .35rem 0; }
 .site-nav a { text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.45); padding-bottom: 1px; }
 .site-nav a:hover, .site-nav a:focus { border-bottom-color: currentColor; }
 @media print { .site-nav { display: none; } }
+
+/* v0.3: facts not yet reported read as pending, never as blanks */
+.pending { color: #5a6b76; font-style: italic; }
+.reports { padding-left: 1.3rem; }
+.reports li { margin: .5rem 0; }
+.reports time { font-weight: 700; color: var(--navy); }

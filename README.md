@@ -1,15 +1,24 @@
-# Kuleana — Green Fee Transparency Portal (proof of concept)
+# Kuleana — Green Fee Transparency Portal
 
-**Status: proof of concept in development — nothing on this site is deployed
-for, adopted by, or endorsed by any government agency.**
+**Status: public record, kept by Āina Design Corp — nothing on this site is
+deployed for, adopted by, or endorsed by any government agency.**
 
-A working demonstration of a **registry-driven publication architecture** for
+Visitors to Hawaiʻi pay the Green Fee; the Legislature funded 91 projects
+with it for FY2027. [kuleana.ainadesign.org](https://kuleana.ainadesign.org)
+lists every one in the moku it serves — the traditional district whose
+community the work is for — and records what each program reports as the
+work lands on the ground. The purpose: identify the community stakeholders
+of each moku and understand moku effects as they are reported, as inputs to
+the Mokunet shared map. The cohort and its rules:
+[`docs/COHORT-FY2027.md`](docs/COHORT-FY2027.md).
+
+The portal is a working **registry-driven publication architecture** for
 environmental-stewardship program transparency, built by
-[Āina Design Corp](https://ainadesign.org) as a public-benefit showcase:
+[Āina Design Corp](https://ainadesign.org):
 
-- **Award Registry Manifest** — a versioned JSON registry (sample cohort)
-  governs project identity, cohort membership, publication eligibility, and
-  route generation. *A human publishes, never an automated process.*
+- **Award Registry Manifest** — a versioned JSON registry governs project
+  identity, cohort membership, publication eligibility, and route
+  generation. *A human publishes, never an automated process.*
 - **Source-agnostic intake** — award data arrives as it arrives: `.xlsx` and
   `.csv` sources transform to *draft* records in CI (`intake/` →
   `scripts/intake.mjs`); PDFs and legacy `.xls` walk a documented
@@ -24,8 +33,9 @@ environmental-stewardship program transparency, built by
 - **GitHub Actions** — source intake → registry update → validation →
   manifest build → site build → publication. The workflow is the audit
   trail.
-- **GitHub Pages** — the public transparency portal: program overview,
-  project directory, outcome summaries, stewardship storytelling.
+- **GitHub Pages** — the public transparency portal: the projects by island
+  and moku, a page per appropriation with what has been publicly reported,
+  outcome summaries and stewardship stories as programs publish them.
 
 The architecture doctrine this demonstrates:
 [`GREEN_FEE_ARCHITECTURE_BRIEF.md`](https://github.com/Aina-Design-Corp/mokunet-org/blob/main/docs/coordinate/proposals/GREEN_FEE_ARCHITECTURE_BRIEF.md)
@@ -49,13 +59,19 @@ record → authoritative source. Every public claim must walk that chain.
 
 ## Claims and boundaries
 
-- All registry records here are **fictional samples** for architecture
-  demonstration. No real award, awardee, or program data appears. The
-  public cohort validates against schema **v0**, whose sample guard makes
-  real data unable to validate; schema **v1.0** (the production shape) is
-  published here as a reviewed artifact and exercised only by fixtures.
+- Every record in `registry/FY2027.json` is a Green Fee appropriation
+  **enacted in Act 175 SLH 2026 (HB 1800)**, listed from the State budget
+  worksheet — public law. Nothing on the portal is a report from the State:
+  places, moku, and effects appear as programs report them, and every
+  reading of a place from an enacted title is marked for confirmation. The
+  cohort validates against schema **v0.3**, the stakeholder shape; schema
+  **v1.0** (the program-data shape) is published here as a reviewed artifact
+  and exercised by fixtures. The fictional FY2026 demonstration cohort is
+  kept as a validator fixture (`schemas/fixtures/v0/`), marked sample on
+  every page it would build.
 - No government adoption, endorsement, partnership, or deployment is claimed
-  or implied.
+  or implied. Āina Design Corp proposed on the State's RFP 2026-001G and was
+  not awarded; the portal continues as public record.
 - No physical signage, corridor, or field deployment is claimed.
 - This portal supports professional review; it makes no funding,
   eligibility, policy, or enforcement decisions.
@@ -68,8 +84,8 @@ record → authoritative source. Every public claim must walk that chain.
 ## Running it
 
 ```bash
-npm run intake -- intake/samples/FY2026-attachment-a.xlsx   # source → draft records (gate 0; dry run, --write to merge)
-npm run validate   # schema + registry invariants (gate 1)
+npm run intake -- intake/samples/FY2026-attachment-a.xlsx --sample   # fixture source → draft records (gate 0; dry run, --write to merge)
+npm run validate   # schema + registry invariants (gate 1), public cohort and both fixtures
 npm run build      # validate, then render dist/ (publication gate applied)
 npm run serve      # preview dist/ locally
 ```
@@ -88,6 +104,13 @@ itself (job summary in plain language, per-file annotations).
 
 ## Roadmap
 
+- **FY2027 enacted cohort, by moku — SHIPPED 2026-10-12** — the 91 projects
+  enacted in Act 175 SLH 2026 replace the fictional cohort on the public
+  site; schema **v0.3** (sample as a declared cohort fact, place and
+  alignment null until reported, sourced `reports`, `fiscalPublic` pages for
+  every appropriation, moku required to publish); the FY2026 cohort becomes a
+  fixture. Next: record places and effects as programs report them — the
+  Hoʻōla ʻĀina awardees first (`docs/COHORT-FY2027.md`).
 - **Phase 1 — SHIPPED 2026-08-21** — registry manifest (sample FY2026 cohort,
   6 records: 4 published, 2 held by the gate), JSON schema (v0 hard-requires
   `sample: true` — real data cannot validate), dependency-free
@@ -116,12 +139,14 @@ itself (job summary in plain language, per-file annotations).
 ## Repository layout
 
 ```
-intake/      Drop zone for award data sources (.xlsx/.csv → draft records)
-registry/    Award Registry Manifest (FY cohort JSON — sample data, schema v0)
-schemas/     JSON Schemas: v0 (demonstration guard) and v1.0 (program-data shape) + CI fixtures
+intake/      Drop zone for award data sources (.xlsx/.csv → draft records); samples/ are fixtures
+registry/    Award Registry Manifest (FY2027.json — the enacted cohort, schema v0.3)
+schemas/     JSON Schemas: v0.3 (stakeholder shape) and v1.0 (program-data shape) + CI fixtures
+             (fixtures/v0 = the fictional FY2026 cohort; fixtures/v1 = a v1 cohort at three gate states)
 site/        Static portal source (built to GitHub Pages)
-docs/        Toolkit documents, release notes, intake doctrine (INTAKE.md),
-             enterprise governance and provisioning pattern (ENTERPRISE.md)
+docs/        The FY2027 cohort and its rules (COHORT-FY2027.md), release notes, intake
+             doctrine (INTAKE.md), schema v1 doctrine (SCHEMA-V1.md), enterprise
+             governance and provisioning pattern (ENTERPRISE.md)
 .github/     Actions: intake → validate → build → publish
 ```
 

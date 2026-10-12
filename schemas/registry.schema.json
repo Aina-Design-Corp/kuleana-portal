@@ -1,15 +1,27 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://kuleana.ainadesign.org/schemas/registry.schema.json",
-  "title": "Green Fee Award Registry Manifest (demonstration, v0.2)",
-  "description": "One fiscal-year cohort of award registry records. v0 is a demonstration schema: `sample: true` is REQUIRED at both cohort and record level (const), so real program data cannot validate against it — removing that guard is a deliberate, versioned schema change, not a data change. v0.2 adds `location`, a cadastral cross-reference axis (TMK) with the same sample guard philosophy: the fixed division digit 9 belongs to no county, so a real TMK cannot validate. The registry governs identity, cohort membership, publication eligibility, and route generation; it never replaces the State program record it points to.",
+  "title": "Green Fee Award Registry Manifest (stakeholder shape, v0.3)",
+  "description": "One fiscal-year cohort of award registry records in the stakeholder shape: who is caring for which moku with Green Fee funding, and what they report. v0.3 carries the enacted FY2027 cohort. The sample guard of v0.2 (`sample: true` as a const) becomes a declared cohort fact: a cohort says whether it is demonstration data, every record must agree with its cohort (validator invariant), and the public pages mark sample cohorts on every page. Island, moku, and Act 96 alignment may be null until the program reports them — a legislative appropriation names a program and an amount, not a place; moku effects are learned as they are reported, and a record cannot publish its story and outcomes until its moku is known (release bar). The TMK axis keeps the v0.2 guard: the fixed division digit 9 belongs to no county, so this registry never references a real parcel; real footprints are named in words (geoContext) and resolve against State and county layers elsewhere. The registry governs identity, cohort membership, publication eligibility, and route generation; it never replaces the State program record it points to.",
   "type": "object",
   "additionalProperties": false,
   "required": ["cohort", "sample", "updated", "records"],
   "properties": {
     "cohort": { "type": "string", "pattern": "^FY[0-9]{4}$" },
-    "sample": { "const": true },
+    "sample": {
+      "type": "boolean",
+      "description": "true = fictional demonstration cohort (every page says so); false = records drawn from an authoritative public source named in `source`. Every record's own `sample` must equal this value."
+    },
     "updated": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "source": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Where the cohort comes from: the enacted act and worksheet for a real cohort, or the fixture statement for a sample one."
+    },
+    "fiscalPublic": {
+      "type": "boolean",
+      "description": "true when appropriation figures are enacted law: every record then lists in the directory, builds a project page carrying its public-law facts, and exports in the projection — while stories and outcomes stay behind the publication gate. Never true for a sample cohort."
+    },
     "note": { "type": "string" },
     "records": {
       "type": "array",
@@ -35,35 +47,50 @@
         "slug": {
           "type": "string",
           "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
-          "description": "Route identity: /projects/<slug>/. Stable once published."
+          "description": "Route identity: /projects/<slug>/. Stable once built."
         },
-        "sample": { "const": true },
+        "sample": { "type": "boolean", "description": "Must equal the cohort's `sample` (validator invariant)." },
         "project": { "type": "string", "minLength": 3 },
-        "organization": { "type": "string", "minLength": 3 },
-        "agency": { "type": "string", "minLength": 2 },
+        "organization": {
+          "type": "string",
+          "minLength": 3,
+          "description": "The awardee as identified today. For an enacted appropriation that is the administering State program (name and program ID); community organizations funded under it are stakeholders recorded as they are reported."
+        },
+        "agency": { "type": "string", "minLength": 2, "description": "Administering department, as the budget names it (DLNR, DOA, DBEDT …)." },
+        "programId": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}[0-9]{3}(/[A-Z]{2})?$",
+          "description": "Budget program ID the appropriation sits under (LNR407, BED170/KB) — the join key to the State's own program record."
+        },
         "island": {
-          "enum": ["Hawaiʻi", "Maui", "Molokaʻi", "Lānaʻi", "Kahoʻolawe", "Oʻahu", "Kauaʻi", "Niʻihau", "Statewide"]
+          "type": ["string", "null"],
+          "enum": ["Hawaiʻi", "Maui", "Molokaʻi", "Lānaʻi", "Kahoʻolawe", "Oʻahu", "Kauaʻi", "Niʻihau", "Statewide", null],
+          "description": "null = not yet reported (the appropriation names no place)."
         },
         "moku": {
-          "type": "string",
+          "type": ["string", "null"],
           "minLength": 2,
-          "description": "Stewardship context: the moku the project serves (regional axis — whose place). Distinct from any HRS §205-2 land use district (regulatory axis); the registry never carries regulatory authority."
+          "description": "Stewardship context: the moku the project serves (regional axis — whose place), one of the 33 moku the Mokunet shared map holds, or a named pair for cross-moku work. null = not yet reported; a record cannot publish without it. Distinct from any HRS §205-2 land use district (regulatory axis); the registry never carries regulatory authority."
         },
         "programArea": {
           "enum": [
-            "watershed-restoration", "invasive-species", "coral-reef-stewardship",
-            "wildfire-resilience", "trail-access-stewardship", "coastal-restoration",
-            "marine-debris"
-          ]
+            "community-stewardship-capacity", "coastal-reef-resilience",
+            "watershed-freshwater-security", "native-ecosystems-biosecurity",
+            "wildfire-risk-reduction", "water-systems-safety",
+            "hazard-ready-communities", "visitor-impact-management",
+            "enabling-planning-and-studies", "monitoring-evaluation"
+          ],
+          "description": "Working taxonomy of this registry (ten areas, assigned from the appropriation title and corrected as programs report). The State's own program methodology, when published, is authoritative over it."
         },
         "act96Alignment": {
-          "enum": ["resource-protection", "climate-resiliency", "regenerative-tourism"],
-          "description": "Sample alignment categories for demonstration. The authoritative Act 96 alignment mapping is program methodology, decided by the State — not by this registry."
+          "type": ["string", "null"],
+          "enum": ["resource-protection", "climate-resiliency", "regenerative-tourism", null],
+          "description": "Act 96 purpose the project serves. null = not yet stated. The authoritative alignment is program methodology, decided by the State — never by this registry."
         },
-        "status": { "enum": ["active", "completed", "withdrawn"] },
+        "status": { "enum": ["planned", "active", "completed", "withdrawn"], "description": "planned = appropriated, not yet reported under way." },
         "publicationStatus": {
           "enum": ["draft", "validated", "published"],
-          "description": "Monotonic publication gate: draft → validated → published. Only `published` records build public pages or export in the published manifest. A human publishes, never an automated process."
+          "description": "Monotonic publication gate: draft → validated → published. The gate governs the story and the outcomes: only `published` records render them or export them. Public-law facts (the appropriation) render for every record of a fiscalPublic cohort. A human publishes, never an automated process."
         },
         "award": {
           "type": "object",
@@ -71,7 +98,10 @@
           "required": ["fiscalYear", "amountUsd"],
           "properties": {
             "fiscalYear": { "type": "string", "pattern": "^FY[0-9]{4}$" },
-            "amountUsd": { "type": "number", "minimum": 0 }
+            "amountUsd": { "type": "number", "minimum": 0 },
+            "meansOfFinancing": { "type": "string", "minLength": 3 },
+            "nonRecurring": { "type": "boolean" },
+            "legislativeReference": { "type": "string", "minLength": 5 }
           }
         },
         "summary": { "type": "string", "minLength": 20 },
@@ -79,7 +109,7 @@
           "type": "object",
           "additionalProperties": false,
           "required": ["tmk", "geoContext"],
-          "description": "Cadastral cross-reference axis (which parcel) — the third axis alongside moku (regional — whose place), and distinct from any regulatory land use district. The registry stores keys only; parcel geometry, ownership, and taxation context stay with the county and State parcel layers it joins against (the State-owned map destination lives in links.webMapId). Integration services (e.g. Mokunet) resolve TMKs against those authoritative layers — the registry never carries geometry.",
+          "description": "Cadastral cross-reference axis (which parcel) — the third axis alongside moku (regional — whose place), and distinct from any regulatory land use district. The registry stores keys only; parcel geometry, ownership, and taxation context stay with the county and State parcel layers it joins against. Integration services (e.g. Mokunet) resolve places against those authoritative layers — the registry never carries geometry.",
           "properties": {
             "tmk": {
               "type": ["array", "null"],
@@ -88,22 +118,23 @@
                 "type": "string",
                 "pattern": "^9-[1-9]-[1-9]-[0-9]{3}-[0-9]{3}(-[0-9]{4})?$"
               },
-              "description": "Tax Map Key cross-references, normalized division-zone-section-plat-parcel with optional 4-digit CPR unit. null = the footprint has no parcel identity (nearshore/marine waters, multi-parcel corridors); geoContext must then name the footprint (validator invariant). v0 sample guard: the division digit is fixed at 9 — no county uses it (real divisions are 1 Oʻahu, 2 Maui, 3 Hawaiʻi, 4 Kauaʻi) — so a real TMK cannot validate. Widening the pattern to [1-4] is a deliberate, versioned schema change, exactly like removing sample:true."
+              "description": "Tax Map Key cross-references, normalized division-zone-section-plat-parcel with optional 4-digit CPR unit. null = the footprint has no parcel identity or is not yet reported; geoContext must then name what is known (validator invariant). Guard kept from v0.2: the division digit is fixed at 9 — no county uses it (real divisions are 1 Oʻahu, 2 Maui, 3 Hawaiʻi, 4 Kauaʻi) — so this registry never references a real parcel. Widening the pattern to [1-4] is a deliberate, versioned schema change."
             },
             "geoContext": {
               "type": ["string", "null"],
               "minLength": 5,
-              "description": "Plain-language footprint note: required (non-null) whenever tmk is null (names the non-parcel footprint — nearshore waters, trail corridor), optional context otherwise."
+              "description": "Plain-language footprint note: required (non-null) whenever tmk is null — names the place as reported, or states that it is not yet reported."
             }
           }
         },
         "story": {
           "type": "string",
           "minLength": 50,
-          "description": "Awardee-voice narrative. Serves only when published."
+          "description": "Awardee-voice narrative. Renders only when published."
         },
         "outcomes": {
           "type": "array",
+          "description": "Reported effects, as figures. Render and export only when published.",
           "items": {
             "type": "object",
             "additionalProperties": false,
@@ -114,6 +145,21 @@
               "unit": { "type": "string", "minLength": 1 },
               "period": { "type": "string", "minLength": 4 },
               "sourceNote": { "type": "string", "minLength": 5 }
+            }
+          }
+        },
+        "reports": {
+          "type": "array",
+          "description": "What has been publicly reported about the project, in date order — a notice, a call for proposals, an award announcement, a progress report. Each entry names its public source. Reports are public record and render on every page; they are not the awardee's story (gated) and carry no figures (outcomes).",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["date", "source", "note"],
+            "properties": {
+              "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+              "source": { "type": "string", "minLength": 5, "description": "Who said it and where (publisher and document)." },
+              "url": { "type": "string", "pattern": "^https://" },
+              "note": { "type": "string", "minLength": 20, "description": "What was reported, with any inference of this registry's own marked as such." }
             }
           }
         },
@@ -135,7 +181,7 @@
             "programRecord": { "type": "string", "minLength": 5 },
             "authoritativeSource": { "type": "string", "minLength": 5 }
           },
-          "description": "The chain every public claim must walk: page → published record → manifest → program record → authoritative source."
+          "description": "The chain every public claim must walk: page → record → manifest → program record → authoritative source."
         }
       }
     }

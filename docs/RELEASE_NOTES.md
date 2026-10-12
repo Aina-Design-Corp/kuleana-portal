@@ -1,5 +1,42 @@
 # Green Fee Transparency Portal — Release Notes
 
+## Version 0.3 — 2026-10-12 (the enacted FY2027 cohort, by moku)
+
+The portal now carries public record: the 91 Green Fee projects enacted for
+FY2027 in Act 175 SLH 2026 (HB 1800), listed from the State budget
+worksheet, each read in the moku it serves. Purpose restated: identify the
+community stakeholders of each moku and understand moku effects as they are
+reported — inputs to the Mokunet shared map. Doctrine: `docs/COHORT-FY2027.md`.
+
+- **Schema v0.3** (`schemas/registry.schema.json`) — the stakeholder shape
+  kept; the sample guard becomes a declared cohort fact (`sample` boolean,
+  every record must agree — validator invariant); `island`, `moku`, and
+  `act96Alignment` may be null until reported; `programId`, appropriation
+  detail, `status: planned`, a ten-area working taxonomy, and a sourced
+  `reports` list added; `fiscalPublic` lists and pages every record while
+  story and outcomes stay gated; a record cannot publish without its moku.
+  The TMK guard (division 9) is unchanged — no real parcel is ever referenced.
+- **Build** — a page for every enacted appropriation; *to be reported* where
+  a fact is not yet known; an *As reported* section with sources; directory
+  grouped by island and moku; at-a-glance count of moku named so far (of 33);
+  the projection exports every listed record with gated fields stripped.
+- **Intake** — inherits the cohort's `sample` declaration (`--sample` on
+  creation); island, moku, and alignment columns optional; `planned` default.
+- **The fictional FY2026 cohort** moves to `schemas/fixtures/v0/` and is
+  validated in CI; toolkit documents 1–4 carry a dated status note and are
+  otherwise unchanged (the method they describe is unchanged).
+
+### Claims and boundaries
+
+- Every record is an enacted appropriation — public law. Nothing on the
+  portal is a report from the State; places, moku, and effects appear as
+  programs report them, and every reading of a place from an enacted title
+  is marked for confirmation.
+- No government adoption, endorsement, partnership, or deployment is claimed.
+- State systems are authoritative for every fact this portal publishes.
+- The portal supports professional review; it makes no funding, eligibility,
+  policy, or enforcement decisions.
+
 ## Version 0.1 — August 2026 (demonstration)
 
 Initial reviewed demonstration release containing:
