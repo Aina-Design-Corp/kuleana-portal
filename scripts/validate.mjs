@@ -9,19 +9,26 @@
  * single source of truth and the gate runs anywhere with zero install.
  *
  * Two schema versions, chosen per cohort file:
- *   - v0 (no `schemaVersion`)   — the demonstration schema: sample:true is
- *     a hard const, TMK division is the sample-only digit 9. Real data
- *     cannot validate. schemas/registry.schema.json
+ *   - v0 (no `schemaVersion`)   — the stakeholder shape (v0.3): who is
+ *     caring for which moku with Green Fee funding, and what they report.
+ *     `sample` is a declared cohort fact every record must agree with; TMK
+ *     division stays the guard digit 9 (no real parcel is ever referenced).
+ *     schemas/registry.schema.json
  *   - v1.0 (`schemaVersion: "1.0"`) — the program-data shape: minimal at
  *     draft, complete at publication. schemas/registry.v1.schema.json
  *
  * Beyond the schema, enforces the invariants a schema can't express:
  *   - ids and slugs unique across the cohort; id year and award.fiscalYear
  *     match the cohort
- *   - location.tmk null ⇒ geoContext names the non-parcel footprint
+ *   - every record's `sample` equals the cohort's; a sample cohort is never
+ *     fiscalPublic (v0)
+ *   - location.tmk null ⇒ geoContext names what is known of the footprint
  *   - the publication release bar: `published` needs story, ≥1 outcome, and
- *     provenance (v0 and v1); v1 additionally needs island, programArea,
- *     act96Alignment, summary, and a contact from `validated` onward
+ *     provenance (v0 and v1); v0 additionally needs island and moku (an
+ *     effect is reported in its moku or not at all); v1 additionally needs
+ *     island, programArea, act96Alignment, summary, and a contact from
+ *     `validated` onward
+ *   - reports are in date order (v0)
  *   - v1 funding figures cannot exceed the appropriation
  *     (expended ≤ released ≤ amountUsd)
  *
@@ -116,8 +123,21 @@ function check(s, value, path, rootSchema, errs) {
 function invariants(cohort, file, version, errs) {
   const ids = new Map(), slugs = new Map();
   const year = (cohort.cohort || '').replace(/^FY/, '');
+  if (version === '0' && cohort.sample === true && cohort.fiscalPublic === true) {
+    errs.push(`${file}: a sample cohort cannot be fiscalPublic — fictional figures are never public law`);
+  }
   for (const [i, r] of (cohort.records || []).entries()) {
     const at = `${file}.records[${i}]`;
+    if (version === '0' && typeof cohort.sample === 'boolean' && r.sample !== cohort.sample) {
+      errs.push(`${at}: sample ${JSON.stringify(r.sample)} disagrees with the cohort (sample: ${cohort.sample}) — a record is what its cohort is`);
+    }
+    if (version === '0' && Array.isArray(r.reports)) {
+      for (let k = 1; k < r.reports.length; k++) {
+        if (r.reports[k].date < r.reports[k - 1].date) {
+          errs.push(`${at}: reports[${k}] (${r.reports[k].date}) is dated before reports[${k - 1}] (${r.reports[k - 1].date}) — reports read in date order`);
+        }
+      }
+    }
     if (ids.has(r.id)) errs.push(`${at}: duplicate id "${r.id}" (also records[${ids.get(r.id)}])`);
     ids.set(r.id, i);
     if (slugs.has(r.slug)) errs.push(`${at}: duplicate slug "${r.slug}" (also records[${slugs.get(r.slug)}])`);
@@ -137,6 +157,10 @@ function invariants(cohort, file, version, errs) {
       if (!r.story) errs.push(`${at}: published without a story (release bar)`);
       if (!r.outcomes?.length) errs.push(`${at}: published without outcomes (release bar)`);
       if (!r.provenance?.programRecord) errs.push(`${at}: published without provenance (release bar)`);
+      if (version === '0') {
+        if (r.island == null) errs.push(`${at}: published without an island (release bar — an effect is reported in its place)`);
+        if (r.moku == null) errs.push(`${at}: published without a moku (release bar — an effect is reported in its moku or not at all)`);
+      }
     }
 
     if (version === '1.0') {

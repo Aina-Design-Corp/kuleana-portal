@@ -1,0 +1,2483 @@
+{
+  "cohort": "FY2027",
+  "sample": false,
+  "updated": "2026-10-12",
+  "source": "The 91 Green Fee projects enacted for FY2027 in Act 175 SLH 2026 (HB 1800, the supplemental budget amending Act 250 SLH 2025), as listed on the Department of Budget and Finance worksheet \"Attachment A — Green Fee Projects\" (RFP 2026-001G, August 2026): approximately $129 million across 11 departments (Office of the Governor, budget-signing release, 2026-07). Assisted extraction from the worksheet PDF; every figure and title traces to its worksheet page.",
+  "fiscalPublic": true,
+  "note": "Every record is an enacted appropriation — public law — and every one builds a page. Island and moku are set only where the enacted title names a place (each such reading is marked \"confirm on first report\" in geoContext); the rest are null until the program reports them. Act 96 alignment is null until the State states it. Program areas are this registry's working taxonomy, assigned from titles and corrected as programs report. Stories and outcomes stay behind the publication gate: a record publishes only with a story, at least one reported outcome, provenance, and its moku. Reports (public notices about a project) carry their source and render for every record. A human publishes, never an automated process.",
+  "records": [
+    {
+      "id": "GF-2027-HI-001",
+      "slug": "irrigation-public-safety-power-shutoff-preparedness",
+      "sample": false,
+      "project": "Irrigation Public Safety Power Shutoff Preparedness",
+      "organization": "Agricultural Resource Management (AGR141)",
+      "agency": "DOA",
+      "programId": "AGR141",
+      "island": null,
+      "moku": null,
+      "programArea": "water-systems-safety",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to AGR141 — budget worksheet (Attachment A, RFP 2026-001G) p.1" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,500,000 to Agricultural Resource Management (AGR141), Department of Agriculture, for Irrigation Public Safety Power Shutoff Preparedness — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.1, AGR141: Agricultural Resource Management — FY27 legislative adjustment, \"Irrigation Public Safety Power Shutoff Preparedness\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-002",
+      "slug": "water-systems-safety-and-preparedness",
+      "sample": false,
+      "project": "Water Systems Safety and Preparedness",
+      "organization": "Agricultural Resource Management (AGR141)",
+      "agency": "DOA",
+      "programId": "AGR141",
+      "island": null,
+      "moku": null,
+      "programArea": "water-systems-safety",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to AGR141 — budget worksheet (Attachment A, RFP 2026-001G) p.1" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,000,000 to Agricultural Resource Management (AGR141), Department of Agriculture, for Water Systems Safety and Preparedness — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.1, AGR141: Agricultural Resource Management — FY27 legislative adjustment, \"Water Systems Safety and Preparedness\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-003",
+      "slug": "hawaii-mesonet-system",
+      "sample": false,
+      "project": "Hawaiʻi Mesonet System",
+      "organization": "General Administration for Agriculture (AGR192)",
+      "agency": "DOA",
+      "programId": "AGR192",
+      "island": null,
+      "moku": null,
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to AGR192 — budget worksheet (Attachment A, RFP 2026-001G) p.1" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to General Administration for Agriculture (AGR192), Department of Agriculture, for Hawaiʻi Mesonet System — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.1, AGR192: General Administration for Agriculture — FY27 legislative adjustment, \"Hawaiʻi Mesonet System\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-004",
+      "slug": "uh-biosecurity-facility",
+      "sample": false,
+      "project": "UH Biosecurity Facility",
+      "organization": "General Administration for Agriculture (AGR192)",
+      "agency": "DOA",
+      "programId": "AGR192",
+      "island": null,
+      "moku": null,
+      "programArea": "native-ecosystems-biosecurity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 3700000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to AGR192 — budget worksheet (Attachment A, RFP 2026-001G) p.1" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $3,700,000 to General Administration for Agriculture (AGR192), Department of Agriculture, for UH Biosecurity Facility — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.1, AGR192: General Administration for Agriculture — FY27 legislative adjustment, \"UH Biosecurity Facility\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-005",
+      "slug": "seabird-habitat-protection-through-invasive-species-control",
+      "sample": false,
+      "project": "Seabird Habitat Protection through Invasive Species Control",
+      "organization": "General Administration for Agriculture (AGR192)",
+      "agency": "DOA",
+      "programId": "AGR192",
+      "island": null,
+      "moku": null,
+      "programArea": "native-ecosystems-biosecurity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 226140, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to AGR192 — budget worksheet (Attachment A, RFP 2026-001G) p.2" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $226,140 to General Administration for Agriculture (AGR192), Department of Agriculture, for Seabird Habitat Protection through Invasive Species Control — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.2, AGR192: General Administration for Agriculture — FY27 legislative adjustment, \"Seabird Habitat Protection through Invasive Species Control\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-006",
+      "slug": "in-vessel-composter-wastestream-management-hawaii-county",
+      "sample": false,
+      "project": "In-Vessel Composter Wastestream Management: Hawaiʻi County",
+      "organization": "General Administration for Agriculture (AGR192)",
+      "agency": "DOA",
+      "programId": "AGR192",
+      "island": "Hawaiʻi",
+      "moku": null,
+      "programArea": "watershed-freshwater-security",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to AGR192 — budget worksheet (Attachment A, RFP 2026-001G) p.2" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to General Administration for Agriculture (AGR192), Department of Agriculture, for In-Vessel Composter Wastestream Management: Hawaiʻi County — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Hawaiʻi County per the enacted title; site and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.2, AGR192: General Administration for Agriculture — FY27 legislative adjustment, \"In-Vessel Composter Wastestream Management: Hawaiʻi County\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-007",
+      "slug": "east-west-center-environment-and-climate-coordination",
+      "sample": false,
+      "project": "East West Center Environment and Climate Coordination",
+      "organization": "Office of International Affairs (BED101/IA)",
+      "agency": "DBEDT",
+      "programId": "BED101/IA",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED101/IA — budget worksheet (Attachment A, RFP 2026-001G) p.2" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,000,000 to Office of International Affairs (BED101/IA), Department of Business, Economic Development and Tourism, for East West Center Environment and Climate Coordination — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.2, BED101/IA: Office of International Affairs — FY27 legislative adjustment, \"East West Center Environment and Climate Coordination\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-008",
+      "slug": "international-relations",
+      "sample": false,
+      "project": "International Relations",
+      "organization": "Office of International Affairs (BED101/IA)",
+      "agency": "DBEDT",
+      "programId": "BED101/IA",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 300000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED101/IA — budget worksheet (Attachment A, RFP 2026-001G) p.2" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $300,000 to Office of International Affairs (BED101/IA), Department of Business, Economic Development and Tourism, for International Relations — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.2, BED101/IA: Office of International Affairs — FY27 legislative adjustment, \"International Relations\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-009",
+      "slug": "sports-and-signature-events-study",
+      "sample": false,
+      "project": "Sports and Signature Events Study",
+      "organization": "Hawaiʻi Tourism Authority - Sports and Signature Events (BED115/SS)",
+      "agency": "DBEDT",
+      "programId": "BED115/SS",
+      "island": null,
+      "moku": null,
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 350000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED115/SS — budget worksheet (Attachment A, RFP 2026-001G) p.3" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $350,000 to Hawaiʻi Tourism Authority - Sports and Signature Events (BED115/SS), Department of Business, Economic Development and Tourism, for Sports and Signature Events Study — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.3, BED115/SS: Hawaiʻi Tourism Authority - Sports and Signature Events — FY27 legislative adjustment, \"Sports and Signature Events Study\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-010",
+      "slug": "cesspool-conversion-revolving-loan-fund",
+      "sample": false,
+      "project": "Cesspool Conversion Revolving Loan Fund",
+      "organization": "Hawaiʻi Green Infrastructure Authority (BED138/GI)",
+      "agency": "DBEDT",
+      "programId": "BED138/GI",
+      "island": null,
+      "moku": null,
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 2000000, "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED138/GI — budget worksheet (Attachment A, RFP 2026-001G) p.3" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $2,000,000 to Hawaiʻi Green Infrastructure Authority (BED138/GI), Department of Business, Economic Development and Tourism, for Cesspool Conversion Revolving Loan Fund — non-recurring. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.3, BED138/GI: Hawaiʻi Green Infrastructure Authority — FY27 legislative adjustment, \"Cesspool Conversion Revolving Loan Fund\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-011",
+      "slug": "preservation-of-mantokuji-bay",
+      "sample": false,
+      "project": "Preservation of Mantokuji Bay",
+      "organization": "Statewide Planning and Coordination (BED144)",
+      "agency": "DBEDT",
+      "programId": "BED144",
+      "island": "Maui",
+      "moku": "Hāmākuapoko",
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED144 — budget worksheet (Attachment A, RFP 2026-001G) p.3" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Statewide Planning and Coordination (BED144), Department of Business, Economic Development and Tourism, for Preservation of Mantokuji Bay — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Mantokuji Bay fronts Pāʻia (the Mantokuji Soto Mission shoreline). Moku read from the place name — confirm on first report."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.3, BED144: Statewide Planning and Coordination — FY27 legislative adjustment, \"Preservation of Mantokuji Bay\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-012",
+      "slug": "state-climate-adaptation-plan",
+      "sample": false,
+      "project": "State Climate Adaptation Plan",
+      "organization": "Statewide Planning and Coordination (BED144)",
+      "agency": "DBEDT",
+      "programId": "BED144",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 400000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED144 — budget worksheet (Attachment A, RFP 2026-001G) p.3" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $400,000 to Statewide Planning and Coordination (BED144), Department of Business, Economic Development and Tourism, for State Climate Adaptation Plan — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.3, BED144: Statewide Planning and Coordination — FY27 legislative adjustment, \"State Climate Adaptation Plan\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-013",
+      "slug": "solid-waste-management",
+      "sample": false,
+      "project": "Solid Waste Management",
+      "organization": "Statewide Planning and Coordination (BED144)",
+      "agency": "DBEDT",
+      "programId": "BED144",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED144 — budget worksheet (Attachment A, RFP 2026-001G) p.3" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to Statewide Planning and Coordination (BED144), Department of Business, Economic Development and Tourism, for Solid Waste Management — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.3, BED144: Statewide Planning and Coordination — FY27 legislative adjustment, \"Solid Waste Management\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-014",
+      "slug": "national-disaster-economic-recovery-strategy-update-and-implementation",
+      "sample": false,
+      "project": "National Disaster Economic Recovery Strategy Update and Implementation",
+      "organization": "Statewide Planning and Coordination (BED144)",
+      "agency": "DBEDT",
+      "programId": "BED144",
+      "island": null,
+      "moku": null,
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 2000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED144 — budget worksheet (Attachment A, RFP 2026-001G) p.4" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $2,000,000 to Statewide Planning and Coordination (BED144), Department of Business, Economic Development and Tourism, for National Disaster Economic Recovery Strategy Update and Implementation — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.4, BED144: Statewide Planning and Coordination — FY27 legislative adjustment, \"National Disaster Economic Recovery Strategy Update and Implementation\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-015",
+      "slug": "water-systems-safety-and-preparedness-west-kauai",
+      "sample": false,
+      "project": "Water Systems Safety and Preparedness, West Kauaʻi",
+      "organization": "Agribusiness Development and Research (BED170/KB)",
+      "agency": "DBEDT",
+      "programId": "BED170/KB",
+      "island": "Kauaʻi",
+      "moku": "Kona",
+      "programArea": "water-systems-safety",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 10886000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED170/KB — budget worksheet (Attachment A, RFP 2026-001G) p.4" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $10,886,000 to Agribusiness Development and Research (BED170/KB), Department of Business, Economic Development and Tourism, for Water Systems Safety and Preparedness, West Kauaʻi — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "West Kauaʻi (the Waimea–Kekaha side) per the enacted title, in Kauaʻi's Kona moku. Moku read from the place name — confirm on first report."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.4, BED170/KB: Agribusiness Development and Research — FY27 legislative adjustment, \"Water Systems Safety and Preparedness, West Kauaʻi\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-016",
+      "slug": "water-systems-safety-and-preparedness-oahu",
+      "sample": false,
+      "project": "Water Systems Safety and Preparedness, Oʻahu",
+      "organization": "Agribusiness Development and Research (BED170/KB)",
+      "agency": "DBEDT",
+      "programId": "BED170/KB",
+      "island": "Oʻahu",
+      "moku": null,
+      "programArea": "water-systems-safety",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 750000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED170/KB — budget worksheet (Attachment A, RFP 2026-001G) p.4" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $750,000 to Agribusiness Development and Research (BED170/KB), Department of Business, Economic Development and Tourism, for Water Systems Safety and Preparedness, Oʻahu — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Oʻahu per the enacted title; site and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.4, BED170/KB: Agribusiness Development and Research — FY27 legislative adjustment, \"Water Systems Safety and Preparedness, Oʻahu\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-017",
+      "slug": "cattle-slaughterhouse",
+      "sample": false,
+      "project": "Cattle Slaughterhouse",
+      "organization": "Agribusiness Development and Research (BED170/KB)",
+      "agency": "DBEDT",
+      "programId": "BED170/KB",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED170/KB — budget worksheet (Attachment A, RFP 2026-001G) p.4" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to Agribusiness Development and Research (BED170/KB), Department of Business, Economic Development and Tourism, for Cattle Slaughterhouse — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.4, BED170/KB: Agribusiness Development and Research — FY27 legislative adjustment, \"Cattle Slaughterhouse\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-018",
+      "slug": "forage-drying-facility",
+      "sample": false,
+      "project": "Forage Drying Facility",
+      "organization": "Agribusiness Development and Research (BED170/KB)",
+      "agency": "DBEDT",
+      "programId": "BED170/KB",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1200000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED170/KB — budget worksheet (Attachment A, RFP 2026-001G) p.5" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,200,000 to Agribusiness Development and Research (BED170/KB), Department of Business, Economic Development and Tourism, for Forage Drying Facility — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.5, BED170/KB: Agribusiness Development and Research — FY27 legislative adjustment, \"Forage Drying Facility\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-019",
+      "slug": "food-and-product-innovation-network",
+      "sample": false,
+      "project": "Food and Product Innovation Network",
+      "organization": "Agribusiness Development and Research (BED170/KB)",
+      "agency": "DBEDT",
+      "programId": "BED170/KB",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 7073311, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BED170/KB — budget worksheet (Attachment A, RFP 2026-001G) p.5" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $7,073,311 to Agribusiness Development and Research (BED170/KB), Department of Business, Economic Development and Tourism, for Food and Product Innovation Network — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.5, BED170/KB: Agribusiness Development and Research — FY27 legislative adjustment, \"Food and Product Innovation Network\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-020",
+      "slug": "monitoring-and-evaluation",
+      "sample": false,
+      "project": "Monitoring and Evaluation",
+      "organization": "Departmental Administration and Budget Division (BUF101)",
+      "agency": "B&F",
+      "programId": "BUF101",
+      "island": null,
+      "moku": null,
+      "programArea": "monitoring-evaluation",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to BUF101 — budget worksheet (Attachment A, RFP 2026-001G) p.5" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Departmental Administration and Budget Division (BUF101), Department of Budget and Finance, for Monitoring and Evaluation — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.5, BUF101: Departmental Administration and Budget Division — FY27 legislative adjustment, \"Monitoring and Evaluation\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-021",
+      "slug": "green-energy-study",
+      "sample": false,
+      "project": "Green Energy Study",
+      "organization": "Public Utilities Commission (CCA901)",
+      "agency": "DCCA",
+      "programId": "CCA901",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 900000, "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to CCA901 — budget worksheet (Attachment A, RFP 2026-001G) p.5" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $900,000 to Public Utilities Commission (CCA901), Department of Commerce and Consumer Affairs, for Green Energy Study — non-recurring. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.5, CCA901: Public Utilities Commission — FY27 legislative adjustment, \"Green Energy Study\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-022",
+      "slug": "laupahoehoe",
+      "sample": false,
+      "project": "Laupāhoehoe",
+      "organization": "Hawaiʻi Emergency Management Agency (DEF118)",
+      "agency": "DOD",
+      "programId": "DEF118",
+      "island": "Hawaiʻi",
+      "moku": "Hilo",
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 268000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to DEF118 — budget worksheet (Attachment A, RFP 2026-001G) p.6" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $268,000 to Hawaiʻi Emergency Management Agency (DEF118), Department of Defense, for Laupāhoehoe — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Laupāhoehoe, on the North Hilo coast. Moku read from the place name — confirm on first report."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.6, DEF118: Hawaiʻi Emergency Management Agency — FY27 legislative adjustment, \"Laupāhoehoe\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-023",
+      "slug": "kauai-flood-notification",
+      "sample": false,
+      "project": "Kauaʻi Flood Notification",
+      "organization": "Hawaiʻi Emergency Management Agency (DEF118)",
+      "agency": "DOD",
+      "programId": "DEF118",
+      "island": "Kauaʻi",
+      "moku": null,
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to DEF118 — budget worksheet (Attachment A, RFP 2026-001G) p.6" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to Hawaiʻi Emergency Management Agency (DEF118), Department of Defense, for Kauaʻi Flood Notification — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Islandwide per the enacted title; moku effects reported per site."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.6, DEF118: Hawaiʻi Emergency Management Agency — FY27 legislative adjustment, \"Kauaʻi Flood Notification\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-024",
+      "slug": "disaster-preparedness-limited-english-proficiency-and-ada",
+      "sample": false,
+      "project": "Disaster Preparedness - Limited English Proficiency and ADA",
+      "organization": "Hawaiʻi Emergency Management Agency (DEF118)",
+      "agency": "DOD",
+      "programId": "DEF118",
+      "island": null,
+      "moku": null,
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 600000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to DEF118 — budget worksheet (Attachment A, RFP 2026-001G) p.6" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $600,000 to Hawaiʻi Emergency Management Agency (DEF118), Department of Defense, for Disaster Preparedness - Limited English Proficiency and ADA — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.6, DEF118: Hawaiʻi Emergency Management Agency — FY27 legislative adjustment, \"Disaster Preparedness - Limited English Proficiency and ADA\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-025",
+      "slug": "home-retrofit-hurricane",
+      "sample": false,
+      "project": "Home Retrofit (Hurricane)",
+      "organization": "Hawaiʻi Emergency Management Agency (DEF118)",
+      "agency": "DOD",
+      "programId": "DEF118",
+      "island": null,
+      "moku": null,
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 4000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to DEF118 — budget worksheet (Attachment A, RFP 2026-001G) p.6" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $4,000,000 to Hawaiʻi Emergency Management Agency (DEF118), Department of Defense, for Home Retrofit (Hurricane) — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.6, DEF118: Hawaiʻi Emergency Management Agency — FY27 legislative adjustment, \"Home Retrofit (Hurricane)\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-026",
+      "slug": "brush-vegetation-contracts",
+      "sample": false,
+      "project": "Brush & Vegetation Contracts",
+      "organization": "School Support (EDN400)",
+      "agency": "DOE",
+      "programId": "EDN400",
+      "island": null,
+      "moku": null,
+      "programArea": "wildfire-risk-reduction",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 4000000, "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to EDN400 — budget worksheet (Attachment A, RFP 2026-001G) p.6" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $4,000,000 to School Support (EDN400), Department of Education, for Brush & Vegetation Contracts — non-recurring. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.6, EDN400: School Support — FY27 legislative adjustment, \"Brush & Vegetation Contracts\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-027",
+      "slug": "waipahu-high-school-ada-compliance",
+      "sample": false,
+      "project": "Waipahu High School - ADA Compliance",
+      "organization": "School Support (EDN400)",
+      "agency": "DOE",
+      "programId": "EDN400",
+      "island": "Oʻahu",
+      "moku": "ʻEwa",
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 800000, "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to EDN400 — budget worksheet (Attachment A, RFP 2026-001G) p.7" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $800,000 to School Support (EDN400), Department of Education, for Waipahu High School - ADA Compliance — non-recurring. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Waipahu High School campus, Waipahu."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.7, EDN400: School Support — FY27 legislative adjustment, \"Waipahu High School - ADA Compliance\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-028",
+      "slug": "alternative-learning-program-facility-for-the-nanakuli-waianae-complex",
+      "sample": false,
+      "project": "Alternative Learning Program Facility for the Nānākuli–Waiʻanae Complex",
+      "organization": "School Support (EDN400)",
+      "agency": "DOE",
+      "programId": "EDN400",
+      "island": "Oʻahu",
+      "moku": "Waiʻanae",
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 400000, "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to EDN400 — budget worksheet (Attachment A, RFP 2026-001G) p.7" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $400,000 to School Support (EDN400), Department of Education, for Alternative Learning Program Facility for the Nānākuli–Waiʻanae Complex — non-recurring. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Nānākuli–Waiʻanae complex area, Waiʻanae coast."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.7, EDN400: School Support — FY27 legislative adjustment, \"Alternative Learning Program Facility for the Nānākuli–Waiʻanae Complex\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-029",
+      "slug": "existing-planned-projects-that-relate-to-act-96",
+      "sample": false,
+      "project": "Existing/Planned Projects That Relate to Act 96",
+      "organization": "Planning and Development for Hawaiian Homesteads (HHL602/BB)",
+      "agency": "DHHL",
+      "programId": "HHL602/BB",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 2000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to HHL602/BB — budget worksheet (Attachment A, RFP 2026-001G) p.7" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $2,000,000 to Planning and Development for Hawaiian Homesteads (HHL602/BB), Department of Hawaiian Home Lands, for Existing/Planned Projects That Relate to Act 96 — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.7, HHL602/BB: Planning and Development for Hawaiian Homesteads — FY27 legislative adjustment, \"Existing/Planned Projects That Relate to Act 96\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-030",
+      "slug": "dhhl-wastewater-improvement-keaukaha",
+      "sample": false,
+      "project": "DHHL Wastewater Improvement Keaukaha",
+      "organization": "Planning and Development for Hawaiian Homesteads (HHL602/BB)",
+      "agency": "DHHL",
+      "programId": "HHL602/BB",
+      "island": "Hawaiʻi",
+      "moku": "Hilo",
+      "programArea": "water-systems-safety",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 4000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to HHL602/BB — budget worksheet (Attachment A, RFP 2026-001G) p.7" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $4,000,000 to Planning and Development for Hawaiian Homesteads (HHL602/BB), Department of Hawaiian Home Lands, for DHHL Wastewater Improvement Keaukaha — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Keaukaha Hawaiian homestead, Hilo."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.7, HHL602/BB: Planning and Development for Hawaiian Homesteads — FY27 legislative adjustment, \"DHHL Wastewater Improvement Keaukaha\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-031",
+      "slug": "kona-and-kohala-hospital",
+      "sample": false,
+      "project": "Kona and Kohala Hospital",
+      "organization": "Hawaiʻi Health Systems Corporation - Regions (HTH212)",
+      "agency": "DOH",
+      "programId": "HTH212",
+      "island": "Hawaiʻi",
+      "moku": "Kona & Kohala",
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 2500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to HTH212 — budget worksheet (Attachment A, RFP 2026-001G) p.8" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $2,500,000 to Hawaiʻi Health Systems Corporation - Regions (HTH212), Department of Health, for Kona and Kohala Hospital — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Kona Community Hospital (Kealakekua) and Kohala Hospital (Kapaʻau) — two moku, named as a pair."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.8, HTH212: Hawaiʻi Health Systems Corporation - Regions — FY27 legislative adjustment, \"Kona and Kohala Hospital\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-032",
+      "slug": "comprehensive-watershed-based-water-quality-monitoring-pilot-program",
+      "sample": false,
+      "project": "Comprehensive Watershed-Based Water Quality Monitoring Pilot Program",
+      "organization": "Environmental Management (HTH840)",
+      "agency": "DOH",
+      "programId": "HTH840",
+      "island": null,
+      "moku": null,
+      "programArea": "watershed-freshwater-security",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 200000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to HTH840 — budget worksheet (Attachment A, RFP 2026-001G) p.8" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $200,000 to Environmental Management (HTH840), Department of Health, for Comprehensive Watershed-Based Water Quality Monitoring Pilot Program — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.8, HTH840: Environmental Management — FY27 legislative adjustment, \"Comprehensive Watershed-Based Water Quality Monitoring Pilot Program\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-033",
+      "slug": "community-health-centers-microgrid",
+      "sample": false,
+      "project": "Community Health Centers Microgrid",
+      "organization": "General Administration (HTH907)",
+      "agency": "DOH",
+      "programId": "HTH907",
+      "island": null,
+      "moku": null,
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 2000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to HTH907 — budget worksheet (Attachment A, RFP 2026-001G) p.8" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $2,000,000 to General Administration (HTH907), Department of Health, for Community Health Centers Microgrid — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.8, HTH907: General Administration — FY27 legislative adjustment, \"Community Health Centers Microgrid\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-034",
+      "slug": "pulama-i-ka-aina-statewide-early-wildfire-detection",
+      "sample": false,
+      "project": "Pūlama i ka ʻĀina Statewide Early Wildfire Detection",
+      "organization": "Office of the State Fire Marshal (LAW822)",
+      "agency": "DLE",
+      "programId": "LAW822",
+      "island": "Statewide",
+      "moku": null,
+      "programArea": "wildfire-risk-reduction",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 518600, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LAW822 — budget worksheet (Attachment A, RFP 2026-001G) p.8" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $518,600 to Office of the State Fire Marshal (LAW822), Department of Law Enforcement, for Pūlama i ka ʻĀina Statewide Early Wildfire Detection — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Statewide program per the enacted title; effects are reported per site, each in its own moku."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.8, LAW822: Office of the State Fire Marshal — FY27 legislative adjustment, \"Pūlama i ka ʻĀina Statewide Early Wildfire Detection\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-035",
+      "slug": "kaanapali-beach-restoration",
+      "sample": false,
+      "project": "Kāʻanapali Beach Restoration",
+      "organization": "Public Lands Management (LNR101)",
+      "agency": "DLNR",
+      "programId": "LNR101",
+      "island": "Maui",
+      "moku": "Lāhainā",
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR101 — budget worksheet (Attachment A, RFP 2026-001G) p.9" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,000,000 to Public Lands Management (LNR101), Department of Land and Natural Resources, for Kāʻanapali Beach Restoration — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Kāʻanapali Beach, the Hanakaʻōʻō shoreline between Hanakaʻōʻō Beach Park and Puʻu Kekaʻa. Hanakaʻōʻō lies in Lāhainā moku under the traditional boundaries, with Kāʻanapali moku beginning at Puʻu Kekaʻa — read from the place name; confirm on first report."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.9, LNR101: Public Lands Management — FY27 legislative adjustment, \"Kāʻanapali Beach Restoration\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-036",
+      "slug": "conservation-of-agriculture-and-soil-health",
+      "sample": false,
+      "project": "Conservation of Agriculture and Soil Health",
+      "organization": "Public Lands Management (LNR101)",
+      "agency": "DLNR",
+      "programId": "LNR101",
+      "island": null,
+      "moku": null,
+      "programArea": "enabling-planning-and-studies",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR101 — budget worksheet (Attachment A, RFP 2026-001G) p.9" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Public Lands Management (LNR101), Department of Land and Natural Resources, for Conservation of Agriculture and Soil Health — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.9, LNR101: Public Lands Management — FY27 legislative adjustment, \"Conservation of Agriculture and Soil Health\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-037",
+      "slug": "beach-restoration",
+      "sample": false,
+      "project": "Beach Restoration",
+      "organization": "Public Lands Management (LNR101)",
+      "agency": "DLNR",
+      "programId": "LNR101",
+      "island": null,
+      "moku": null,
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 8000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR101 — budget worksheet (Attachment A, RFP 2026-001G) p.9" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $8,000,000 to Public Lands Management (LNR101), Department of Land and Natural Resources, for Beach Restoration — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.9, LNR101: Public Lands Management — FY27 legislative adjustment, \"Beach Restoration\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-038",
+      "slug": "hale-piula-watertank-replacement-and-clean-up-hawaii",
+      "sample": false,
+      "project": "Hale Piula Watertank Replacement and Clean Up, Hawaiʻi",
+      "organization": "Forestry - Resource Management and Development (LNR172)",
+      "agency": "DLNR",
+      "programId": "LNR172",
+      "island": "Hawaiʻi",
+      "moku": null,
+      "programArea": "water-systems-safety",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 2000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR172 — budget worksheet (Attachment A, RFP 2026-001G) p.9" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $2,000,000 to Forestry - Resource Management and Development (LNR172), Department of Land and Natural Resources, for Hale Piula Watertank Replacement and Clean Up, Hawaiʻi — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Hawaiʻi Island per the enacted title; site and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.9, LNR172: Forestry - Resource Management and Development — FY27 legislative adjustment, \"Hale Piula Watertank Replacement and Clean Up, Hawaiʻi\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-039",
+      "slug": "strengthening-public-safety-measures-throughout-hawaii-state-forest-reserves",
+      "sample": false,
+      "project": "Strengthening Public Safety Measures Throughout Hawaiʻi State Forest Reserves",
+      "organization": "Forestry - Resource Management and Development (LNR172)",
+      "agency": "DLNR",
+      "programId": "LNR172",
+      "island": null,
+      "moku": null,
+      "programArea": "wildfire-risk-reduction",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1410000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR172 — budget worksheet (Attachment A, RFP 2026-001G) p.10" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,410,000 to Forestry - Resource Management and Development (LNR172), Department of Land and Natural Resources, for Strengthening Public Safety Measures Throughout Hawaiʻi State Forest Reserves — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.10, LNR172: Forestry - Resource Management and Development — FY27 legislative adjustment, \"Strengthening Public Safety Measures Throughout Hawaiʻi State Forest Reserves\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-040",
+      "slug": "urban-extreme-heat-temperature-reduction-projects",
+      "sample": false,
+      "project": "Urban Extreme Heat Temperature Reduction Projects",
+      "organization": "Forestry - Resource Management and Development (LNR172)",
+      "agency": "DLNR",
+      "programId": "LNR172",
+      "island": null,
+      "moku": null,
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR172 — budget worksheet (Attachment A, RFP 2026-001G) p.10" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,500,000 to Forestry - Resource Management and Development (LNR172), Department of Land and Natural Resources, for Urban Extreme Heat Temperature Reduction Projects — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.10, LNR172: Forestry - Resource Management and Development — FY27 legislative adjustment, \"Urban Extreme Heat Temperature Reduction Projects\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-041",
+      "slug": "koaia-seed-orchards",
+      "sample": false,
+      "project": "Koaiʻa Seed Orchards",
+      "organization": "Forestry - Resource Management and Development (LNR172)",
+      "agency": "DLNR",
+      "programId": "LNR172",
+      "island": null,
+      "moku": null,
+      "programArea": "native-ecosystems-biosecurity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 400000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR172 — budget worksheet (Attachment A, RFP 2026-001G) p.10" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $400,000 to Forestry - Resource Management and Development (LNR172), Department of Land and Natural Resources, for Koaiʻa Seed Orchards — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.10, LNR172: Forestry - Resource Management and Development — FY27 legislative adjustment, \"Koaiʻa Seed Orchards\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-042",
+      "slug": "hazardous-tree-assessment-removal",
+      "sample": false,
+      "project": "Hazardous Tree Assessment & Removal",
+      "organization": "Forestry - Resource Management and Development (LNR172)",
+      "agency": "DLNR",
+      "programId": "LNR172",
+      "island": null,
+      "moku": null,
+      "programArea": "wildfire-risk-reduction",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 175000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR172 — budget worksheet (Attachment A, RFP 2026-001G) p.10" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $175,000 to Forestry - Resource Management and Development (LNR172), Department of Land and Natural Resources, for Hazardous Tree Assessment & Removal — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.10, LNR172: Forestry - Resource Management and Development — FY27 legislative adjustment, \"Hazardous Tree Assessment & Removal\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-043",
+      "slug": "protecting-communities-from-wave-energy-and-storm-surge-by-maintaining-natural-coral-reef-breakwaters",
+      "sample": false,
+      "project": "Protecting Communities from Wave Energy and Storm Surge by Maintaining Natural Coral Reef Breakwaters",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": null,
+      "moku": null,
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 980000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.11" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $980,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Protecting Communities from Wave Energy and Storm Surge by Maintaining Natural Coral Reef Breakwaters — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.11, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Protecting Communities from Wave Energy and Storm Surge by Maintaining Natural Coral Reef Breakwaters\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-044",
+      "slug": "watershed-coordination-and-restoration-for-reef-resilience",
+      "sample": false,
+      "project": "Watershed Coordination and Restoration for Reef Resilience",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": null,
+      "moku": null,
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 750000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.11" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $750,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Watershed Coordination and Restoration for Reef Resilience — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.11, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Watershed Coordination and Restoration for Reef Resilience\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-045",
+      "slug": "community-driven-marine-resources-resiliency-planning",
+      "sample": false,
+      "project": "Community Driven, Marine Resources Resiliency Planning",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 550000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.11" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $550,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Community Driven, Marine Resources Resiliency Planning — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.11, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Community Driven, Marine Resources Resiliency Planning\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-046",
+      "slug": "kauai-coral-restoration-program",
+      "sample": false,
+      "project": "Kauaʻi Coral Restoration Program",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": "Kauaʻi",
+      "moku": null,
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.11" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Kauaʻi Coral Restoration Program — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Kauaʻi per the enacted title; reef sites and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.11, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Kauaʻi Coral Restoration Program\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-047",
+      "slug": "regulatory-and-interpretive-signage-plan-and-implementation",
+      "sample": false,
+      "project": "Regulatory and Interpretive Signage Plan and Implementation",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": null,
+      "moku": null,
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.12" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Regulatory and Interpretive Signage Plan and Implementation — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.12, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Regulatory and Interpretive Signage Plan and Implementation\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-048",
+      "slug": "community-led-marine-debris-clean-up",
+      "sample": false,
+      "project": "Community Led Marine Debris Clean-Up",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.12" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Community Led Marine Debris Clean-Up — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.12, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Community Led Marine Debris Clean-Up\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-049",
+      "slug": "na-manu-elele-makai",
+      "sample": false,
+      "project": "Nā Manu ʻElele Makai",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.12" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,000,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Nā Manu ʻElele Makai — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.12, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Nā Manu ʻElele Makai\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-050",
+      "slug": "day-use-mooring-buoy-maintenance",
+      "sample": false,
+      "project": "Day-Use Mooring Buoy Maintenance",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": null,
+      "moku": null,
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 350000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.12" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $350,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Day-Use Mooring Buoy Maintenance — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.12, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Day-Use Mooring Buoy Maintenance\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-051",
+      "slug": "mangrove-removal-and-shoreline-and-stream-maintenance",
+      "sample": false,
+      "project": "Mangrove Removal and Shoreline and Stream Maintenance",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": null,
+      "moku": null,
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 800000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.13" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $800,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Mangrove Removal and Shoreline and Stream Maintenance — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.13, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Mangrove Removal and Shoreline and Stream Maintenance\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-052",
+      "slug": "pilot-conversion-of-cesspools-honaunau",
+      "sample": false,
+      "project": "Pilot Conversion of Cesspools – Hōnaunau",
+      "organization": "Ecosystem Protection and Restoration (LNR401)",
+      "agency": "DLNR",
+      "programId": "LNR401",
+      "island": "Hawaiʻi",
+      "moku": "Kona",
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR401 — budget worksheet (Attachment A, RFP 2026-001G) p.13" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,000,000 to Ecosystem Protection and Restoration (LNR401), Department of Land and Natural Resources, for Pilot Conversion of Cesspools – Hōnaunau — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Hōnaunau, South Kona."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.13, LNR401: Ecosystem Protection and Restoration — FY27 legislative adjustment, \"Pilot Conversion of Cesspools – Hōnaunau\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-053",
+      "slug": "endangered-forest-bird-mosquito-abatement",
+      "sample": false,
+      "project": "Endangered Forest Bird Mosquito Abatement",
+      "organization": "Native Resources and Fire Protection Program (LNR402)",
+      "agency": "DLNR",
+      "programId": "LNR402",
+      "island": null,
+      "moku": null,
+      "programArea": "native-ecosystems-biosecurity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1600000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR402 — budget worksheet (Attachment A, RFP 2026-001G) p.13" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,600,000 to Native Resources and Fire Protection Program (LNR402), Department of Land and Natural Resources, for Endangered Forest Bird Mosquito Abatement — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.13, LNR402: Native Resources and Fire Protection Program — FY27 legislative adjustment, \"Endangered Forest Bird Mosquito Abatement\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-054",
+      "slug": "threatened-and-endangered-seabird-colony-management-and-recovery-on-kauai",
+      "sample": false,
+      "project": "Threatened and Endangered Seabird Colony Management and Recovery on Kauaʻi",
+      "organization": "Native Resources and Fire Protection Program (LNR402)",
+      "agency": "DLNR",
+      "programId": "LNR402",
+      "island": "Kauaʻi",
+      "moku": null,
+      "programArea": "native-ecosystems-biosecurity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 353653, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR402 — budget worksheet (Attachment A, RFP 2026-001G) p.13" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $353,653 to Native Resources and Fire Protection Program (LNR402), Department of Land and Natural Resources, for Threatened and Endangered Seabird Colony Management and Recovery on Kauaʻi — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Kauaʻi per the enacted title; colony sites and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.13, LNR402: Native Resources and Fire Protection Program — FY27 legislative adjustment, \"Threatened and Endangered Seabird Colony Management and Recovery on Kauaʻi\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-055",
+      "slug": "hawaii-wildfire-risk-reduction-program-firewise",
+      "sample": false,
+      "project": "Hawaiʻi Wildfire Risk Reduction Program / Firewise",
+      "organization": "Native Resources and Fire Protection Program (LNR402)",
+      "agency": "DLNR",
+      "programId": "LNR402",
+      "island": null,
+      "moku": null,
+      "programArea": "wildfire-risk-reduction",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 5714105, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR402 — budget worksheet (Attachment A, RFP 2026-001G) p.14" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $5,714,105 to Native Resources and Fire Protection Program (LNR402), Department of Land and Natural Resources, for Hawaiʻi Wildfire Risk Reduction Program / Firewise — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.14, LNR402: Native Resources and Fire Protection Program — FY27 legislative adjustment, \"Hawaiʻi Wildfire Risk Reduction Program / Firewise\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-056",
+      "slug": "hawaii-water-conservation-plan",
+      "sample": false,
+      "project": "Hawaiʻi Water Conservation Plan",
+      "organization": "Water Resources (LNR404)",
+      "agency": "DLNR",
+      "programId": "LNR404",
+      "island": null,
+      "moku": null,
+      "programArea": "watershed-freshwater-security",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR404 — budget worksheet (Attachment A, RFP 2026-001G) p.14" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to Water Resources (LNR404), Department of Land and Natural Resources, for Hawaiʻi Water Conservation Plan — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.14, LNR404: Water Resources — FY27 legislative adjustment, \"Hawaiʻi Water Conservation Plan\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-057",
+      "slug": "hawaii-drought-plan",
+      "sample": false,
+      "project": "Hawaiʻi Drought Plan",
+      "organization": "Water Resources (LNR404)",
+      "agency": "DLNR",
+      "programId": "LNR404",
+      "island": null,
+      "moku": null,
+      "programArea": "watershed-freshwater-security",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR404 — budget worksheet (Attachment A, RFP 2026-001G) p.14" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to Water Resources (LNR404), Department of Land and Natural Resources, for Hawaiʻi Drought Plan — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.14, LNR404: Water Resources — FY27 legislative adjustment, \"Hawaiʻi Drought Plan\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-058",
+      "slug": "hydrologic-studies-and-research",
+      "sample": false,
+      "project": "Hydrologic Studies and Research",
+      "organization": "Water Resources (LNR404)",
+      "agency": "DLNR",
+      "programId": "LNR404",
+      "island": null,
+      "moku": null,
+      "programArea": "watershed-freshwater-security",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR404 — budget worksheet (Attachment A, RFP 2026-001G) p.14" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,500,000 to Water Resources (LNR404), Department of Land and Natural Resources, for Hydrologic Studies and Research — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.14, LNR404: Water Resources — FY27 legislative adjustment, \"Hydrologic Studies and Research\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-059",
+      "slug": "makai-watch-program-expansion",
+      "sample": false,
+      "project": "Makai Watch Program Expansion",
+      "organization": "Conservation and Resources Enforcement (LNR405)",
+      "agency": "DLNR",
+      "programId": "LNR405",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 360916, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR405 — budget worksheet (Attachment A, RFP 2026-001G) p.15" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $360,916 to Conservation and Resources Enforcement (LNR405), Department of Land and Natural Resources, for Makai Watch Program Expansion — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.15, LNR405: Conservation and Resources Enforcement — FY27 legislative adjustment, \"Makai Watch Program Expansion\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-060",
+      "slug": "conservation-resource-enforcement",
+      "sample": false,
+      "project": "Conservation Resource Enforcement",
+      "organization": "Conservation and Resources Enforcement (LNR405)",
+      "agency": "DLNR",
+      "programId": "LNR405",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 2300561, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR405 — budget worksheet (Attachment A, RFP 2026-001G) p.15" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $2,300,561 to Conservation and Resources Enforcement (LNR405), Department of Land and Natural Resources, for Conservation Resource Enforcement — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.15, LNR405: Conservation and Resources Enforcement — FY27 legislative adjustment, \"Conservation Resource Enforcement\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-061",
+      "slug": "endangered-plant-seed-banking",
+      "sample": false,
+      "project": "Endangered Plant Seed Banking",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": null,
+      "moku": null,
+      "programArea": "native-ecosystems-biosecurity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 450000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.15" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $450,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Endangered Plant Seed Banking — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.15, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Endangered Plant Seed Banking\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-062",
+      "slug": "maui-nui-endangered-species-predator-control",
+      "sample": false,
+      "project": "Maui Nui Endangered Species Predator Control",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": null,
+      "moku": null,
+      "programArea": "native-ecosystems-biosecurity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 436464, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.15" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $436,464 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Maui Nui Endangered Species Predator Control — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Maui Nui (Maui, Molokaʻi, Lānaʻi, Kahoʻolawe) per the enacted title; islands and moku to be reported per site."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.15, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Maui Nui Endangered Species Predator Control\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-063",
+      "slug": "plant-extinction-prevention-program",
+      "sample": false,
+      "project": "Plant Extinction Prevention Program",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": null,
+      "moku": null,
+      "programArea": "native-ecosystems-biosecurity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 300000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.16" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $300,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Plant Extinction Prevention Program — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.16, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Plant Extinction Prevention Program\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-064",
+      "slug": "kuia-and-honopu-trail",
+      "sample": false,
+      "project": "Kuiʻa and Honopū Trail",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": "Kauaʻi",
+      "moku": null,
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.16" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Kuiʻa and Honopū Trail — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Kuiʻa Natural Area Reserve and the Honopū Trail, mauka of Kōkeʻe above the Nā Pali coast; moku to be reported (the corridor runs along the ridge between Kauaʻi's Kona and Nā Pali moku)."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.16, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Kuiʻa and Honopū Trail\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-065",
+      "slug": "ungulate-control-in-west-hawaii",
+      "sample": false,
+      "project": "Ungulate Control in West Hawaiʻi",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": "Hawaiʻi",
+      "moku": null,
+      "programArea": "native-ecosystems-biosecurity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.16" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Ungulate Control in West Hawaiʻi — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "West Hawaiʻi (the Kona and Kohala side) per the enacted title; management units and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.16, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Ungulate Control in West Hawaiʻi\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-066",
+      "slug": "wailupe-stream-flood-mitigation",
+      "sample": false,
+      "project": "Wailupe Stream Flood Mitigation",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": "Oʻahu",
+      "moku": "Kona",
+      "programArea": "watershed-freshwater-security",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.16" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Wailupe Stream Flood Mitigation — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Wailupe Stream, ʻĀina Haina, in Oʻahu's Kona moku."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.16, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Wailupe Stream Flood Mitigation\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-067",
+      "slug": "flood-mitigation-and-stream-stewardship",
+      "sample": false,
+      "project": "Flood Mitigation and Stream Stewardship",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": null,
+      "moku": null,
+      "programArea": "watershed-freshwater-security",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 300000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.17" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $300,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Flood Mitigation and Stream Stewardship — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.17, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Flood Mitigation and Stream Stewardship\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-068",
+      "slug": "public-private-watershed-management-statewide",
+      "sample": false,
+      "project": "Public Private Watershed Management, Statewide",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": "Statewide",
+      "moku": null,
+      "programArea": "watershed-freshwater-security",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.17" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,000,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Public Private Watershed Management, Statewide — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Statewide program per the enacted title; effects are reported per site, each in its own moku."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.17, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Public Private Watershed Management, Statewide\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-069",
+      "slug": "indigenous-climate-infrastructure-waipio",
+      "sample": false,
+      "project": "Indigenous Climate Infrastructure – Waipiʻo",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": "Hawaiʻi",
+      "moku": "Hāmākua",
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 200000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.17" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $200,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Indigenous Climate Infrastructure – Waipiʻo — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Waipiʻo Valley, Hāmākua — read from the enacted title; confirm on first report (Oʻahu also has a Waipiʻo)."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.17, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Indigenous Climate Infrastructure – Waipiʻo\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-070",
+      "slug": "climate-resilience-crews",
+      "sample": false,
+      "project": "Climate Resilience Crews",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 3000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.17" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $3,000,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Climate Resilience Crews — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.17, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Climate Resilience Crews\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-071",
+      "slug": "conservation-corps-for-community-partnership-and-workforce-capacity-development-for-green-jobs-and-climate-resiliency",
+      "sample": false,
+      "project": "Conservation Corps for Community Partnership and Workforce Capacity Development for Green Jobs and Climate Resiliency",
+      "organization": "Natural Area Reserves and Watershed Management (LNR407)",
+      "agency": "DLNR",
+      "programId": "LNR407",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1250000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR407 — budget worksheet (Attachment A, RFP 2026-001G) p.18" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,250,000 to Natural Area Reserves and Watershed Management (LNR407), Department of Land and Natural Resources, for Conservation Corps for Community Partnership and Workforce Capacity Development for Green Jobs and Climate Resiliency — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.18, LNR407: Natural Area Reserves and Watershed Management — FY27 legislative adjustment, \"Conservation Corps for Community Partnership and Workforce Capacity Development for Green Jobs and Climate Resiliency\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-072",
+      "slug": "maalaea-small-boat-harbor-improvements",
+      "sample": false,
+      "project": "Māʻalaea Small Boat Harbor Improvements",
+      "organization": "Ocean-Based Recreation (LNR801)",
+      "agency": "DLNR",
+      "programId": "LNR801",
+      "island": "Maui",
+      "moku": "Wailuku",
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR801 — budget worksheet (Attachment A, RFP 2026-001G) p.18" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Ocean-Based Recreation (LNR801), Department of Land and Natural Resources, for Māʻalaea Small Boat Harbor Improvements — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Māʻalaea Small Boat Harbor; Māʻalaea sits in Waikapū ahupuaʻa, Wailuku moku. Moku read from the place name — confirm on first report."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.18, LNR801: Ocean-Based Recreation — FY27 legislative adjustment, \"Māʻalaea Small Boat Harbor Improvements\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-073",
+      "slug": "kailua-kona-wharf-improvements",
+      "sample": false,
+      "project": "Kailua-Kona Wharf Improvements",
+      "organization": "Ocean-Based Recreation (LNR801)",
+      "agency": "DLNR",
+      "programId": "LNR801",
+      "island": "Hawaiʻi",
+      "moku": "Kona",
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 900000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR801 — budget worksheet (Attachment A, RFP 2026-001G) p.18" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $900,000 to Ocean-Based Recreation (LNR801), Department of Land and Natural Resources, for Kailua-Kona Wharf Improvements — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Kailua-Kona wharf (Kailua pier), Kona."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.18, LNR801: Ocean-Based Recreation — FY27 legislative adjustment, \"Kailua-Kona Wharf Improvements\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-074",
+      "slug": "lahaina-small-boat-harbor",
+      "sample": false,
+      "project": "Lāhainā Small Boat Harbor",
+      "organization": "Ocean-Based Recreation (LNR801)",
+      "agency": "DLNR",
+      "programId": "LNR801",
+      "island": "Maui",
+      "moku": "Lāhainā",
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR801 — budget worksheet (Attachment A, RFP 2026-001G) p.18" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Ocean-Based Recreation (LNR801), Department of Land and Natural Resources, for Lāhainā Small Boat Harbor — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Lāhainā Small Boat Harbor, Lāhainā town."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.18, LNR801: Ocean-Based Recreation — FY27 legislative adjustment, \"Lāhainā Small Boat Harbor\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-075",
+      "slug": "na-manu-elele-statewide-land-steward-program",
+      "sample": false,
+      "project": "Nā Manu ʻElele Statewide Land Steward Program",
+      "organization": "Forest and Outdoor Recreation (LNR804)",
+      "agency": "DLNR",
+      "programId": "LNR804",
+      "island": "Statewide",
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR804 — budget worksheet (Attachment A, RFP 2026-001G) p.19" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,000,000 to Forest and Outdoor Recreation (LNR804), Department of Land and Natural Resources, for Nā Manu ʻElele Statewide Land Steward Program — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Statewide program per the enacted title; effects are reported per site, each in its own moku."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.19, LNR804: Forest and Outdoor Recreation — FY27 legislative adjustment, \"Nā Manu ʻElele Statewide Land Steward Program\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-076",
+      "slug": "state-parks-improvements",
+      "sample": false,
+      "project": "State Parks Improvements",
+      "organization": "Parks Administration and Operation (LNR806)",
+      "agency": "DLNR",
+      "programId": "LNR806",
+      "island": null,
+      "moku": null,
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 2550000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR806 — budget worksheet (Attachment A, RFP 2026-001G) p.19" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $2,550,000 to Parks Administration and Operation (LNR806), Department of Land and Natural Resources, for State Parks Improvements — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.19, LNR806: Parks Administration and Operation — FY27 legislative adjustment, \"State Parks Improvements\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-077",
+      "slug": "state-parks-statewide-fire-management-plan",
+      "sample": false,
+      "project": "State Parks Statewide Fire Management Plan",
+      "organization": "Parks Administration and Operation (LNR806)",
+      "agency": "DLNR",
+      "programId": "LNR806",
+      "island": "Statewide",
+      "moku": null,
+      "programArea": "wildfire-risk-reduction",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR806 — budget worksheet (Attachment A, RFP 2026-001G) p.19" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Parks Administration and Operation (LNR806), Department of Land and Natural Resources, for State Parks Statewide Fire Management Plan — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Statewide program per the enacted title; effects are reported per site, each in its own moku."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.19, LNR806: Parks Administration and Operation — FY27 legislative adjustment, \"State Parks Statewide Fire Management Plan\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-078",
+      "slug": "state-parks-cesspool-upgrade-at-kokee-state-park-and-waimea-canyon-state-park",
+      "sample": false,
+      "project": "State Parks Cesspool Upgrade at Kōkeʻe State Park and Waimea Canyon State Park",
+      "organization": "Parks Administration and Operation (LNR806)",
+      "agency": "DLNR",
+      "programId": "LNR806",
+      "island": "Kauaʻi",
+      "moku": "Kona",
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 700000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR806 — budget worksheet (Attachment A, RFP 2026-001G) p.19" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $700,000 to Parks Administration and Operation (LNR806), Department of Land and Natural Resources, for State Parks Cesspool Upgrade at Kōkeʻe State Park and Waimea Canyon State Park — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Kōkeʻe and Waimea Canyon State Parks, in Waimea ahupuaʻa, Kauaʻi's Kona moku."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.19, LNR806: Parks Administration and Operation — FY27 legislative adjustment, \"State Parks Cesspool Upgrade at Kōkeʻe State Park and Waimea Canyon State Park\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-079",
+      "slug": "destination-management-infrastructure-program",
+      "sample": false,
+      "project": "Destination-Management Infrastructure Program",
+      "organization": "Parks Administration and Operation (LNR806)",
+      "agency": "DLNR",
+      "programId": "LNR806",
+      "island": null,
+      "moku": null,
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 4300000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR806 — budget worksheet (Attachment A, RFP 2026-001G) p.20" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $4,300,000 to Parks Administration and Operation (LNR806), Department of Land and Natural Resources, for Destination-Management Infrastructure Program — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.20, LNR806: Parks Administration and Operation — FY27 legislative adjustment, \"Destination-Management Infrastructure Program\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-080",
+      "slug": "upgrade-and-modernize-the-hawaii-flood-hazard-assessment-tool",
+      "sample": false,
+      "project": "Upgrade and Modernize the Hawaiʻi Flood Hazard Assessment Tool",
+      "organization": "Prevention of Natural Disasters (LNR810)",
+      "agency": "DLNR",
+      "programId": "LNR810",
+      "island": null,
+      "moku": null,
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 300000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR810 — budget worksheet (Attachment A, RFP 2026-001G) p.20" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $300,000 to Prevention of Natural Disasters (LNR810), Department of Land and Natural Resources, for Upgrade and Modernize the Hawaiʻi Flood Hazard Assessment Tool — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.20, LNR810: Prevention of Natural Disasters — FY27 legislative adjustment, \"Upgrade and Modernize the Hawaiʻi Flood Hazard Assessment Tool\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-081",
+      "slug": "loko-la-resilience-program",
+      "sample": false,
+      "project": "Loko Iʻa Resilience Program",
+      "organization": "Natural and Physical Environment (LNR906)",
+      "agency": "DLNR",
+      "programId": "LNR906",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 162250, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR906 — budget worksheet (Attachment A, RFP 2026-001G) p.20" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $162,250 to Natural and Physical Environment (LNR906), Department of Land and Natural Resources, for Loko Iʻa Resilience Program — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.20, LNR906: Natural and Physical Environment — FY27 legislative adjustment, \"Loko Iʻa Resilience Program\" (printed on the worksheet as \"LOKO LA RESILIENCE PROGRAM\")",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-082",
+      "slug": "community-stewardship-community-based-ahupuaa-restoration",
+      "sample": false,
+      "project": "Community Stewardship (Community-Based Ahupuaʻa Restoration)",
+      "organization": "Natural and Physical Environment (LNR906)",
+      "agency": "DLNR",
+      "programId": "LNR906",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 6640000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR906 — budget worksheet (Attachment A, RFP 2026-001G) p.20" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $6,640,000 to Natural and Physical Environment (LNR906), Department of Land and Natural Resources, for Community Stewardship (Community-Based Ahupuaʻa Restoration) — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "reports": [
+        {
+          "date": "2026-07-17",
+          "source": "DLNR news release NR26-84, \"Call for proposals for community-based restoration\" (Division of Forestry and Wildlife)",
+          "url": "https://dlnr.hawaii.gov/blog/2026/07/17/nr26-84/",
+          "note": "DOFAW opened the Hoʻōla ʻĀina request for proposals: approximately $8 million in Green Fee funding for community-based restoration of forests, watersheds, wetlands, anchialine pools, and riparian areas, proposals due 2026-08-17 (HANDS opportunity 27266). The release names no budget line; the eligible work and the amount match this line together with its companion LNR906 line (GF-2027-HI-082 and GF-2027-HI-085, $8.14 million) — that pairing is this registry's reading, not the State's. Awardees were not yet announced as of 2026-10-12."
+        }
+      ],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.20, LNR906: Natural and Physical Environment — FY27 legislative adjustment, \"Community Stewardship (Community-Based Ahupuaʻa Restoration)\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-083",
+      "slug": "community-stewardship-nearshore-marine-environments",
+      "sample": false,
+      "project": "Community Stewardship (Nearshore Marine Environments)",
+      "organization": "Natural and Physical Environment (LNR906)",
+      "agency": "DLNR",
+      "programId": "LNR906",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 5750000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR906 — budget worksheet (Attachment A, RFP 2026-001G) p.21" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $5,750,000 to Natural and Physical Environment (LNR906), Department of Land and Natural Resources, for Community Stewardship (Nearshore Marine Environments) — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.21, LNR906: Natural and Physical Environment — FY27 legislative adjustment, \"Community Stewardship (Nearshore Marine Environments)\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-084",
+      "slug": "community-stewardship-coral-restoration",
+      "sample": false,
+      "project": "Community Stewardship (Coral Restoration)",
+      "organization": "Natural and Physical Environment (LNR906)",
+      "agency": "DLNR",
+      "programId": "LNR906",
+      "island": null,
+      "moku": null,
+      "programArea": "community-stewardship-capacity",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1500000, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR906 — budget worksheet (Attachment A, RFP 2026-001G) p.21" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,500,000 to Natural and Physical Environment (LNR906), Department of Land and Natural Resources, for Community Stewardship (Coral Restoration). What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.21, LNR906: Natural and Physical Environment — FY27 legislative adjustment, \"Community Stewardship (Coral Restoration)\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-085",
+      "slug": "restore-wetlands-anchilane-ponds-and-riparian-zones-with-community-partners-for-flood-control-habitat-improvement-and-coastal-resiliency",
+      "sample": false,
+      "project": "Restore Wetlands, Anchialine Ponds, and Riparian Zones with Community Partners, for Flood Control, Habitat Improvement, and Coastal Resiliency",
+      "organization": "Natural and Physical Environment (LNR906)",
+      "agency": "DLNR",
+      "programId": "LNR906",
+      "island": null,
+      "moku": null,
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1500000, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to LNR906 — budget worksheet (Attachment A, RFP 2026-001G) p.21" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,500,000 to Natural and Physical Environment (LNR906), Department of Land and Natural Resources, for Restore Wetlands, Anchialine Ponds, and Riparian Zones with Community Partners, for Flood Control, Habitat Improvement, and Coastal Resiliency. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "reports": [
+        {
+          "date": "2026-07-17",
+          "source": "DLNR news release NR26-84, \"Call for proposals for community-based restoration\" (Division of Forestry and Wildlife)",
+          "url": "https://dlnr.hawaii.gov/blog/2026/07/17/nr26-84/",
+          "note": "DOFAW opened the Hoʻōla ʻĀina request for proposals: approximately $8 million in Green Fee funding for community-based restoration of forests, watersheds, wetlands, anchialine pools, and riparian areas, proposals due 2026-08-17 (HANDS opportunity 27266). The release names no budget line; the eligible work and the amount match this line together with its companion LNR906 line (GF-2027-HI-082 and GF-2027-HI-085, $8.14 million) — that pairing is this registry's reading, not the State's. Awardees were not yet announced as of 2026-10-12."
+        }
+      ],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.21, LNR906: Natural and Physical Environment — FY27 legislative adjustment, \"Restore Wetlands, Anchialine Ponds, and Riparian Zones with Community Partners, for Flood Control, Habitat Improvement, and Coastal Resiliency\" (printed on the worksheet as \"RESTORE WETLANDS, ANCHILANE PONDS, AND RIPARIAN ZONES WITH COMMUNITY PARTNERS, FOR FLOOD CONTROL HABITAT IMPROVEMENT AND COASTAL RESILIENCY\")",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-086",
+      "slug": "transportation-congestion-relief-study",
+      "sample": false,
+      "project": "Transportation Congestion Relief Study",
+      "organization": "Hawaiʻi Highways (TRN511)",
+      "agency": "DOT",
+      "programId": "TRN511",
+      "island": null,
+      "moku": null,
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 290000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to TRN511 — budget worksheet (Attachment A, RFP 2026-001G) p.21" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $290,000 to Hawaiʻi Highways (TRN511), Department of Transportation, for Transportation Congestion Relief Study — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.21, TRN511: Hawaiʻi Highways — FY27 legislative adjustment, \"Transportation Congestion Relief Study\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-087",
+      "slug": "insar-satellite-data-collections",
+      "sample": false,
+      "project": "InSAR Satellite Data Collections",
+      "organization": "Highways Administration (TRN595/DB)",
+      "agency": "DOT",
+      "programId": "TRN595/DB",
+      "island": null,
+      "moku": null,
+      "programArea": "hazard-ready-communities",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 1000000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to TRN595/DB — budget worksheet (Attachment A, RFP 2026-001G) p.21" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $1,000,000 to Highways Administration (TRN595/DB), Department of Transportation, for InSAR Satellite Data Collections — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not stated in the appropriation; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.21, TRN595/DB: Highways Administration — FY27 legislative adjustment, \"InSAR Satellite Data Collections\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-088",
+      "slug": "mobility-hub-kauai-wailua",
+      "sample": false,
+      "project": "Mobility Hub: Kauaʻi Wailua",
+      "organization": "Highways Administration (TRN595)",
+      "agency": "DOT",
+      "programId": "TRN595",
+      "island": "Kauaʻi",
+      "moku": "Puna",
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 500000, "meansOfFinancing": "Special Land and Development Fund", "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to TRN595 — budget worksheet (Attachment A, RFP 2026-001G) p.22" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $500,000 to Highways Administration (TRN595), Department of Transportation, for Mobility Hub: Kauaʻi Wailua — from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Wailua, in Kauaʻi's Puna moku."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.22, TRN595: Highways Administration — FY27 legislative adjustment, \"Mobility Hub: Kauaʻi Wailua\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-089",
+      "slug": "mobility-hub-oahu-north-shore",
+      "sample": false,
+      "project": "Mobility Hub: Oʻahu North Shore",
+      "organization": "Highways Administration (TRN595)",
+      "agency": "DOT",
+      "programId": "TRN595",
+      "island": "Oʻahu",
+      "moku": null,
+      "programArea": "visitor-impact-management",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 250000, "meansOfFinancing": "Special Land and Development Fund", "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to TRN595 — budget worksheet (Attachment A, RFP 2026-001G) p.22" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $250,000 to Highways Administration (TRN595), Department of Transportation, for Mobility Hub: Oʻahu North Shore — from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "North Shore per the enacted title (Waialua or Koʻolauloa moku); site to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.22, TRN595: Highways Administration — FY27 legislative adjustment, \"Mobility Hub: Oʻahu North Shore\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-090",
+      "slug": "kalaeloa-reef-laboratory-project",
+      "sample": false,
+      "project": "Kalaeloa Reef Laboratory Project",
+      "organization": "General Administration (TRN995)",
+      "agency": "DOT",
+      "programId": "TRN995",
+      "island": "Oʻahu",
+      "moku": "ʻEwa",
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 915000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to TRN995 — budget worksheet (Attachment A, RFP 2026-001G) p.22" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $915,000 to General Administration (TRN995), Department of Transportation, for Kalaeloa Reef Laboratory Project — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Kalaeloa, ʻEwa."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.22, TRN995: General Administration — FY27 legislative adjustment, \"Kalaeloa Reef Laboratory Project\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    },
+    {
+      "id": "GF-2027-HI-091",
+      "slug": "pilihee-fishpond-restoration",
+      "sample": false,
+      "project": "Piliheʻe Fishpond Restoration",
+      "organization": "General Administration (TRN995)",
+      "agency": "DOT",
+      "programId": "TRN995",
+      "island": null,
+      "moku": null,
+      "programArea": "coastal-reef-resilience",
+      "act96Alignment": null,
+      "status": "planned",
+      "publicationStatus": "draft",
+      "award": { "fiscalYear": "FY2027", "amountUsd": 240000, "meansOfFinancing": "Special Land and Development Fund", "nonRecurring": true, "legislativeReference": "Act 175 SLH 2026 (HB 1800), FY27 legislative adjustment to TRN995 — budget worksheet (Attachment A, RFP 2026-001G) p.22" },
+      "summary": "Enacted FY2027 Green Fee appropriation of $240,000 to General Administration (TRN995), Department of Transportation, for Piliheʻe Fishpond Restoration — non-recurring, from the Special Land and Development Fund. What the program does with it, where, and to what effect appears here as it is reported.",
+      "location": {
+        "tmk": null,
+        "geoContext": "Place not located from the title as printed; island and moku to be reported."
+      },
+      "outcomes": [],
+      "links": { "dashboardId": null, "storyMapId": null, "webMapId": null },
+      "provenance": {
+        "programRecord": "Attachment A p.22, TRN995: General Administration — FY27 legislative adjustment, \"Piliheʻe Fishpond Restoration\"",
+        "authoritativeSource": "Act 250 SLH 2025 as amended by Act 175 SLH 2026 (HB 1800) — the enacted State budget; the Green Fee project worksheet published by the Department of Budget and Finance as Attachment A to RFP 2026-001G"
+      }
+    }
+  ]
+}

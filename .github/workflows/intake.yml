@@ -43,8 +43,8 @@ jobs:
           node-version: 24
       - name: Transform samples (.csv and .xlsx) and diff for parity
         run: |
-          node scripts/intake.mjs intake/samples/FY2026-attachment-a.csv --json > /tmp/from-csv.json
-          node scripts/intake.mjs intake/samples/FY2026-attachment-a.xlsx --json > /tmp/from-xlsx.json
+          node scripts/intake.mjs intake/samples/FY2026-attachment-a.csv --sample --json > /tmp/from-csv.json
+          node scripts/intake.mjs intake/samples/FY2026-attachment-a.xlsx --sample --json > /tmp/from-xlsx.json
           sed -i 's/FY2026-attachment-a\.csv/SOURCE/g'  /tmp/from-csv.json
           sed -i 's/FY2026-attachment-a\.xlsx/SOURCE/g' /tmp/from-xlsx.json
           diff /tmp/from-csv.json /tmp/from-xlsx.json

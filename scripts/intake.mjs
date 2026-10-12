@@ -11,8 +11,11 @@
  * proposes; the validation gate judges; a human publishes.
  *
  * Two registry shapes (see scripts/validate.mjs):
- *   - v0 (demonstration): every emitted record is stamped `sample: true`,
- *     the schema guard that keeps real data out of the demo.
+ *   - v0.3 (stakeholder shape): every emitted record carries the cohort's
+ *     own `sample` flag — a cohort declares whether it is demonstration
+ *     data (`--sample` when creating one), and intake inherits that
+ *     decision; it is never intake's call. Island, moku, and Act 96
+ *     alignment may be empty (null = to be reported).
  *   - v1.0 (program data): minimal at draft — an appropriation worksheet
  *     row (department, program ID, project, amount) is enough to enter the
  *     registry; geography, program area, alignment, summary, and the
@@ -32,9 +35,10 @@
  * Default is a dry run. --write merges into <registry>/FY<year>.json.
  * --json prints the generated records as JSON on stdout (report to stderr).
  * --v1 creates a new cohort in the v1.0 shape (ignored if the cohort file
- * already exists — its own schemaVersion wins). --sample marks a new v1
- * cohort as demonstration data. --fiscal-public marks a new v1 cohort's
- * appropriation figures as public (enacted budget).
+ * already exists — its own schemaVersion wins). --sample marks a new
+ * cohort (either shape) as demonstration data. --fiscal-public marks a new
+ * cohort's appropriation figures as public (enacted budget) — never
+ * together with --sample.
  *
  * Exit code 0 = transform clean (skips allowed); 1 = findings.
  */
@@ -226,7 +230,9 @@ const V1_ONLY = new Set(['departmentCode', 'programId', 'meansOfFinancing', 'non
   'fundingStatus', 'releasedUsd', 'expendedUsd', 'fundingAsOf', 'contactName', 'contactEmail']);
 
 const REQUIRED = {
-  v0: ['project', 'organization', 'agency', 'island', 'moku', 'programArea', 'act96Alignment', 'amountUsd', 'summary'],
+  // v0.3: island, moku, and Act 96 alignment columns may be absent or empty
+  // (null = to be reported); the stakeholder facts and the summary may not.
+  v0: ['project', 'organization', 'agency', 'programArea', 'amountUsd', 'summary'],
   v1: ['project', 'amountUsd'], // + agency OR departmentCode, checked below
 };
 
@@ -283,7 +289,7 @@ function toRecord(raw, ctx, at, findings) {
 
   // --- fields shared by both shapes (v0 requires them; v1 accepts them) ---
   const islandRaw = get('island');
-  const island = islandRaw ? matchEnum(islandRaw, enums.island) : null;
+  const island = islandRaw ? matchEnum(islandRaw, enums.island.filter(Boolean)) : null;
   if (islandRaw && !island) fail(`island "${islandRaw}" not one of [${enums.island.join(', ')}]`);
 
   const areaRaw = get('programArea');
@@ -294,11 +300,11 @@ function toRecord(raw, ctx, at, findings) {
   }
 
   const actRaw = get('act96Alignment');
-  const act96 = actRaw ? matchEnum(actRaw, enums.act96Alignment) : null;
-  if (actRaw && !act96) fail(`Act 96 alignment "${actRaw}" not one of [${enums.act96Alignment.join(', ')}]`);
+  const act96 = actRaw ? matchEnum(actRaw, enums.act96Alignment.filter(Boolean)) : null;
+  if (actRaw && !act96) fail(`Act 96 alignment "${actRaw}" not one of [${enums.act96Alignment.filter(Boolean).join(', ')}]`);
 
   const statusRaw = get('status');
-  const status = statusRaw ? matchEnum(statusRaw, enums.status) : (mode === 'v1' ? 'planned' : 'active');
+  const status = statusRaw ? matchEnum(statusRaw, enums.status) : 'planned';
   if (!status) fail(`status "${statusRaw}" not one of [${enums.status.join(', ')}]`);
 
   const amount = money(get('amountUsd'));
@@ -325,7 +331,8 @@ function toRecord(raw, ctx, at, findings) {
   // --- assemble, in house order ---
   r.id = `GF-${ctx.year}-HI-${String(++ctx.idCounter).padStart(3, '0')}`;
   r.slug = slugify(project);
-  if (mode === 'v0' || ctx.sample) r.sample = true;
+  if (mode === 'v0') r.sample = ctx.sample; // a record is what its cohort is
+  else if (ctx.sample) r.sample = true;
   r.project = project;
   if (mode === 'v0' || get('organization')) r.organization = get('organization');
   r.agency = get('agency') || get('departmentCode');
@@ -336,7 +343,7 @@ function toRecord(raw, ctx, at, findings) {
     if (pid) { if (/^[A-Z]{3}[0-9]{3}(\/[A-Z]{2})?$/.test(pid)) r.programId = pid; else fail(`program ID "${pid}" is not like LNR407 or BED170/KB`); }
   }
   if (mode === 'v0' || island) r.island = island;
-  if (mode === 'v0' || get('moku')) r.moku = get('moku');
+  if (mode === 'v0' || get('moku')) r.moku = get('moku') || null;
   if (mode === 'v0' || programArea) r.programArea = programArea;
   if (mode === 'v0' || act96) r.act96Alignment = act96;
   r.status = status;
@@ -383,7 +390,7 @@ function serializeRecord(r) {
   const inlineObj = (o) => `{ ${Object.entries(o).map(([k, v]) => `${s(k)}: ${s(v)}`).join(', ')} }`;
   line('id', s(r.id));
   line('slug', s(r.slug));
-  if (r.sample) line('sample', 'true');
+  if (r.sample != null) line('sample', String(r.sample));
   line('project', s(r.project));
   if (r.organization != null) line('organization', s(r.organization));
   line('agency', s(r.agency));
@@ -483,23 +490,29 @@ if (findings.length) {
 }
 
 const year = cohort.slice(2);
+if (!existing && mode === 'v0' && flags.has('--sample') && flags.has('--fiscal-public')) {
+  // v0.3 rule (validator invariant): fictional figures are never public law.
+  // The v1 fixture keeps both flags to exercise the v1 fiscal visual.
+  console.error(`INTAKE  ${source}: --sample and --fiscal-public cannot both be set on a v0 cohort — fictional figures are never public law`);
+  process.exit(1);
+}
 const cohortDoc = existing ?? {
   ...(mode === 'v1' ? { schemaVersion: '1.0' } : {}),
   cohort,
-  ...(mode === 'v0' || flags.has('--sample') ? { sample: true } : {}),
+  ...(mode === 'v0' ? { sample: flags.has('--sample') } : flags.has('--sample') ? { sample: true } : {}),
   updated: new Date().toISOString().slice(0, 10),
-  ...(mode === 'v1' ? { source: sourceFlag ?? `Intake from ${source}` } : {}),
-  ...(mode === 'v1' && flags.has('--fiscal-public') ? { fiscalPublic: true } : {}),
+  source: sourceFlag ?? `Intake from ${source}${flags.has('--sample') ? ' (demonstration data)' : ''}`,
+  ...(flags.has('--fiscal-public') ? { fiscalPublic: true } : {}),
   note: mode === 'v1'
     ? `Cohort file created by intake from ${source}. Records enter minimal (appropriation shape) and earn geography, program area, alignment, summary, story, outcomes, and a project-lead contact before the publication gate releases them. Intake emits drafts only — a human publishes, never an automated process.`
-    : `Cohort file created by intake from ${source}. Every record is a sample (v0 schema guard); intake emits drafts only — a human publishes, never an automated process.`,
+    : `Cohort file created by intake from ${source}${flags.has('--sample') ? ' — a fictional demonstration cohort, marked sample on every page' : ''}. Island, moku, and Act 96 alignment are null until reported; intake emits drafts only — a human publishes, never an automated process.`,
   records: [],
 };
 
 const existingSlugs = new Set(cohortDoc.records.map((r) => r.slug));
 const ctx = {
   mode, enums: enumsFor(mode), cohort, year, source,
-  sample: mode === 'v1' && (cohortDoc.sample === true || flags.has('--sample')),
+  sample: cohortDoc.sample === true || (mode === 'v1' && flags.has('--sample')),
   idCounter: nextIdNumber(cohortDoc.records, year),
 };
 const added = [], skipped = [];

@@ -1,14 +1,21 @@
 # Registry schema v1.0 — the versioned change v0 promised
 
-**Status: schema published; the public demonstration cohort stays on v0.**
-No program data appears in this repository. v1 exists so the production
-shape is a reviewed, versioned artifact — not a rewrite done under contract.
+**Status: schema published; the public cohort runs on v0.3, the stakeholder
+shape** (`docs/COHORT-FY2027.md`). v1 remains the program-data shape — budget
+join keys, funding-release status, submitter accountability — published so
+a program adopting the pattern has a reviewed, versioned artifact, and
+exercised by fixtures. Since 2026-10-12 the two shapes differ in purpose,
+not in trust: v0.3 asks *who is caring for which moku, and what they
+report*; v1 asks *what was appropriated, released, and spent, reported by
+whom*.
 
-v0 (`schemas/registry.schema.json`) is the demonstration schema. It
-hard-requires `sample: true` at cohort and record level and fixes the TMK
-division digit at 9, which no county issues — so real award data *cannot*
-validate against it. That guard was documented from the first commit as a
-deliberate, versioned schema change waiting to happen. This is that change.
+v0.2 (`schemas/registry.schema.json` before 2026-10-12) was the
+demonstration schema. It hard-required `sample: true` at cohort and record
+level and fixed the TMK division digit at 9, which no county issues — so
+real award data *could not* validate against it. That guard was documented
+from the first commit as a deliberate, versioned schema change waiting to
+happen; v1.0 made it first (below), and v0.3 later made `sample` a declared
+cohort fact while keeping the TMK guard.
 
 ## What v1.0 changes
 
