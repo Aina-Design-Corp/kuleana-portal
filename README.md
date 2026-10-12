@@ -1,4 +1,4 @@
-# Kuleana — Green Fee Transparency Portal
+# Kuleana — Green Fee Commons Report
 
 **Status: public record, kept by Āina Design Corp — nothing on this site is
 deployed for, adopted by, or endorsed by any government agency.**
@@ -12,7 +12,7 @@ of each moku and understand moku effects as they are reported, as inputs to
 the Mokunet shared map. The cohort and its rules:
 [`docs/COHORT-FY2027.md`](docs/COHORT-FY2027.md).
 
-The portal is a working **registry-driven publication architecture** for
+The Commons Report is a working **registry-driven publication architecture** for
 environmental-stewardship program transparency, built by
 [Āina Design Corp](https://ainadesign.org):
 
@@ -33,7 +33,7 @@ environmental-stewardship program transparency, built by
 - **GitHub Actions** — source intake → registry update → validation →
   manifest build → site build → publication. The workflow is the audit
   trail.
-- **GitHub Pages** — the public transparency portal: the projects by island
+- **GitHub Pages** — the public Commons Report: the projects by island
   and moku, a page per appropriation with what has been publicly reported,
   outcome summaries and stewardship stories as programs publish them.
 
@@ -44,7 +44,7 @@ organization members only). Development streams and scope rules:
 [`2026-08-21-kuleana-reset-streams.md`](https://github.com/Aina-Design-Corp/mokunet-org/blob/main/docs/coordinate/proposals/2026-08-21-kuleana-reset-streams.md)
 (same location). State systems
 (ArcGIS, program records) are treated as authoritative throughout — this
-portal *links to* authority, it never replaces it.
+Commons Report *links to* authority, it never replaces it.
 
 **Why this program exists:** the [repository wiki](https://github.com/Aina-Design-Corp/kuleana-portal/wiki)
 documents the historical and legislative basis of the Green Fee — **Act 96,
@@ -61,7 +61,7 @@ record → authoritative source. Every public claim must walk that chain.
 
 - Every record in `registry/FY2027.json` is a Green Fee appropriation
   **enacted in Act 175 SLH 2026 (HB 1800)**, listed from the State budget
-  worksheet — public law. Nothing on the portal is a report from the State:
+  worksheet — public law. Nothing in the Commons Report is a State report:
   places, moku, and effects appear as programs report them, and every
   reading of a place from an enacted title is marked for confirmation. The
   cohort validates against schema **v0.3**, the stakeholder shape; schema
@@ -71,9 +71,9 @@ record → authoritative source. Every public claim must walk that chain.
   every page it would build.
 - No government adoption, endorsement, partnership, or deployment is claimed
   or implied. Āina Design Corp proposed on the State's RFP 2026-001G and was
-  not awarded; the portal continues as public record.
+  not awarded; the Commons Report continues as public record.
 - No physical signage, corridor, or field deployment is claimed.
-- This portal supports professional review; it makes no funding,
+- This Commons Report supports professional review; it makes no funding,
   eligibility, policy, or enforcement decisions.
 - How the repository is governed on GitHub — the organization and repository
   controls in place today, and the enterprise pattern an adopting program
@@ -143,7 +143,7 @@ intake/      Drop zone for award data sources (.xlsx/.csv → draft records); sa
 registry/    Award Registry Manifest (FY2027.json — the enacted cohort, schema v0.3)
 schemas/     JSON Schemas: v0.3 (stakeholder shape) and v1.0 (program-data shape) + CI fixtures
              (fixtures/v0 = the fictional FY2026 cohort; fixtures/v1 = a v1 cohort at three gate states)
-site/        Static portal source (built to GitHub Pages)
+site/        Static Commons Report source (built to GitHub Pages)
 docs/        The FY2027 cohort and its rules (COHORT-FY2027.md), release notes, intake
              doctrine (INTAKE.md), schema v1 doctrine (SCHEMA-V1.md), enterprise
              governance and provisioning pattern (ENTERPRISE.md)
@@ -155,6 +155,6 @@ docs/        The FY2027 cohort and its rules (COHORT-FY2027.md), release notes, 
 The `kuleana` name carries from the parked trail-guide app
 (`Aina-Design-Corp/kuleana-app`, private; tag `trail-guide-v2.0.0`), intended
 as the public access guide for visitors and residents alike: corridor and
-site experiences on the ground, with this portal as its program-transparency
+site experiences on the ground, with this Commons Report as its program-transparency
 companion. That client is not yet released; nothing here depends on it.
 License: to be ruled before first public release.
