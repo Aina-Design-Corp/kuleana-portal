@@ -415,7 +415,7 @@ const index = page({
 This portal lists every one in the moku it serves — the traditional district whose community the work is for —
 and records what each program reports as the work lands on the ground. Who is caring for which place, and to what
 effect, kept in public record.</p>
-<p class="meta">${realCohort ? `Enacted in Act 175 SLH 2026 (HB 1800) · ${listedCount} projects · ${deptSet.size} departments · ${usdM(totalUsd)}` : `${esc(VERSION)} · cohort ${esc(cohortNames)}`} · Āina Design Corp</p>`,
+<p class="meta">${realCohort ? `Enacted in Act 175 SLH 2026 (HB 1800) · ${listedCount} projects · ${deptSet.size} departments · ${usdM(totalUsd)}` : `${esc(VERSION)} · cohort ${esc(cohortNames)}`} · published by Āina Design Corp</p>`,
     main: `<h2>At a glance${anySample ? ' <span class="sample-chip">Sample data</span>' : ''}</h2>
 <div class="tiles">
 <div class="tile"><span class="num">${listedCount}</span><span class="lbl">Projects ${realCohort ? 'enacted' : 'published'}</span></div>
