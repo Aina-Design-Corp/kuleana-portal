@@ -1,8 +1,8 @@
-# Green Fee Transparency Portal — Release Notes
+# Green Fee Commons Report — Release Notes
 
 ## Version 0.3 — 2026-10-12 (the enacted FY2027 cohort, by moku)
 
-The portal now carries public record: the 91 Green Fee projects enacted for
+The Commons Report (named so on 2026-10-12; formerly the Transparency Portal) now carries public record: the 91 Green Fee projects enacted for
 FY2027 in Act 175 SLH 2026 (HB 1800), listed from the State budget
 worksheet, each read in the moku it serves. Purpose restated: identify the
 community stakeholders of each moku and understand moku effects as they are
@@ -29,12 +29,12 @@ reported — inputs to the Mokunet shared map. Doctrine: `docs/COHORT-FY2027.md`
 ### Claims and boundaries
 
 - Every record is an enacted appropriation — public law. Nothing on the
-  portal is a report from the State; places, moku, and effects appear as
+  Commons Report is a State report; places, moku, and effects appear as
   programs report them, and every reading of a place from an enacted title
   is marked for confirmation.
 - No government adoption, endorsement, partnership, or deployment is claimed.
-- State systems are authoritative for every fact this portal publishes.
-- The portal supports professional review; it makes no funding, eligibility,
+- State systems are authoritative for every fact this Commons Report publishes.
+- The Commons Report supports professional review; it makes no funding, eligibility,
   policy, or enforcement decisions.
 
 ## Version 0.1 — August 2026 (demonstration)

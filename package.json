@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Green Fee transparency portal — registry-driven publication architecture proof of concept. Zero runtime dependencies by design.",
+  "description": "Green Fee Commons Report — registry-driven publication architecture proof of concept. Zero runtime dependencies by design.",
   "scripts": {
     "intake": "node scripts/intake.mjs",
     "validate": "node scripts/validate.mjs && node scripts/validate.mjs --registry schemas/fixtures/v0 && node scripts/validate.mjs --registry schemas/fixtures/v1",
