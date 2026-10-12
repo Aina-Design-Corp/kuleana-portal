@@ -9,7 +9,14 @@ lists every one in the moku it serves — the traditional district whose
 community the work is for — and records what each program reports as the
 work lands on the ground. The purpose: identify the community stakeholders
 of each moku and understand moku effects as they are reported, as inputs to
-the Mokunet shared map. The cohort and its rules:
+the Mokunet shared map. What a steward sees on the ground is the qualified
+guidance behind every figure, and each figure stays traceable to who
+observed it, where, and when; that reporting practice is taught at
+[Hui Koʻe ʻĀina](https://huikoeaina.ainadesign.org/), the network's
+community learning hub (Moku Steward Training). Mokunet gathers and analyzes
+what the moku report in support of land stewardship — a connected monitoring
+network across moku that is being built, with this Commons Report as its first
+public record. The cohort and its rules:
 [`docs/COHORT-FY2027.md`](docs/COHORT-FY2027.md).
 
 The Commons Report is a working **registry-driven publication architecture** for

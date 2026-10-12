@@ -29,6 +29,11 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const VERSION = 'v0.3 (FY2027 enacted cohort · schema v0.3 · schema v1.0 published)';
 const MOKU_TOTAL = 33; // the moku the Mokunet shared map holds, all islands
+// The toolkit behind this Commons Report is being generalized for community
+// monitoring under a Hui Koʻe ʻĀina contract. The footer names its repository
+// only once it exists and carries its CANON §7 row — set the address then, never before.
+const TOOLKIT_URL = null;
+const HKA_URL = 'https://huikoeaina.ainadesign.org/';
 
 const esc = (s) => String(s)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -197,6 +202,7 @@ function page({ title, depth, body, description, cohort }) {
     <p><strong>Green Fee Commons Report</strong> — registry-driven publication architecture, ${esc(VERSION)}.</p>
     <p>Provenance rule: public page → project record → award registry manifest → State program record → authoritative source. State systems remain authoritative; this Commons Report links to authority, it never replaces it.</p>
     <p>Kept by Āina Design Corp · moku context from the Mokunet shared map, the 33 moku of Hawaiʻi on one shared, trusted map.</p>
+    <p>Field reporting practice taught at <a href="${HKA_URL}">Hui Koʻe ʻĀina</a> (Moku Steward Training)${TOOLKIT_URL ? ` · toolkit: <a href="${esc(TOOLKIT_URL)}">${esc(TOOLKIT_URL.replace(/^https:\/\/(github\.com\/)?/, ''))}</a>` : ''}.</p>
   </div>
 </footer>
 </body>
@@ -484,6 +490,12 @@ keys, funding-release status, submitter accountability), is published in the rep
 fixtures. The registry governs identity, cohort membership, publication eligibility, and routes; the pipeline is the
 audit trail (every change is a reviewed commit); the State's ArcGIS remains the geospatial destination. Future cohorts
 (<code>FY2028.json</code>, …) join the registry without redevelopment.</p>
+<p>What a steward sees on the ground is the qualified guidance behind every figure here, and each figure stays
+traceable to who observed it, where, and when. That reporting practice is taught at
+<a href="https://huikoeaina.ainadesign.org/">Hui Koʻe ʻĀina</a>, the network's community learning hub
+(<a href="https://huikoeaina.ainadesign.org/career-pathways">Moku Steward Training</a>). Mokunet gathers and
+analyzes what the moku report in support of land stewardship — a connected monitoring network across moku that is
+being built, with this Commons Report as its first public record.</p>
 <h2>Why this program exists</h2>
 <p>The <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki">repository wiki</a> documents the historical
 and legislative basis of the Green Fee — <strong>Act 96, Session Laws of Hawaiʻi 2025 (SB 1396)</strong> — from the
