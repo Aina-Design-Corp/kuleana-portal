@@ -17,7 +17,7 @@ worksheet page and program ID; the authoritative source is the enacted
 budget itself.
 
 Āina Design Corp proposed on RFP 2026-001G and was not awarded. The cohort
-is kept because the portal's purpose stands without the contract: to
+is kept because the Commons Report's purpose stands without the contract: to
 identify the community stakeholders of each moku and to understand moku
 effects as they are reported — inputs to the Mokunet shared map.
 

@@ -3,7 +3,7 @@
  * Site build — gates 2–3 of the pipeline
  * (registry update → validation → MANIFEST BUILD → SITE BUILD → publication).
  *
- * Reads the validated registry and renders the static portal into dist/.
+ * Reads the validated registry and renders the static Commons Report into dist/.
  * Dependency-free: template literals + one stylesheet.
  *
  * What renders is decided per cohort:
@@ -148,14 +148,14 @@ const NOTICE_SAMPLE =
   '<strong>Demonstration only:</strong> every project record on this site is a ' +
   'fictional sample — no real award, awardee, or organization is represented. ' +
   'No government adoption, endorsement, partnership, or deployment is claimed. ' +
-  'This portal supports professional review; it makes no funding, eligibility, ' +
+  'This Commons Report supports professional review; it makes no funding, eligibility, ' +
   'policy, or enforcement decisions.';
 const NOTICE_REAL =
   '<strong>Public record, not a State surface:</strong> every project here is a Green Fee ' +
   'appropriation enacted by the Legislature and listed from the State budget worksheet. ' +
   'Places, moku, and effects appear as programs report them; nothing here is a report ' +
   'from the State. No government adoption, endorsement, partnership, or deployment is ' +
-  'claimed. This portal supports professional review; it makes no funding, eligibility, ' +
+  'claimed. This Commons Report supports professional review; it makes no funding, eligibility, ' +
   'policy, or enforcement decisions.';
 const noticeFor = (cohort) => (cohort ? cohort.sample === true : anySample && !anyReal) ? NOTICE_SAMPLE : NOTICE_REAL;
 const kickerFor = (cohort) => cohort
@@ -177,9 +177,9 @@ function page({ title, depth, body, description, cohort }) {
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site">
   <div class="wrap">
-    <p class="kicker"><a href="${p}index.html">Green Fee Transparency Portal</a> · ${kickerFor(cohort)}</p>
+    <p class="kicker"><a href="${p}index.html">Green Fee Commons Report</a> · ${kickerFor(cohort)}</p>
     <nav class="site-nav" aria-label="Site">
-      <a href="${p}index.html">Portal home</a>
+      <a href="${p}index.html">Report home</a>
       <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki">Act 96 background (wiki)</a>
       <a href="https://github.com/Aina-Design-Corp/kuleana-portal">Repository</a>
     </nav>
@@ -194,8 +194,8 @@ function page({ title, depth, body, description, cohort }) {
 </main>
 <footer class="site">
   <div class="wrap">
-    <p><strong>Green Fee Transparency Portal</strong> — registry-driven publication architecture, ${esc(VERSION)}.</p>
-    <p>Provenance rule: public page → project record → award registry manifest → State program record → authoritative source. State systems remain authoritative; this portal links to authority, it never replaces it.</p>
+    <p><strong>Green Fee Commons Report</strong> — registry-driven publication architecture, ${esc(VERSION)}.</p>
+    <p>Provenance rule: public page → project record → award registry manifest → State program record → authoritative source. State systems remain authoritative; this Commons Report links to authority, it never replaces it.</p>
     <p>Kept by Āina Design Corp · moku context from the Mokunet shared map, the 33 moku of Hawaiʻi on one shared, trusted map.</p>
   </div>
 </footer>
@@ -332,7 +332,7 @@ record carries them — together with its moku — and a person publishes it
 </div>`;
 
     const proj = page({
-      title: `${r.project} — Green Fee Transparency Portal${sm}`,
+      title: `${r.project} — Green Fee Commons Report${sm}`,
       description: `${isSample ? 'Sample ' : ''}Green Fee project record ${r.id}: ${r.summary.slice(0, 140)}`,
       depth: 2,
       cohort,
@@ -406,13 +406,13 @@ ${fiscalHtml}
 const cohortNames = cohorts.map((c) => c.cohort).join(', ');
 const realCohort = cohorts.find((c) => c.sample !== true);
 const index = page({
-  title: 'Green Fee Transparency Portal — projects by moku',
+  title: 'Green Fee Commons Report — projects by moku',
   description: 'Every Green Fee project enacted for FY2027, read in the moku it serves, with what its program reports as the work lands. A public-record stakeholder map of Hawaiʻi\'s moku, kept by Āina Design Corp.',
   depth: 0,
   body: {
     header: `<h1>Green Fee projects, by moku</h1>
 <p class="tagline">Visitors to Hawaiʻi pay the Green Fee; the Legislature funded ${listedCount} projects with it for FY2027.
-This portal lists every one in the moku it serves — the traditional district whose community the work is for —
+This Commons Report lists every one in the moku it serves — the traditional district whose community the work is for —
 and records what each program reports as the work lands on the ground. Who is caring for which place, and to what
 effect, kept in public record.</p>
 <p class="meta">${realCohort ? `Enacted in Act 175 SLH 2026 (HB 1800) · ${listedCount} projects · ${deptSet.size} departments · ${usdM(totalUsd)}` : `${esc(VERSION)} · cohort ${esc(cohortNames)}`} · published by Āina Design Corp</p>`,
@@ -455,7 +455,7 @@ published today. <em>A person publishes, never an automated process.</em></li>
 <p>The <a href="registry/${esc(realCohort?.cohort ?? cohorts[0].cohort)}.published.json">machine-readable projection</a> releases exactly what the pages show.</p>
 </div>
 <h2>Toolkit documents</h2>
-<p>The method behind the portal, written to be reviewed, printed, and adapted. The documents describe the method
+<p>The method behind the Commons Report, written to be reviewed, printed, and adapted. The documents describe the method
 on the fictional FY2026 demonstration cohort, which now lives in the repository as a validator fixture; the method is
 unchanged for the enacted cohort. Each document is print-ready (print to PDF from your browser); editable sources live
 in the repository.</p>
@@ -472,7 +472,7 @@ names and domains, writing to a hosted ArcGIS feature layer through the REST API
 standard field dataset. The same method is currently being applied at the Magoon Maker Lab (Hui Koʻe ʻĀina);
 shown here in demonstration mode against the fictional cohort.</p></div>
 </div>
-<h2>How this portal works</h2>
+<h2>How this Commons Report works</h2>
 <p>Source intake → registry update → schema validation → manifest build → site build → publication. The FY2027
 cohort entered from the State's own budget worksheet (assisted extraction from the PDF, every figure traced to its
 page); reports, places, stories, and effects enter the same way — as a reviewed change to the registry that
@@ -489,7 +489,7 @@ audit trail (every change is a reviewed commit); the State's ArcGIS remains the 
 and legislative basis of the Green Fee — <strong>Act 96, Session Laws of Hawaiʻi 2025 (SB 1396)</strong> — from the
 decade of visitor-fee proposals and the stewardship funding gap through the Climate Advisory Team's pivot to the
 transient accommodations tax, plus <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki/GitHub-Pages-and-Custom-Domains">how
-this portal is hosted</a> and how its identity would move to a program-owned domain.</p>`,
+this Commons Report is hosted</a> and how its identity would move to a program-owned domain.</p>`,
   },
 });
 writeFileSync(join(dist, 'index.html'), index);
