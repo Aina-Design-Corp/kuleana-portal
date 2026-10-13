@@ -458,25 +458,24 @@ Today ${publishedCount} of ${listedCount + (realCohort ? 0 : gatedCount)} are ap
 <p>The <a href="registry/${esc(realCohort?.cohort ?? cohorts[0].cohort)}.published.json">data download</a> holds exactly what the pages show.</p>
 </div>
 <h2>How this report is made</h2>
-<p>Four documents, written to be read, printed, and copied by another program. Documents 1 and 3 are for managers
-and stewards. Documents 2 and 4 are for whoever runs the tools. They use a made-up funding year as the worked example;
-the method is the same for the real one.</p>
+<p>Two documents to read, written for managers and stewards and for anyone copying the method for another place.</p>
 <div class="docs-grid">
 <div class="card"><h3><a href="docs/01-overview-replication.html">1 · Why this exists, and how to copy it</a></h3>
 <p>Why the report exists — a moku as a whole system, with Green Fee projects as inputs among others and the
 community's observations as the record of how the whole responds — who owns what, how to copy it, and a made-up year
-as a worked example. For managers and stewards.</p></div>
-<div class="card"><h3><a href="docs/02-registry-analytics-reference.html">2 · The register, field by field</a></h3>
-<p>What each field in the register means, the review steps, the rules for reporting a number, and the automatic
-checks. For whoever runs the tools.</p></div>
+as a worked example.</p></div>
 <div class="card"><h3><a href="docs/03-responsible-use-public-access.html">3 · What this report is for, and the rules that keep it honest</a></h3>
 <p>Holding the Green Fee to account, and letting anyone analyze the published record: who reviews what, what anyone
-may do with the record, what no one may, what it never stores, and how to cite it. For everyone.</p></div>
-<div class="card"><h3><a href="docs/04-direct-entry-demonstration.html">4 · Reporting from the field (a working example)</a></h3>
-<p>A plain web form a project lead can use to report from the field without a license or an app. It sends the report
-to the map layer using the same fields and checks as the survey form. The same method is being used now at the Magoon
-Maker Lab (Hui Koʻe ʻĀina). Shown here with practice data.</p></div>
+may do with the record, what no one may, what it never stores, and how to cite it.</p></div>
 </div>
+<h3>The baseline use case</h3>
+<p>The report was first built as a Green Fee reporting system, and two documents from that baseline are kept for
+whoever runs the tools or wants to see the method at its most concrete. They are reference material, not reading
+for a steward: <a href="docs/02-registry-analytics-reference.html">Document 2, the register field by field</a>
+(what each field means, the review steps, the rules for reporting a number, the automatic checks), and
+<a href="docs/04-direct-entry-demonstration.html">Document 4, reporting from the field with ArcGIS Survey123</a>
+(a plain web form that sends a report to the map layer with the same fields and checks as the survey form, the
+method now in use at the Magoon Maker Lab). Both use a made-up funding year as their example.</p>
 <h2>How it works, in five steps</h2>
 <ol>
 <li><strong>Information arrives however it arrives.</strong> The FY2027 list came from the State's budget worksheet, a
@@ -498,6 +497,11 @@ learning hub, in <a href="https://huikoeaina.ainadesign.org/career-pathways">Mok
 people in that training are who this report is built to be kept by. Mokunet brings together what the moku report so
 it can support the care of the land: a network across moku that is still being built, with this report as its first
 public record.</p>
+<p>Everything here is open. Anyone now responsible for tracking these projects and telling their stories may take the
+record, the pages, the checks, and the handbook and use them: the code under MIT, the record and the writing under
+CC BY 4.0. <a href="https://github.com/Aina-Design-Corp/kuleana-portal/blob/main/CONTRIBUTING.md">How to add to it</a>,
+and the <a href="https://github.com/Aina-Design-Corp/kuleana-portal/tree/main/docs/handbook">handbook</a> for project
+leads, the coordinator, and reviewers.</p>
 <h2>Where the Green Fee came from</h2>
 <p>The <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki">wiki</a> tells the story behind the Green
 Fee, <strong>Act 96, Session Laws of Hawaiʻi 2025 (SB 1396)</strong>: a decade of visitor-fee proposals, the gap in
