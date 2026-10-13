@@ -470,8 +470,10 @@ in the repository.</p>
 <p>The program purpose, the six-layer architecture, the replication framework, and the demonstration cohort as case study.</p></div>
 <div class="card"><h3><a href="docs/02-registry-analytics-reference.html">2 · Registry &amp; Analytics Reference</a></h3>
 <p>Record anatomy, the publication lifecycle, outcome metric definition rules, data-quality controls, and the provenance chain.</p></div>
-<div class="card"><h3><a href="docs/03-responsible-use-public-access.html">3 · Responsible Use &amp; Public Access</a></h3>
-<p>Human-review controls, permitted and prohibited uses, information boundaries, versioning, release readiness, and accessibility.</p></div>
+<div class="card"><h3><a href="docs/03-responsible-use-public-access.html">3 · Public Accountability, Open Analysis &amp; Responsible Use</a></h3>
+<p>What the Commons Report is for — public accountability and open analysis on published records — and the rules that keep
+it honest: the human-held gates, what anyone may do with the record, what no one may, information boundaries, versioning,
+release readiness, accessibility, and how to cite and build on the published projection.</p></div>
 <div class="card"><h3><a href="docs/04-direct-entry-demonstration.html">4 · Direct Entry for Geospatial Field Reporting (method prototype)</a></h3>
 <p>A prototypical method for geospatial data: a plain web form, no license or app, carrying the registry's own field
 names and domains, writing to a hosted ArcGIS feature layer through the REST API so the layer the map reads is the

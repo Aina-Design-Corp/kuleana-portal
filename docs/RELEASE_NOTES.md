@@ -23,8 +23,15 @@ reported — inputs to the Mokunet shared map. Doctrine: `docs/COHORT-FY2027.md`
 - **Intake** — inherits the cohort's `sample` declaration (`--sample` on
   creation); island, moku, and alignment columns optional; `planned` default.
 - **The fictional FY2026 cohort** moves to `schemas/fixtures/v0/` and is
-  validated in CI; toolkit documents 1–4 carry a dated status note and are
-  otherwise unchanged (the method they describe is unchanged).
+  validated in CI; toolkit documents 1, 2, and 4 carry a dated status note
+  and are otherwise unchanged (the method they describe is unchanged).
+- **Toolkit document 3 re-issued (version 0.3, 2026-10-12)** as *Public
+  Accountability, Open Analysis & Responsible Use*: the Commons Report's
+  purpose stated — public accountability and open analysis on published
+  records — with permitted uses widened to citation, aggregation, and
+  derived analysis that traces back to the projection, prohibited uses
+  restated for a public-record surface, information boundaries updated for
+  a `fiscalPublic` cohort, and a citation and correction rule.
 
 ### Claims and boundaries
 
