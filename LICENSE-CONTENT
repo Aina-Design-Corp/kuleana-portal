@@ -1,0 +1,31 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The record and the writing in this repository — registry/, intake/samples/,
+site/docs/, docs/, and the pages and data download built from them — are
+licensed under the Creative Commons Attribution 4.0 International License.
+
+You may share and adapt them for any purpose, including commercially, as
+long as you give credit, link to the license, and say what you changed.
+
+Full license: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:      https://creativecommons.org/licenses/by/4.0/
+
+Suggested credit:
+  Green Fee Commons Report, Āina Design Corp, https://kuleana.ainadesign.org
+  — CC BY 4.0. Record identifiers (for example GF-2027-HI-082) and the
+  commit or date of the data download you used.
+
+Two notes on what the credit carries:
+
+- A project's story and reported figures are the project's own words and
+  numbers, published here with their source note. Credit the project as the
+  source note names it.
+- Public notices recorded under "What has been reported" quote or summarize
+  their named public sources (a news release, a budget worksheet). Those
+  sources keep their own terms; this license covers the record of them.
+
+The budget facts themselves — what the Legislature enacted — are public law
+and are not anyone's to license.
+
+The code (scripts/, schemas/, .github/, package.json, site/styles.css) is
+under the MIT License; see LICENSE.

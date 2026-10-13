@@ -498,6 +498,11 @@ learning hub, in <a href="https://huikoeaina.ainadesign.org/career-pathways">Mok
 people in that training are who this report is built to be kept by. Mokunet brings together what the moku report so
 it can support the care of the land: a network across moku that is still being built, with this report as its first
 public record.</p>
+<p>Everything here is open. Anyone now responsible for tracking these projects and telling their stories may take the
+record, the pages, the checks, and the handbook and use them: the code under MIT, the record and the writing under
+CC BY 4.0. <a href="https://github.com/Aina-Design-Corp/kuleana-portal/blob/main/CONTRIBUTING.md">How to add to it</a>,
+and the <a href="https://github.com/Aina-Design-Corp/kuleana-portal/tree/main/docs/handbook">handbook</a> for project
+leads, the coordinator, and reviewers.</p>
 <h2>Where the Green Fee came from</h2>
 <p>The <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki">wiki</a> tells the story behind the Green
 Fee, <strong>Act 96, Session Laws of Hawaiʻi 2025 (SB 1396)</strong>: a decade of visitor-fee proposals, the gap in
