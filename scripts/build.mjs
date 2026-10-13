@@ -463,8 +463,9 @@ and stewards. Documents 2 and 4 are for whoever runs the tools. They use a made-
 the method is the same for the real one.</p>
 <div class="docs-grid">
 <div class="card"><h3><a href="docs/01-overview-replication.html">1 · Why this exists, and how to copy it</a></h3>
-<p>Why the report exists, who owns what, how a new funding year is added, and a made-up year as a worked example.
-For managers and stewards.</p></div>
+<p>Why the report exists — a moku as a whole system, with Green Fee projects as inputs among others and the
+community's observations as the record of how the whole responds — who owns what, how to copy it, and a made-up year
+as a worked example. For managers and stewards.</p></div>
 <div class="card"><h3><a href="docs/02-registry-analytics-reference.html">2 · The register, field by field</a></h3>
 <p>What each field in the register means, the review steps, the rules for reporting a number, and the automatic
 checks. For whoever runs the tools.</p></div>

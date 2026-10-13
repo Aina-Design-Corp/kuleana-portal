@@ -25,6 +25,14 @@ reported — inputs to the Mokunet shared map. Doctrine: `docs/COHORT-FY2027.md`
 - **The fictional FY2026 cohort** moves to `schemas/fixtures/v0/` and is
   validated in CI; toolkit documents 1, 2, and 4 carry a dated status note
   and are otherwise unchanged (the method they describe is unchanged).
+- **Toolkit document 1 re-issued (version 0.3, 2026-10-12)** as *Why This
+  Report Exists, and How to Copy It*: the why is the moku as a whole system
+  — forest, stream, reef, people, work — with Green Fee projects as inputs
+  among others and the community's observations as the record of how the
+  whole responds; a commons stated as five commitments (held in common,
+  anyone may add with a source, a person decides, everything traces back,
+  open to use); who owns what; the three inputs with their honest stage;
+  the copying steps starting from *say whose record it is*.
 - **Toolkit document 3 re-issued (version 0.3, 2026-10-12)** as *Public
   Accountability, Open Analysis & Responsible Use*: the Commons Report's
   purpose stated — public accountability and open analysis on published
