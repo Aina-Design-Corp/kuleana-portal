@@ -1,5 +1,14 @@
 # Kuleana — Green Fee Commons Report
 
+**Open source, for the people now tasked with tracking the Green Fee projects
+and telling their stories.** Program staff, project leads, crews, stewards,
+reporters, students: the record, the pages, the checks, the handbook, and the
+forms method here are yours to use, add to, and copy. Code under MIT, the
+record and the writing under CC BY 4.0 (`LICENSE`, `LICENSE-CONTENT`). Start
+with [`CONTRIBUTING.md`](CONTRIBUTING.md) for the three ways in, and
+[`docs/handbook/`](docs/handbook/) for the project-lead manual, the
+coordinator runbook, and the reviewer guide.
+
 **Status: public record, kept by Āina Design Corp — nothing on this site is
 deployed for, adopted by, or endorsed by any government agency.**
 
@@ -151,10 +160,12 @@ registry/    Award Registry Manifest (FY2027.json — the enacted cohort, schema
 schemas/     JSON Schemas: v0.3 (stakeholder shape) and v1.0 (program-data shape) + CI fixtures
              (fixtures/v0 = the fictional FY2026 cohort; fixtures/v1 = a v1 cohort at three gate states)
 site/        Static Commons Report source (built to GitHub Pages)
-docs/        The FY2027 cohort and its rules (COHORT-FY2027.md), release notes, intake
+docs/        The handbook (handbook/: project-lead manual, coordinator runbook, reviewer guide),
+             the FY2027 cohort and its rules (COHORT-FY2027.md), release notes, intake
              doctrine (INTAKE.md), schema v1 doctrine (SCHEMA-V1.md), enterprise
              governance and provisioning pattern (ENTERPRISE.md)
-.github/     Actions: intake → validate → build → publish
+.github/     Actions: intake → validate → build → publish; pull-request template; issue templates
+             (what has been reported · tell a project's story · correction); CODEOWNERS
 ```
 
 ## Lineage
@@ -164,4 +175,10 @@ The `kuleana` name carries from the parked trail-guide app
 as the public access guide for visitors and residents alike: corridor and
 site experiences on the ground, with this Commons Report as its program-transparency
 companion. That client is not yet released; nothing here depends on it.
-License: to be ruled before first public release.
+
+## License
+
+Code (`scripts/`, `schemas/`, `.github/`, `package.json`, `site/styles.css`): MIT —
+`LICENSE`. The record and the writing (`registry/`, `intake/samples/`, `site/docs/`,
+`docs/`, and the pages and data download built from them): CC BY 4.0 —
+`LICENSE-CONTENT`, which also gives the credit line. Ruled 2026-10-12.

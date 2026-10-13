@@ -25,6 +25,13 @@ reported — inputs to the Mokunet shared map. Doctrine: `docs/COHORT-FY2027.md`
 - **The fictional FY2026 cohort** moves to `schemas/fixtures/v0/` and is
   validated in CI; toolkit documents 1, 2, and 4 carry a dated status note
   and are otherwise unchanged (the method they describe is unchanged).
+- **Open source (2026-10-12).** The repository is the resource for the people
+  now tasked with tracking the Green Fee projects and telling their stories:
+  code under MIT (`LICENSE`), the record and the writing under CC BY 4.0
+  (`LICENSE-CONTENT`, with the credit line); `CONTRIBUTING.md` (three ways
+  in: a notice, a story and results, a correction); the handbook made public
+  in `docs/handbook/` (project-lead manual, coordinator runbook, reviewer
+  guide); a pull-request template and three issue templates.
 - **Toolkit document 1 re-issued (version 0.3, 2026-10-12)** as *Why This
   Report Exists, and How to Copy It*: the why is the moku as a whole system
   — forest, stream, reef, people, work — with Green Fee projects as inputs
