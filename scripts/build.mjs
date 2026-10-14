@@ -156,12 +156,12 @@ const NOTICE_SAMPLE =
   'testing. No real award, group, or organization is shown. No agency has adopted or ' +
   'endorsed this site, and it decides nothing about funding, eligibility, policy, or enforcement.';
 const NOTICE_REAL =
-  '<strong>Public record, kept by the community, not by the State:</strong> every project here ' +
-  'was funded by the Legislature with the Green Fee and is listed from the State\'s own budget ' +
-  'worksheet. Where a project is, which moku it serves, and what it has done appear as the ' +
-  'people running it report them. Nothing here is a State report, and no agency has adopted or ' +
-  'endorsed this site. It is here so anyone can see where the money went; it decides nothing ' +
-  'about funding, eligibility, policy, or enforcement.';
+  '<strong>A record kept by the people caring for each moku, not by the State.</strong> The funded ' +
+  'projects in it are listed from the State\'s own budget worksheet; everything else — where a ' +
+  'project is, which moku it serves, what it has done, what stewards observe — is added by the ' +
+  'people who do the work, with a source. Nothing here is a State report, and no agency has ' +
+  'adopted or endorsed this site. It is here so residents and visitors can see who is caring for ' +
+  'a place and how it is doing; it decides nothing about funding, eligibility, policy, or enforcement.';
 const noticeFor = (cohort) => (cohort ? cohort.sample === true : anySample && !anyReal) ? NOTICE_SAMPLE : NOTICE_REAL;
 const kickerFor = (cohort) => cohort
   ? (cohort.sample === true ? `${esc(cohort.cohort)} · <span class="sample-chip">Practice data</span>` : `${esc(cohort.cohort)} funded projects`)
@@ -435,19 +435,19 @@ moku, through Moku Steward Training at Hui Koʻe ʻĀina. Until they take it on,
 and the moku when it is clear, and mark it <em>confirm on first report</em>. Everywhere else it says <em>to be
 reported</em>. The map fills in from the projects themselves, not from guesses.</p>
 ${fiscalHtml}
-<h2>Every project, by island and moku</h2>
+<h2>The funded projects, by island and moku</h2>
 <div class="table-scroll">
 <table>
-<caption>${realCohort ? 'Funded' : 'Published'} projects, ${esc(cohortNames)}, grouped by island, then by moku. The last column says what the public record holds for each one so far.</caption>
+<caption>${realCohort ? 'Projects funded by the visitor fee' : 'Published projects'}, ${esc(cohortNames)}, grouped by island, then by moku — the first entries in the record, a small part of the care each moku receives. The last column says what the public record holds for each one so far.</caption>
 <thead><tr><th scope="col">Project</th><th scope="col">Island</th><th scope="col">Moku</th><th scope="col">Kind of work</th><th scope="col">Budgeted</th><th scope="col">What we have so far</th></tr></thead>
 <tbody>
 ${directoryRows}
 </tbody>
 </table>
 </div>
-<h2>How a project's record grows</h2>
+<h2>How a record grows</h2>
 <div class="card gate">
-<p>Every project starts as a line in the budget: a program, a name, a dollar amount. Three things get added as they
+<p>A funded project starts as a line in the budget: a program, a name, a dollar amount. Three things get added as they
 come in, each with its own rule:</p>
 <ul>
 <li><strong>Public notices</strong> — a call for proposals, an award, a milestone — with a link to where it was said.
@@ -459,6 +459,9 @@ wait for review: the record needs a story, at least one result, a source, and it
 Today ${publishedCount} of ${listedCount + (realCohort ? 0 : gatedCount)} are approved. <em>A person publishes, never software.</em></li>
 </ul>
 <p>The <a href="registry/${esc(realCohort?.cohort ?? cohorts[0].cohort)}.published.json">data download</a> holds exactly what the pages show.</p>
+<p>Records that are not funded projects — a land trust's own work, a community group's season, a crew's observations
+— are the next thing the register will hold. They start with who the steward is and the moku they work in, not with
+a budget line; the rules for them are being written with Hui Koʻe ʻĀina, and they will enter through the same review.</p>
 </div>
 <h2>How this report is made</h2>
 <p>Two documents to read, written for managers and stewards and for anyone copying the method for another place.</p>
@@ -493,22 +496,25 @@ Notices, places, stories, and results come in the same way.</li>
 never replaces them. The rules the register is checked against are published with it, along with a second rule set
 for a program that wants to track budget releases and spending.</p>
 <h2>Who keeps this report</h2>
-<p>The people closest to the land are the best judges of what the numbers mean. What a steward sees on the ground is
+<p>Kuleana is responsibility and right together: a place that is yours to care for. The people closest to the land
+are the best judges of what the numbers mean. What a steward sees on the ground is
 the guidance behind every figure here, and every figure traces back to who saw it, where, and when. That way of
 reporting is taught at <a href="https://huikoeaina.ainadesign.org/">Hui Koʻe ʻĀina</a>, the network's community
 learning hub, in <a href="https://huikoeaina.ainadesign.org/career-pathways">Moku Steward Training</a> — and the
 people in that training are who this report is built to be kept by. Mokunet brings together what the moku report so
 it can support the care of the land: a network across moku that is still being built, with this report as its first
 public record.</p>
-<p>Everything here is open. Anyone now responsible for tracking these projects and telling their stories may take the
-record, the pages, the checks, and the handbook and use them: the code under MIT, the record and the writing under
+<p>Everything here is open. Anyone responsible for caring for a place and telling its story — a land trust, a community
+group, a crew, a program tracking its funded projects — may take the record, the pages, the checks, and the handbook
+and use them: the code under MIT, the record and the writing under
 CC BY 4.0. <a href="https://github.com/Aina-Design-Corp/kuleana-portal/blob/main/CONTRIBUTING.md">How to add to it</a>,
 and the <a href="https://github.com/Aina-Design-Corp/kuleana-portal/tree/main/docs/handbook">handbook</a> for project
 leads, the coordinator, and reviewers.</p>
-<h2>Where the Green Fee came from</h2>
-<p>The <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki">wiki</a> tells the story behind the Green
-Fee, <strong>Act 96, Session Laws of Hawaiʻi 2025 (SB 1396)</strong>: a decade of visitor-fee proposals, the gap in
-funding for caring for the land, and the Climate Advisory Team's turn to the hotel-room tax. It also explains
+<h2>Where the visitor fee came from</h2>
+<p>The <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki">wiki</a> tells the story behind the State's
+fee on visitors, known as the Green Fee — <strong>Act 96, Session Laws of Hawaiʻi 2025 (SB 1396)</strong>: a decade
+of visitor-fee proposals, the gap in funding for caring for the land, and the Climate Advisory Team's turn to the
+hotel-room tax. It also explains
 <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki/GitHub-Pages-and-Custom-Domains">how this report is
 hosted</a> and how it would move to an address of its own.</p>`,
   },
