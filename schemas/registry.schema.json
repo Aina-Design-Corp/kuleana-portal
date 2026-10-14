@@ -13,6 +13,13 @@
       "description": "true = fictional demonstration cohort (every page says so); false = records drawn from an authoritative public source named in `source`. Every record's own `sample` must equal this value."
     },
     "updated": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "program": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "The program or group whose commons report this is (slug). With the cohort it names the report: /reports/<program>-<cohort>/. Optional until a second report exists; the Green Fee report is `green-fee`."
+    },
+    "title": { "type": "string", "minLength": 5, "description": "The report's public name, e.g. \"The Green Fee report, FY2027\"." },
+    "summary": { "type": "string", "minLength": 20, "description": "One short paragraph introducing the report on its page and on the home page." },
     "source": {
       "type": "string",
       "minLength": 10,

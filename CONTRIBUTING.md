@@ -1,4 +1,4 @@
-# Contributing to the Green Fee Commons Report
+# Contributing to Kuleana — commons reports
 
 This repository is for the people now tasked with tracking the Green Fee
 projects and telling their stories — program staff, project leads, crews,

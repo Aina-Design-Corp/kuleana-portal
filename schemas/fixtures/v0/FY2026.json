@@ -1,5 +1,8 @@
 {
   "cohort": "FY2026",
+  "program": "practice",
+  "title": "Practice report (a made-up year)",
+  "summary": "Six made-up projects across five moku, four published and two held back on purpose, so the controls can be seen working. Nothing here is real.",
   "sample": true,
   "updated": "2026-10-12",
   "source": "Validator fixture: the fictional FY2026 demonstration cohort that carried the portal from 2026-08-21 to 2026-10-12. Kept so the v0.3 gates are exercised on a sample cohort (four published records, two held) in CI.",
