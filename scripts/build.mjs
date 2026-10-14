@@ -410,16 +410,19 @@ ${fiscalHtml}
 const cohortNames = cohorts.map((c) => c.cohort).join(', ');
 const realCohort = cohorts.find((c) => c.sample !== true);
 const index = page({
-  title: 'Green Fee Commons Report — projects, moku by moku',
-  description: 'Every project the Legislature funded with the Green Fee for FY2027, listed in the moku it serves, with what each project reports as the work happens. A public record kept for the people learning to manage their moku.',
+  title: 'Green Fee Commons Report — each moku, and the people caring for it',
+  description: 'Each moku of Hawaiʻi and the many hands caring for it — land trusts, community groups, crews, schools, families, agencies: who is doing what, where, and what comes of it, kept in common for residents and visitors. This year\'s visitor-fee projects are a small part of the picture and the first entries.',
   depth: 0,
   body: {
-    header: `<h1>Green Fee projects, moku by moku</h1>
-<p class="tagline">Visitors to Hawaiʻi pay the Green Fee. The Legislature used it to fund ${listedCount} projects for FY2027.
-This report lists every one in its moku — the traditional district whose people the work is for — and keeps track of
-what each project reports as the work happens. It is built to be kept by the people learning to manage their moku,
-through Moku Steward Training at Hui Koʻe ʻĀina. Until they take it on, Āina Design Corp keeps it.</p>
-<p class="meta">${realCohort ? `Enacted in Act 175 SLH 2026 (HB 1800) · ${listedCount} projects · ${deptSet.size} departments · ${usdM(totalUsd)}` : `${esc(VERSION)} · cohort ${esc(cohortNames)}`} · published by Āina Design Corp</p>`,
+    header: `<h1>Each moku, and the people caring for it</h1>
+<p class="tagline">Every moku — the traditional district that runs from the mountain to the sea — is cared for by many hands:
+land trusts, community groups, nonprofits, crews, schools, families, agencies. Together they are the full picture of
+kuleana, the responsibility for a place. This is the record they keep in common — who is doing what, where, and what
+comes of it — for the people who live here and the people who visit. This year the State's fee on visitors paid for
+${listedCount} projects; they are a small part of that picture, and they are listed here as the first entries. The rest fills in
+as stewards add their own work and what they observe. It is built to be kept by the people learning to manage their
+moku, through Moku Steward Training at Hui Koʻe ʻĀina. Until they take it on, Āina Design Corp keeps it.</p>
+<p class="meta">${realCohort ? `First entries: ${listedCount} projects funded by the visitor fee for FY2027 (Act 175 SLH 2026) · ${deptSet.size} departments · ${usdM(totalUsd)}` : `${esc(VERSION)} · cohort ${esc(cohortNames)}`} · published by Āina Design Corp</p>`,
     main: `<h2>At a glance${anySample ? ' <span class="sample-chip">Practice data</span>' : ''}</h2>
 <div class="tiles">
 <div class="tile"><span class="num">${listedCount}</span><span class="lbl">Projects ${realCohort ? 'funded' : 'published'}</span></div>
