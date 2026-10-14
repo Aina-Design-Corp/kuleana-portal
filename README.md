@@ -1,8 +1,8 @@
 # Kuleana — Green Fee Commons Report
 
-**Open source, for the people now tasked with tracking the Green Fee projects
-and telling their stories.** Program staff, project leads, crews, stewards,
-reporters, students: the record, the pages, the checks, the handbook, and the
+**Open source, for the people caring for each moku and telling its story —
+the Green Fee awardees among them.** Land trusts, community groups, crews,
+program staff, project leads, stewards, reporters, students: the record, the pages, the checks, the handbook, and the
 forms method here are yours to use, add to, and copy. Code under MIT, the
 record and the writing under CC BY 4.0 (`LICENSE`, `LICENSE-CONTENT`). Start
 with [`CONTRIBUTING.md`](CONTRIBUTING.md) for the three ways in, and
@@ -12,13 +12,17 @@ coordinator runbook, and the reviewer guide.
 **Status: public record, kept by Āina Design Corp — nothing on this site is
 deployed for, adopted by, or endorsed by any government agency.**
 
-Visitors to Hawaiʻi pay the Green Fee; the Legislature funded 91 projects
-with it for FY2027. [kuleana.ainadesign.org](https://kuleana.ainadesign.org)
-lists every one in the moku it serves — the traditional district whose
-community the work is for — and records what each program reports as the
-work lands on the ground. The purpose: identify the community stakeholders
-of each moku and understand moku effects as they are reported, as inputs to
-the Mokunet shared map. What a steward sees on the ground is the qualified
+Every moku — the traditional district that runs from the mountain to the
+sea — is cared for by many hands: land trusts, community groups, nonprofits,
+crews, schools, families, agencies. Together they are the full picture of
+kuleana, the responsibility for a place. [kuleana.ainadesign.org](https://kuleana.ainadesign.org)
+is the record they keep in common — who is doing what, where, and what comes
+of it — for residents and visitors alike. This year the State's fee on
+visitors (the Green Fee) paid for 91 projects; they are a small part of that
+picture and the record's first entries, listed each in its moku with what
+it reports as the work happens. The purpose: identify the stewards of each
+moku and understand moku effects as they are reported, as inputs to the
+Mokunet shared map. What a steward sees on the ground is the qualified
 guidance behind every figure, and each figure stays traceable to who
 observed it, where, and when; that reporting practice is taught at
 [Hui Koʻe ʻĀina](https://huikoeaina.ainadesign.org/), the network's
