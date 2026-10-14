@@ -3,7 +3,7 @@
  * Site build — gates 2–3 of the pipeline
  * (registry update → validation → MANIFEST BUILD → SITE BUILD → publication).
  *
- * Reads the validated registry and renders the static Commons Report into dist/.
+ * Reads the validated registry and renders the static commons reports site into dist/.
  * Dependency-free: template literals + one stylesheet.
  *
  * What renders is decided per cohort:
@@ -29,7 +29,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const VERSION = 'v0.4 (commons reports · the Green Fee report FY2027 · rule set v0.3)';
 const MOKU_TOTAL = 33; // the moku the Mokunet shared map holds, all islands
-// The toolkit behind this Commons Report is being generalized for community
+// The toolkit behind these commons reports is being generalized for community
 // monitoring under a Hui Koʻe ʻĀina contract. The footer names its repository
 // only once it exists and carries its CANON §7 row — set the address then, never before.
 const TOOLKIT_URL = 'https://github.com/Aina-Design-Corp/moku-geospatial-survey-toolkit';
@@ -66,8 +66,8 @@ const DEPT = {
   DLNR: 'Department of Land and Natural Resources', DOT: 'Department of Transportation',
   'DLNR-DOFAW': 'DLNR Division of Forestry and Wildlife', 'DLNR-DAR': 'DLNR Division of Aquatic Resources',
 };
-const STATUS_WORDS = { planned: 'funded, not yet reported under way', active: 'under way', completed: 'completed', withdrawn: 'withdrawn' };
-const GATE_WORDS = { draft: 'a draft', validated: 'checked and waiting for approval', published: 'published' };
+const STATUS_WORDS = { planned: 'funded, not yet reported as under way', active: 'under way', completed: 'completed', withdrawn: 'withdrawn' };
+const GATE_WORDS = { draft: 'not yet reviewed', validated: 'checked and waiting for approval', published: 'published' };
 const label = (slug, dict) => dict?.[slug] ?? (slug ?? 'unassigned').split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
 const dept = (code) => DEPT[code] ? `${esc(code)} — ${esc(DEPT[code])}` : esc(code);
 
@@ -165,14 +165,19 @@ const NOTICE_SAMPLE =
   '<strong>Practice data:</strong> every project on this page is made up, for learning and ' +
   'testing. No real award, group, or organization is shown. No agency has adopted or ' +
   'endorsed this site, and it decides nothing about funding, eligibility, policy, or enforcement.';
-const NOTICE_REAL =
-  '<strong>A record kept by the people caring for each moku, not by the State.</strong> Where a report ' +
-  'tracks State funding, the funded projects are listed from the State\'s own budget worksheet; everything ' +
+// The notice speaks to the page it is on: a report that tracks State funding
+// says so plainly; the home page speaks for every report.
+const noticeReal = (funded) =>
+  '<strong>A record kept by the people caring for each moku, not by the State.</strong> ' +
+  (funded ? 'The funded projects are' : 'Where a report tracks State funding, the funded projects are') +
+  ' listed from the State\'s own budget worksheet; everything ' +
   'else — where a project is, which moku it serves, what it has done, what stewards observe — is added by the ' +
   'people who do the work, with a source. Nothing here is a State report, and no agency has adopted or ' +
   'endorsed this site. It is here so residents and visitors can see who is caring for a place and how it is ' +
   'doing; it decides nothing about funding, eligibility, policy, or enforcement.';
-const noticeFor = (cohort) => (cohort ? cohort.sample === true : anySample && !anyReal) ? NOTICE_SAMPLE : NOTICE_REAL;
+const noticeFor = (cohort) => (cohort ? cohort.sample === true : anySample && !anyReal)
+  ? NOTICE_SAMPLE
+  : noticeReal(cohort?.fiscalPublic === true);
 
 function page({ title, depth, body, description, cohort }) {
   const p = '../'.repeat(depth);
@@ -209,8 +214,8 @@ function page({ title, depth, body, description, cohort }) {
 </main>
 <footer class="site">
   <div class="wrap">
-    <p><strong>${SITE} — ${SITE_TAG}</strong>, kept by Āina Design Corp until the moku stewards they are built for take them on · ${esc(VERSION)}.</p>
-    <p>Every fact here traces back: this page → the record → the report's register → the source it names. Where a report tracks State funding, the State's records are the authority; the report points to them and never replaces them.</p>
+    <p><strong>${SITE} · ${SITE_TAG}</strong>, kept by Āina Design Corp until the moku stewards they are built for take them on · ${esc(VERSION)}.</p>
+    <p>Every fact here traces back: this page → the record → the report's register → the source it names. Where that source is the State's, the State's record is the authority.</p>
     <p>Moku context from the Mokunet shared map, the 33 moku of Hawaiʻi on one shared, trusted map.</p>
     <p>The way of reporting used here is taught at <a href="${HKA_URL}">Hui Koʻe ʻĀina</a> (Moku Steward Training)${TOOLKIT_URL ? ` · the tools: <a href="${esc(TOOLKIT_URL)}">${esc(TOOLKIT_URL.replace(/^https:\/\/(github\.com\/)?/, ''))}</a>` : ''}.</p>
   </div>
@@ -406,7 +411,7 @@ fee on visitors, known as the Green Fee — <strong>Act 96, Session Laws of Hawa
 of visitor-fee proposals, the gap in funding for caring for the land, and the Climate Advisory Team's turn to the
 hotel-room tax. It also explains
 <a href="https://github.com/Aina-Design-Corp/kuleana-portal/wiki/GitHub-Pages-and-Custom-Domains">how these pages are
-hosted</a> and how they would move to an address of their own.</p>` : '';
+hosted</a> at their own address.</p>` : '';
 
   const report = page({
     title: `${title} — ${SITE}${sm}`,
@@ -426,15 +431,15 @@ hosted</a> and how they would move to an address of their own.</p>` : '';
 <div class="tile"><span class="num">${islandNamed} of ${listed.length}</span><span class="lbl">Projects with a place named</span></div>
 <div class="tile"><span class="num">${published.length}</span><span class="lbl">Projects with results published</span></div>
 </div>
-<p>We only know where a project is if the budget said so. When a project's name names a place, we fill in the island,
-and the moku when it is clear, and mark it <em>confirm on first report</em>. Everywhere else it says <em>to be
+<p>A project's place is known only where the budget says so. When a project's name names a place, the island is
+filled in, and the moku when it is clear, marked <em>confirm on first report</em>. Everywhere else it says <em>to be
 reported</em>. The map fills in from the projects themselves, not from guesses.</p>
 ${fiscal}
 <h2>The funded projects, by island and moku</h2>
 <div class="table-scroll">
 <table>
-<caption>${cohort.fiscalPublic ? 'Projects funded' : 'Published projects'}, ${esc(cohort.cohort)}, grouped by island, then by moku — the first entries in the record, a small part of the care each moku receives. The last column says what the public record holds for each one so far.</caption>
-<thead><tr><th scope="col">Project</th><th scope="col">Island</th><th scope="col">Moku</th><th scope="col">Kind of work</th><th scope="col">Budgeted</th><th scope="col">What we have so far</th></tr></thead>
+<caption>${cohort.fiscalPublic ? 'Projects funded' : 'Published projects'}, ${esc(cohort.cohort)}, grouped by island, then by moku. The last column says what the public record holds for each one so far.</caption>
+<thead><tr><th scope="col">Project</th><th scope="col">Island</th><th scope="col">Moku</th><th scope="col">Kind of work</th><th scope="col">Budgeted</th><th scope="col">On record so far</th></tr></thead>
 <tbody>
 ${directoryRows}
 </tbody>
@@ -493,7 +498,7 @@ ${fiscalHtml}
 // --- home ----------------------------------------------------------------------
 
 const index = page({
-  title: `${SITE} — commons reports: each moku, and the people caring for it`,
+  title: `${SITE} · ${SITE_TAG} — each moku, and the people caring for it`,
   description: 'Each moku of Hawaiʻi and the many hands caring for it — land trusts, community groups, crews, schools, families, agencies: who is doing what, where, and what comes of it, kept in common for residents and visitors. The Green Fee report is the first of the commons reports; others may or may not involve State funding.',
   depth: 0,
   body: {
@@ -501,11 +506,10 @@ const index = page({
 <p class="tagline">Every moku — the traditional district that runs from the mountain to the sea — is cared for by many hands:
 land trusts, community groups, nonprofits, crews, schools, families, agencies. Together they are the full picture of
 kuleana, the responsibility for a place. This is the record they keep in common — who is doing what, where, and what
-comes of it — for the people who live here and the people who visit. It is published as <strong>commons reports</strong>:
+comes of it — for the people who live here and the people who visit. It is published as <strong>commons reports</strong>,
 one for each program or group that keeps a record this way. The first tracks the ${listedCount} projects the State's fee on
-visitors paid for this year; they are a small part of the picture. The rest fills in as stewards add their own work
-and what they observe, with or without State money behind it. The reports are built to be kept by the people learning
-to manage their moku, through Moku Steward Training at Hui Koʻe ʻĀina. Until they take them on, Āina Design Corp keeps them.</p>
+visitors paid for this year. Reports of stewards' own place-based work and what they observe, with or without State
+money behind it, come next.</p>
 <p class="meta">${cohorts.length} commons report${cohorts.length === 1 ? '' : 's'} · ${listedCount} projects on record · published by Āina Design Corp</p>`,
     main: `<h2>The commons reports</h2>
 <p>A commons report is the public side of a record kept in common: who is caring for a place, what they did, what came
@@ -530,12 +534,19 @@ or they do not count at all.</li>
 the record needs a story, at least one result, a source, and its moku, and then a person approves it.
 <em>A person publishes, never software.</em></li>
 </ul>
-<p>Each report's data download holds exactly what its pages show.</p>
 </div>
+<p>Information arrives however it arrives. The Green Fee list came from the State's budget worksheet, a PDF read with
+help and typed into the register, every figure traced to its page; a spreadsheet loads on its own. Whatever its source,
+every record is checked against the same rules. The pages and each report's data download are rebuilt from the
+register, so they can never disagree, and every change is kept in the history, so anyone can see what changed and who
+approved it.</p>
+<p>A new report is one new file. The State's maps and dashboards stay the State's; a report links to them and never
+replaces them. The rules the register is checked against are published with it, along with a second rule set for a
+program that wants to track budget releases and spending.</p>
 <h2>How these reports are made</h2>
 <p>Two documents to read, written for managers and stewards and for anyone copying the method for another place.</p>
 <div class="docs-grid">
-<div class="card"><h3><a href="docs/01-overview-replication.html">1 · Why this exists, and how to copy it</a></h3>
+<div class="card"><h3><a href="docs/01-overview-replication.html">1 · Why these reports exist, and how to copy them</a></h3>
 <p>Why the reports exist — a moku as a whole system, with funded projects as inputs among others and the
 community's observations as the record of how the whole responds — who owns what, how to copy it, and a made-up year
 as a worked example.</p></div>
@@ -550,29 +561,16 @@ for a steward: <a href="docs/02-registry-analytics-reference.html">Document 2, t
 (what each field means, the review steps, the rules for reporting a number, the automatic checks), and
 <a href="docs/04-direct-entry-demonstration.html">Document 4, reporting from the field with ArcGIS Survey123</a>
 (a plain web form that sends a report to the map layer with the same fields and checks as the survey form, the
-method now in use at the Magoon Maker Lab). Both use a made-up funding year as their example.</p>
-<h2>How it works, in five steps</h2>
-<ol>
-<li><strong>Information arrives however it arrives.</strong> The Green Fee list came from the State's budget worksheet, a
-PDF read with help and typed into the register, every figure traced to its page. A spreadsheet loads on its own.
-Notices, places, stories, and results come in the same way.</li>
-<li><strong>Every record is checked against the same rules</strong>, whatever its source.</li>
-<li><strong>A person reviews and approves</strong> before anything goes public.</li>
-<li><strong>The pages and the data download are rebuilt from the register</strong>, so they can never disagree.</li>
-<li><strong>Every change is kept in the history</strong>, so anyone can see what changed and who approved it.</li>
-</ol>
-<p>A new report is one new file. Where a report tracks State funding, the State's maps and dashboards stay the State's;
-the report links to them and never replaces them. The rules the register is checked against are published with it,
-along with a second rule set for a program that wants to track budget releases and spending.</p>
+method being put to work at the Magoon Maker Lab). Both use a made-up funding year as their example.</p>
 <h2>Who keeps these reports</h2>
 <p>Kuleana is responsibility and right together: a place that is yours to care for. The people closest to the land
 are the best judges of what the numbers mean. What a steward sees on the ground is the guidance behind every figure
-here, and every figure traces back to who saw it, where, and when. That way of reporting is taught at
-<a href="https://huikoeaina.ainadesign.org/">Hui Koʻe ʻĀina</a>, the network's community learning hub, in
-<a href="https://huikoeaina.ainadesign.org/career-pathways">Moku Steward Training</a> — and the people in that
-training are who these reports are built to be kept by. Mokunet brings together what the moku report so it can
-support the care of the land: a network across moku that is still being built, with these reports as its first
-public record.</p>
+here, and every figure traces back to who saw it, where, and when. These reports are the first public record of
+Mokunet, a network across moku, still being built, that brings together what the moku report so it can support the
+care of the land. The network's community learning hub,
+<a href="https://huikoeaina.ainadesign.org/">Hui Koʻe ʻĀina</a>, teaches this way of reporting in
+<a href="https://huikoeaina.ainadesign.org/career-pathways">Moku Steward Training</a>, and the people in that
+training are who these reports are built to be kept by. Until they take them on, Āina Design Corp keeps them.</p>
 <p>Everything here is open. Anyone responsible for caring for a place and telling its story — a land trust, a community
 group, a crew, a program tracking its funded projects — may take the record, the pages, the checks, and the handbook
 and use them: the code under MIT, the record and the writing under CC BY 4.0.
