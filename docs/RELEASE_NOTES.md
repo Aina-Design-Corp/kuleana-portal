@@ -1,4 +1,19 @@
-# Green Fee Commons Report — Release Notes
+# Kuleana — commons reports — Release Notes
+
+## Version 0.4 — 2026-10-13 (commons reports)
+
+The site becomes Kuleana's home for **commons reports** — the public side of
+records kept in common by the people caring for each moku — and the Green
+Fee report becomes the first of them. Each cohort file is one report, named
+by `program` + `title` + `summary` (optional cohort fields, schema v0.3
+additive), with its own page at `reports/<program>-<cohort>/` carrying the
+tiles, money by department, directory, and how a record grows; project
+pages stay at their routes and breadcrumb to their report. The home page
+carries the moku-first framing, the list of reports, and the shared
+sections; it states that reports which do not start from a budget line are
+next, with their rules being written with Hui Koʻe ʻĀina. Kicker, titles,
+footer, documents, README, and licenses name the surface **Kuleana ·
+commons reports**; the CANON §7 description follows in mokunet-org.
 
 ## Version 0.3 — 2026-10-12 (the enacted FY2027 cohort, by moku)
 

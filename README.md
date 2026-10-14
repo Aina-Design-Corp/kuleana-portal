@@ -1,4 +1,4 @@
-# Kuleana — Green Fee Commons Report
+# Kuleana — commons reports
 
 **Open source, for the people caring for each moku and telling its story —
 the Green Fee awardees among them.** Land trusts, community groups, crews,
@@ -17,7 +17,9 @@ sea — is cared for by many hands: land trusts, community groups, nonprofits,
 crews, schools, families, agencies. Together they are the full picture of
 kuleana, the responsibility for a place. [kuleana.ainadesign.org](https://kuleana.ainadesign.org)
 is the record they keep in common — who is doing what, where, and what comes
-of it — for residents and visitors alike. This year the State's fee on
+of it — for residents and visitors alike, published as **commons reports**:
+one for each program or group that keeps a record this way, with or without
+State funding behind it. This year the State's fee on
 visitors (the Green Fee) paid for 91 projects; they are a small part of that
 picture and the record's first entries, listed each in its moku with what
 it reports as the work happens. The purpose: identify the stewards of each
