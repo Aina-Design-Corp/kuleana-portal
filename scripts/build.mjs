@@ -498,18 +498,15 @@ ${fiscalHtml}
 // --- home ----------------------------------------------------------------------
 
 const index = page({
-  title: `${SITE} · ${SITE_TAG} — each moku, and the people caring for it`,
-  description: 'Each moku of Hawaiʻi and the many hands caring for it — land trusts, community groups, crews, schools, families, agencies: who is doing what, where, and what comes of it, kept in common for residents and visitors. The Green Fee report is the first of the commons reports; others may or may not involve State funding.',
+  title: `${SITE} · ${SITE_TAG} — each moku, known by the work done in it`,
+  description: 'One public record of each moku of Hawaiʻi, built from the work done in it — land trusts, community groups, crews, schools, families, agencies: who is doing what, where, and what comes of it, kept in common for residents and visitors. The Green Fee report is the first of the commons reports; others may or may not involve State funding.',
   depth: 0,
   body: {
-    header: `<h1>Each moku, and the people caring for it</h1>
-<p class="tagline">Every moku — the traditional district that runs from the mountain to the sea — is cared for by many hands:
-land trusts, community groups, nonprofits, crews, schools, families, agencies. Together they are the full picture of
-kuleana, the responsibility for a place. This is the record they keep in common — who is doing what, where, and what
-comes of it — for the people who live here and the people who visit. It is published as <strong>commons reports</strong>,
-one for each program or group that keeps a record this way. The first tracks the ${listedCount} projects the State's fee on
-visitors paid for this year. Reports of stewards' own place-based work and what they observe, with or without State
-money behind it, come next.</p>
+    header: `<h1>Each moku, known by the work done in it</h1>
+<p class="tagline">Many hands care for each moku, the district that runs from the mountain to the sea. Their
+<strong>commons reports</strong> add what they do, where, and what comes of it to one public record that keeps growing.
+The first tracks the ${listedCount} projects the State's fee on visitors paid for this year; stewards' own work and what
+they observe come next.</p>
 <p class="meta">${cohorts.length} commons report${cohorts.length === 1 ? '' : 's'} · ${listedCount} projects on record · published by Āina Design Corp</p>`,
     main: `<h2>The commons reports</h2>
 <p>A commons report is the public side of a record kept in common: who is caring for a place, what they did, what came
@@ -522,6 +519,11 @@ ${reportCards.join('\n')}
 <p>Reports that do not start from a budget line are the next thing the register will hold. They start with who the
 steward is and the moku they work in; the rules for them are being written with Hui Koʻe ʻĀina, and they will enter
 through the same review. None is published yet.</p>
+<p>What a moku can know reaches past any one report. Researchers and community groups add water, soil, species, and
+community measurements, each tied to its moku, to the
+<a href="https://github.com/Aina-Design-Corp/mokulearner-research">Mokunet Research Commons</a>, whose community intake
+is being tested now. It gathers more than the field survey a project uses to report its results, and that survey stays
+as it is: a report says what the work did, and the research commons shows how the place is responding.</p>
 <h2>How a record grows</h2>
 <div class="card gate">
 <p>Every record in a commons report is added in three kinds of step, each with its own rule:</p>
