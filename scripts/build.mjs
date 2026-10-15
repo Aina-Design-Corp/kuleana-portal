@@ -521,7 +521,7 @@ steward is and the moku they work in; the rules for them are being written with 
 through the same review. None is published yet.</p>
 <p>What a moku can know reaches past any one report. Researchers and community groups add water, soil, species, and
 community measurements, each tied to its moku, to the
-<a href="https://github.com/Aina-Design-Corp/mokulearner-research">Mokunet Research Commons</a>, whose community intake
+<a href="https://aina-design-corp.github.io/mokulearner-research/">Mokunet Research Commons</a>, whose community intake
 is being tested now. It gathers more than the field survey a project uses to report its results, and that survey stays
 as it is: a report says what the work did, and the research commons shows how the place is responding.</p>
 <h2>How a record grows</h2>
