@@ -19,5 +19,16 @@
       "note": "Declared 2026-11-12 at the steward's direction: kuleana-portal stands as a Mokunet family member. mokulearner-node no longer takes Green Fee proposals and refers Green Fee project questions here; it declares the matching consume (planned — it does not fetch the projection yet). Shapes change in schemas/registry.v1.schema.json first, then in this entry. The projection is the same shape moku-geospatial-survey-toolkit 0.1.x emits (its monitoring.projection.read note)."
     }
   ],
-  "consumes": []
+  "consumes": [],
+  "acknowledges": [
+    {
+      "change": "2026-11-12-kuleana-portal-family-member",
+      "domain": "governance",
+      "authorizedBy": "mokulearner-node",
+      "status": "applied",
+      "at": "2026-11-12",
+      "by": "claude (mokulearner-node session, steward-directed, branch chore/ack-family-member)",
+      "note": "This repo's half: coordination.json added (PR #36, merged 2026-11-12) with provides[].registry.published.read, consumers [mokulearner-node]. No site, registry, schema or build change. mokunet-org's co-ratification of the repo enum is recorded as owed in the change record (mokunet-org PR #72); if org objects, this entry follows the resolution."
+    }
+  ]
 }
