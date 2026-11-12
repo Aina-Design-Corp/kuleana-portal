@@ -1,0 +1,23 @@
+{
+  "$schema": "../mokulearner-node/docs/general-specs/coordination.schema.json",
+  "repo": "kuleana-portal",
+  "role": "The commons reports at kuleana.ainadesign.org — a registry-driven public record of who cares for each moku and what comes of it. The Green Fee report (FY2027, 91 projects) is its first cohort, which makes this repo the family's record for Green Fee projects. A versioned award registry governs identity, cohort membership and publication; a human publishes, never an automated process. Kept by Āina Design Corp; not deployed for, adopted by, or endorsed by any government agency.",
+  "updated": "2026-11-12",
+  "spec": "../mokulearner-node/docs/general-specs/CROSS-REPO-COORDINATION.md",
+  "reconciledBy": "mokunet-org/leo",
+  "provides": [
+    {
+      "id": "registry.published.read",
+      "kind": "dataset",
+      "surface": "https://kuleana.ainadesign.org/registry/<cohort>.published.json (built to dist/registry/<cohort>.published.json by scripts/build.mjs; cohort FY2027 today) — { cohort, program, title, schemaVersion, sample, fiscalPublic, generated, source, note, heldByGate, records[] }; each record: id, slug, sample, project, organization, agency, programId, island, moku, programArea, act96Alignment, status, publicationStatus, award, summary, location, links, provenance, outcomes. It holds exactly what the pages show: fields the publication gate withholds are absent.",
+      "auth": "public",
+      "status": "built",
+      "version": "v1",
+      "consumers": [
+        "mokulearner-node"
+      ],
+      "note": "Declared 2026-11-12 at the steward's direction: kuleana-portal stands as a Mokunet family member. mokulearner-node no longer takes Green Fee proposals and refers Green Fee project questions here; it declares the matching consume (planned — it does not fetch the projection yet). Shapes change in schemas/registry.v1.schema.json first, then in this entry. The projection is the same shape moku-geospatial-survey-toolkit 0.1.x emits (its monitoring.projection.read note)."
+    }
+  ],
+  "consumes": []
+}
