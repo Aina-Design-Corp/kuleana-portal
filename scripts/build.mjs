@@ -524,6 +524,9 @@ community measurements, each tied to its moku, to the
 <a href="https://aina-design-corp.github.io/mokulearner-research/">Mokunet Research Commons</a>, whose community intake
 is being tested now. It gathers more than the field survey a project uses to report its results, and that survey stays
 as it is: a report says what the work did, and the research commons shows how the place is responding.</p>
+<p>The same care reaches the people out on the land. <strong>Kuleana · trail and park guide</strong>, an app for phone
+and web, finds Oʻahu's State trails and State parks by moku, so a resident or visitor knows whose place they are walking
+in before they set out. It is being tested and is not yet open to the public.</p>
 <h2>How a record grows</h2>
 <div class="card gate">
 <p>Every record in a commons report is added in three kinds of step, each with its own rule:</p>
