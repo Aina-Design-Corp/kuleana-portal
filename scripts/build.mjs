@@ -201,7 +201,7 @@ function page({ title, depth, body, description, cohort }) {
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site">
   <div class="wrap">
-    <p class="kicker"><a href="${p}index.html">${SITE}</a> · ${SITE_TAG}${crumb}</p>
+    <p class="kicker"><a href="${p}index.html">${SITE} · ${SITE_TAG}</a>${crumb}</p>
     <nav class="site-nav" aria-label="Site">
       <a href="${p}index.html">Home</a>
       ${cohorts.map((c) => `<a href="${p}reports/${reportSlug(c)}/index.html">${esc(reportTitle(c))}</a>`).join('\n      ')}
@@ -369,7 +369,7 @@ them and approves this page. Right now this record is <strong>${esc(GATE_WORDS[r
         header: `<h1>${esc(r.project)}</h1>
 <p class="tagline">${esc(r.summary)}</p>
 <p class="meta">${esc(r.id)}${r.organization ? ` · ${esc(r.organization)}` : ''} · ${dept(r.agency)}${sm}</p>`,
-        main: `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">${SITE}</a> → <a href="../../reports/${slug}/index.html">${esc(title)}</a> → ${esc(r.project)}</nav>
+        main: `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">${SITE} · ${SITE_TAG}</a> → <a href="../../reports/${slug}/index.html">${esc(title)}</a> → ${esc(r.project)}</nav>
 <ul class="chips">
 <li>Island: ${r.island ? esc(r.island) : '<span class="pending">to be reported</span>'}</li>
 <li>Moku: ${r.moku ? esc(r.moku) : '<span class="pending">to be reported</span>'}</li>
@@ -426,7 +426,7 @@ hosted</a> at their own address.</p>` : '';
       header: `<h1>${esc(title)}</h1>
 <p class="tagline">${esc(cohort.summary ?? '')}</p>
 <p class="meta">${esc(cohort.cohort)} · ${listed.length} projects · ${deptSet.size} ${isGreenFee ? 'departments' : 'organizations'} · ${usdM(totalUsd)}${isGreenFee ? ' · Act 175 SLH 2026' : ''} · published by Āina Design Corp</p>`,
-      main: `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">${SITE}</a> → ${esc(title)}</nav>
+      main: `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">${SITE} · ${SITE_TAG}</a> → ${esc(title)}</nav>
 <h2>At a glance${isSample ? ' <span class="sample-chip">Practice data</span>' : ''}</h2>
 <div class="tiles">
 <div class="tile"><span class="num">${listed.length}</span><span class="lbl">Projects ${cohort.fiscalPublic ? 'funded' : 'published'}</span></div>
